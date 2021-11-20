@@ -4,7 +4,14 @@
 /.env.local.php
 /.env.*.local
 /config/secrets/prod/prod.decrypt.private.php
-/public/bundles/
+/public_html/bundles/
+/public_html/scp_eye/
+/public_html/taller/
 /var/
 /vendor/
+/docs/
 ###< symfony/framework-bundle ###
+
+###> lexik/jwt-authentication-bundle ###
+/config/jwt/*.pem
+###< lexik/jwt-authentication-bundle ###

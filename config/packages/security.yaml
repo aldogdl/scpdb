@@ -1,0 +1,97 @@
+security:
+    encoders:
+        App\Entity\UsAdmin:
+            algorithm: auto
+
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        # used to reload user from session & other features (e.g. switch_user)
+        app_user_admin_provider:
+            entity:
+                class: App\Entity\UsAdmin
+                property: username
+
+    firewalls:
+        admin:
+            pattern:  ^/seguridad
+            stateless: true
+            anonymous: true
+            json_login:
+                provider:        app_user_admin_provider
+                check_path:      /seguridad/login-check-admin/
+                success_handler: lexik_jwt_authentication.handler.authentication_success
+                failure_handler: lexik_jwt_authentication.handler.authentication_failure
+        particulares:
+            pattern:  ^/seguridad
+            stateless: true
+            anonymous: true
+            json_login:
+                check_path:      /seguridad/login_check_particular/
+                success_handler: lexik_jwt_authentication.handler.authentication_success
+                failure_handler: lexik_jwt_authentication.handler.authentication_failure
+        apiAdmin:
+            pattern:   ^/api/firewalls/admin/
+            stateless: true
+            provider: app_user_admin_provider
+            guard:
+                authenticators:
+                    - lexik_jwt_authentication.jwt_token_authenticator
+        autoparnet:
+            pattern:   ^/api/firewalls/autoparnet/
+            stateless: true
+            provider: app_user_admin_provider
+            guard:
+                authenticators:
+                    - lexik_jwt_authentication.jwt_token_authenticator
+    
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            anonymous: true
+            lazy: true
+            provider: app_user_admin_provider
+
+    role_hierarchy:
+        # Usuario particular, generalmente un visitante comprador
+        ROLE_SOCIO_TALL_BS:
+        ROLE_SOCIO_TALL_TU:
+        ROLE_SOCIO_TALL_DE:
+        ROLE_SOCIO_TALL_MG:
+        ROLE_SOCIO_LOTE_FO:
+        ROLE_SOCIO_LOTE_AG:
+        ROLE_SOCIO_LOTE_PA:
+        ROLE_SOCIO_ASEG:
+        ROLE_SOCIO_FLOT:
+        ROLE_SOCIO_RMEC:
+        ROLE_SOCIO_PROV_HU:
+        ROLE_SOCIO_PROV_TI:
+        ROLE_SOCIO_PROV_GE:
+        
+        ROLE_PART:
+        ROLE_ADMIN_EVO:
+        ROLE_ADMIN_AVO:
+        ROLE_ADMIN: [ROLE_ADMIN_AVO]
+
+    access_control:
+        - { path: ^/api/doc, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/seguridad/login-check-admin, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - {
+            path: ^/api/firewalls/autoparnet/, roles: [
+                ROLE_SOCIO_TALL_BS, ROLE_SOCIO_TALL_TU, ROLE_SOCIO_TALL_DE, ROLE_SOCIO_TALL_MG,
+                ROLE_SOCIO_LOTE_FO, ROLE_SOCIO_LOTE_AG, ROLE_SOCIO_LOTE_PA, ROLE_SOCIO_ASEG,
+                ROLE_SOCIO_FLOT, ROLE_SOCIO_RMEC, ROLE_SOCIO_PROV_HU, ROLE_SOCIO_PROV_TI,
+                ROLE_SOCIO_PROV_GE, ROLE_PART, ROLE_ADMIN_EVO, ROLE_ADMIN_AVO, ROLE_ADMIN
+            ]
+          }
+        - {
+            path: ^/api/firewalls/admin/api-shared/, roles: [
+                ROLE_SOCIO_TALL_BS, ROLE_SOCIO_TALL_TU, ROLE_SOCIO_TALL_DE, ROLE_SOCIO_TALL_MG,
+                ROLE_SOCIO_LOTE_FO, ROLE_SOCIO_LOTE_AG, ROLE_SOCIO_LOTE_PA, ROLE_SOCIO_ASEG,
+                ROLE_SOCIO_FLOT, ROLE_SOCIO_RMEC, ROLE_SOCIO_PROV_HU, ROLE_SOCIO_PROV_TI,
+                ROLE_SOCIO_PROV_GE, ROLE_PART, ROLE_ADMIN_EVO, ROLE_ADMIN_AVO, ROLE_ADMIN
+            ]
+          }
+        - { path: ^/api/firewalls/admin/, roles: [ROLE_ADMIN, ROLE_ADMIN_EVO, ROLE_ADMIN_AVO] }
+        
