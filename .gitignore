@@ -3,11 +3,14 @@
 /.env.local
 /.env.local.php
 /.env.*.local
+/.env
 /config/secrets/prod/prod.decrypt.private.php
 /public_html/bundles/
 /public_html/scp_eye/
 /public_html/taller/
-public_html/empresas/
+/public_html/empresas/
+/public_html/data/
+/public_html/tks/
 /var/
 /vendor/
 /docs/
