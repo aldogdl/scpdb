@@ -7,6 +7,7 @@
 /config/secrets/prod/prod.decrypt.private.php
 /public_html/bundles/
 /public_html/scp_eye/
+/public_html/eye/
 /public_html/taller/
 /public_html/empresas/
 /public_html/data/
@@ -19,3 +20,34 @@
 ###> lexik/jwt-authentication-bundle ###
 /config/jwt/*.pem
 ###< lexik/jwt-authentication-bundle ###
+
+###< en el server ###
+.bash_history
+.bash_logout
+.bash_profile
+.bashrc
+.composer/
+.config/
+.contactemail
+.cpanel/
+.cphorde/
+.dns
+.emacs
+.ftpquota
+.gemrc
+.kshrc
+.lastlogin
+.softaculous/
+.spamassassin/
+.spamassassinboxenable
+.spamassassinenable
+.spamboxenable
+.ssh/
+.subaccounts/
+access-logs
+etc/
+mail/
+public_ftp/
+ssl/
+tmp/
+www

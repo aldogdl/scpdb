@@ -57,7 +57,7 @@ class UtilString
     }
 
     /** */
-    public function initConfigForQuitarProhividas(array $morePals = [], )
+    public function initConfigForQuitarProhividas(array $morePals = [])
     {
         $rota = count($morePals);
         $morePalsNews = [];
