@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Service;
+namespace App\Services;
 
 use function Symfony\Component\String\b;
 use function Symfony\Component\String\u;

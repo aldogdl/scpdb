@@ -5,7 +5,7 @@ RewriteCond %{HTTP:Authorization} ^(.*)
 RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
 
 RewriteCond %{SERVER_PORT} 80
-#RewriteRule ^(.*)$ https://autoparnet.com/$1 [R,L]
+RewriteRule ^(.*)$ https://autoparnet.com/$1 [R,L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
