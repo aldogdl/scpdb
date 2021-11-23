@@ -66,6 +66,24 @@ class RepoSCP extends AbstractFOSRestController
     }
 
     /**
+     * Guardamos el token push de la sesion abirta del SCP-EYE
+     * 
+     * @Rest\Get("send-token-push-to-server/{tokenPush}/")
+    */
+    public function sendTokenPushToServer($tokenPush)
+    {
+        $pathTokens = $this->getParameter('empTkWorker');
+        $partes = explode('::', $tokenPush);
+        if(!is_dir($pathTokens)) {
+            mkdir($pathTokens, 777);
+        }
+        $leng = file_put_contents($pathTokens . $partes[0] . '.txt', $partes[1]);
+        return $this->json([
+            'abort' => false, 'msg' => 'ok', 'body' => $leng
+        ]);
+    }
+
+    /**
      * @Rest\Get("get-resp-cots-by/{idPieza}/")
      * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
      * @Rest\RequestParam(name="idPieza", requirements="\s+", description="la pieza cotizada")
