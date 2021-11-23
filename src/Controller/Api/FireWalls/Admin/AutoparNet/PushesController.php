@@ -8,6 +8,7 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Finder\Finder;
 
 use App\Services\PushNotifiers;
 
@@ -55,17 +56,33 @@ class PushesController extends AbstractFOSRestController
     }
 
     /**
-     * por revisar
+     * @Rest\Get("send-push-to-scp-for-cot/{params}/")
      * 
-     * Esta prueba se realiza desde C3PIO para ver si el sistema tiene servicio push
-     * @Rest\Get("prueba-comunicacion-push/{idUser}/")
+     * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
+     * @Rest\RequestParam(name="params", requirements="\s+", default="1", description="Los datos de la notificacion")
     */
-    public function pruebaComunicacionPush($idUser)
+    public function sendPushToScpForCot($apiVer, $params)
     {
-        $path = realpath($this->getParameter('empTkWorker').$idUser.'.txt');
-        if($path) {
-            $tokenWorker = file_get_contents($path);
-            $result = $this->push->sendPushTo($tokenWorker, 'pcom', []);
+        $tokensPush = [];
+        $path = realpath($this->getParameter('empTkWorker'));
+        $finder = new Finder();
+        $finder->files()->in($path);
+        if ($finder->hasResults()) {
+            foreach ($finder as $file) {
+                $tokensPush[] = $file->getContents();
+            }
+        }
+
+        if(count($tokensPush) > 0) {
+            $partes = explode('::', $params);
+            $data = [
+                'idMain' => $partes[0],
+                'cantPzas' => $partes[1],
+                'fechr' => $partes[2],
+                'cantPzasResp' => 0,
+                'cantResp' => 0
+            ];
+            $result = $this->push->sendPushTo($tokensPush, 'cot', $data);
         }else{
             $result = ['abort' => true, 'body' => 'No se encontro el token para Messanging'];
         }

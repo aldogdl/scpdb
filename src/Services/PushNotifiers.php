@@ -9,7 +9,6 @@ class PushNotifiers
     private $client;
     private $urlPush = 'https://fcm.googleapis.com/fcm/send';
     private $key = 'AAAAlrdO5NY:APA91bFvQ5C9Sx2-HcrFJSdCf3gr42tD7wAyQYXJhTr4MzCI-yJq5bR1ToBmvkNbl1NtXP8L3bxOpGKq6igh-LFovrwbzwkKgUQAlv8zGYJ4E4QHlLH5XRbghm3aCYd8lmYRS1-BtXTy';
-    //private $key = 'AAAAbWrzYOQ:APA91bHMHtYKosnqcfXWHUvGh7zYFJFTTud8cF86L7OvmMX8NhBl746UMKyrYxUHwKFZaIccSypg_XzZjaMkCVG4ferAFz-1XGzAtgxJiuRsIohkZ77ClFXwLdzn73K1hMMfWPA5HGfI';
 
     public function __construct(HttpClientInterface $client)
     {
@@ -17,126 +16,18 @@ class PushNotifiers
     }
     
     /** */
-    public function sendPushTo(String $token, string $tipo, array $data = []): array
+    public function sendPushTo(String | array $token, string $tipo, array $data = []): array
     {   
         $opt = $this->getOptions();
-        $opt['json']['registration_ids'] = [$token];
-        $opt['json']['data']['tipo'] = $this->getSeccionSegunTipo($tipo);
+
+        $opt['json']['registration_ids'] = is_array($token) ? $token : [$token];
+        $opt['json']['data']['tipo'] = $tipo;
         $opt['json']['android_channel_id'] = $this->getChannelSegunTipo($tipo);
-        if(count($data) == 0) {
-            $data = [
-                'title' => 'TENDRÁS ESTA REFACCIÓN',
-                'body' => 'Oportunidad de Venta::AutoparNet',
-            ];
-        }
-        $opt['json']['notification'] = $data;
-        
-        return $this->send($opt);
-    }
-
-    ///
-    public function getSeccionSegunTipo($tipo) : string
-    {
-        $seccion = '';
-        switch ($tipo) {
-            case 'pcom':
-                $seccion = 'pcom';
-                break;
-            default:
-                $seccion = 'cot';
-                break;
-        }
-        return $seccion;
-    }
-
-    ///
-    public function getChannelSegunTipo($tipo) : string
-    {
-        $seccion = '';
-        switch ($tipo) {
-            case 'pcom':
-                $seccion = 'pcom';
-                break;
-            default:
-                $seccion = 'RESCOT';
-                break;
-        }
-        return $seccion;
-    }
-
-    /** */
-    public function sendPushForCotizar(array $tokens, $data): array
-    {   
-        $opt = $this->getOptions();
-        $opt['json']['registration_ids'] = $tokens;
+        $opt['json']['notification'] = $this->getTitleAndBodySegunTipo($tipo);
+        $data['click_action'] = 'FLUTTER_NOTIFICATION_CLICK';
         $opt['json']['data'] = $data;
-        $opt['json']['notification'] = [
-            'title' => 'TENDRÁS ESTA REFACCIÓN',
-            'body' => 'Oportunidad de Venta::AutoparNet',
-        ];
-        // idMain
-        // idPza
-        // idInf
-        // tipo
-        // descr
+                
         return $this->send($opt);
-    }
-
-    /** */
-    public function pushNewSocio(array $tokens, array $data)
-    {
-        $opt = $this->getOptions();
-        $opt['json']['data'] = [
-            'seccion'=> 'newSoc',
-            'nombre' => $data['nombre'],
-            'id' => $data['id'],
-            'click_action' => 'FLUTTER_NOTIFICATION_CLICK',
-        ];
-        $opt['json']['notification'] = [
-            'title' => 'NUEVO SOCIO REGISTRADO',
-            'body' => 'clv: :suc-[' .implode(', ', $data['sucs']). ']',
-        ];
-
-        $opt['json']['registration_ids'] = $tokens;
-        $this->send($opt);
-    }
-
-    /** */
-    public function pushNewRepo(array $tokens, array $data)
-    {
-        $opt = $this->getOptions();
-        $opt['json']['registration_ids'] = $tokens;
-        $tokens = null;
-        $opt['json']['data'] = [
-            'seccion'=> 'newRepo::'.$data['idRepo'],
-            'id' => $data['idRepo'],
-            'click_action' => 'FLUTTER_NOTIFICATION_CLICK',
-        ];
-        $tipo = ($data['type'] == 'cot') ? 'COTIZACIÓN' : 'PUBLICACIÓN';
-        $tipo = ($data['type'] == 'xcot') ? 'RESPUESTA' : $tipo;
-        
-        $opt['json']['notification'] = [
-            'title' => 'NUEVA ' .$tipo. ' REGISTRADA',
-            'body' => 'clv:'.$data['type'].'-'.$data['idRepo']
-        ];
-        
-        $this->send($opt);
-        $opt = null;
-    }
-
-    /** */
-    private function send(array $opt)
-    {
-        $response = $this->client->request('POST', $this->urlPush, $opt);
-
-        $content = '';
-        $statusCode = $response->getStatusCode();
-        if($statusCode == 200) {
-            $content = $response->toArray();
-        }else{
-            $content = ['abort' => true, 'body' => 'codigo ' .$statusCode];
-        }
-        return $content;
     }
 
     /** */
@@ -166,4 +57,68 @@ class PushNotifiers
             ],
         ];
     }
+
+    ///
+    public function getChannelSegunTipo($tipo) : string
+    {
+        $seccion = '';
+        switch ($tipo) {
+            case 'pcom':
+                $seccion = 'pcom';
+                break;
+            default:
+                $seccion = 'RESCOT';
+                break;
+        }
+        return $seccion;
+    }
+
+    ///
+    public function getTitleAndBodySegunTipo($tipo) : array
+    {
+        $content = '';
+        switch ($tipo) {
+            case 'pcom':
+                $content = [
+                    'title' => 'PRUEBA DE COMUNICACIÓN',
+                    'body' => 'La comunicación con el Servidor fué exitosa',
+                ];
+                break;
+            case 'cot':
+                $content = [
+                    'title' => 'TENDRÁS ESTA REFACCIÓN',
+                    'body' => 'Oportunidad de Venta::AutoparNet',
+                ];
+                break;
+            case 'resp':
+                $content = [
+                    'title' => 'RESPUESTA RECIBIDA',
+                    'body' => 'Un Parnet ha respondido a una COTIZACIÓN',
+                ];
+                break;
+            default:
+                $content = [
+                    'title' => 'SIN CLASIFICAR',
+                    'body' => 'No se encontró el tipo de Notificación',
+                ];
+                break;
+        }
+        return $content;
+    }
+
+    /** */
+    private function send(array $opt)
+    {
+        $response = $this->client->request('POST', $this->urlPush, $opt);
+
+        $content = '';
+        $statusCode = $response->getStatusCode();
+        if($statusCode == 200) {
+            $content = $response->toArray();
+        }else{
+            $content = ['abort' => true, 'body' => 'codigo ' .$statusCode];
+        }
+        return $content;
+    }
+
 }
