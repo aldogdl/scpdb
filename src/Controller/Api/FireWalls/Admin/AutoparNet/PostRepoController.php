@@ -131,13 +131,17 @@ class PostRepoController extends AbstractFOSRestController
 
             $uriServer = $this->getParameter($params['metas']['uriServer']);
             if($params['metas']['uriServer'] == 'toCotizar') {
+
                 $uriServer = str_replace('_repomain_', $params['metas']['id_main'], $uriServer);
+
                 // Primeramente revisamos si ya hay fotos compartidas.
-                $finder = new Finder();
-                $finder->files()->in($uriServer);
-                if ($finder->hasResults()) {
-                    foreach ($finder as $file) {
-                        $todasExistentes[] = $file->getRelativePathname();
+                if(is_dir($uriServer)) {
+                    $finder = new Finder();
+                    $finder->files()->in($uriServer);
+                    if ($finder->hasResults()) {
+                        foreach ($finder as $file) {
+                            $todasExistentes[] = $file->getRelativePathname();
+                        }
                     }
                 }
 
