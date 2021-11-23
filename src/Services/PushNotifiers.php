@@ -21,9 +21,9 @@ class PushNotifiers
         $opt = $this->getOptions();
 
         $opt['json']['registration_ids'] = is_array($token) ? $token : [$token];
-        $opt['json']['data']['tipo'] = $tipo;
         $opt['json']['android_channel_id'] = $this->getChannelSegunTipo($tipo);
         $opt['json']['notification'] = $this->getTitleAndBodySegunTipo($tipo);
+        $data['tipo'] = $tipo;
         $data['click_action'] = 'FLUTTER_NOTIFICATION_CLICK';
         $opt['json']['data'] = $data;
 
