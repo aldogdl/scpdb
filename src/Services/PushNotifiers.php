@@ -16,7 +16,7 @@ class PushNotifiers
     }
     
     /** */
-    public function sendPushTo(String | array $token, string $tipo, array $data = []): array
+    public function sendPushTo($token, string $tipo, array $data = []): array
     {   
         $opt = $this->getOptions();
 
@@ -26,7 +26,7 @@ class PushNotifiers
         $opt['json']['notification'] = $this->getTitleAndBodySegunTipo($tipo);
         $data['click_action'] = 'FLUTTER_NOTIFICATION_CLICK';
         $opt['json']['data'] = $data;
-                
+
         return $this->send($opt);
     }
 
