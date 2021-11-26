@@ -16,6 +16,7 @@ class RepoEmCotz extends RepoEm
 
     public function __construct(EntityManagerInterface $entityManager)
     {
+        parent::__construct($entityManager);
         $this->em = $entityManager;
     }
 
@@ -45,6 +46,6 @@ class RepoEmCotz extends RepoEm
     /** */
     public function getRepoById(int $idRepo)
     {
-        return $this->getRepoByIdsMainFull([$idRepo]);
+        return $this->getRepoMainAndPiezasByIdMain([$idRepo]);
     }
 }

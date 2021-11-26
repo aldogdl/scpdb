@@ -83,7 +83,7 @@ class RepoSCPCotz extends AbstractFOSRestController
     {
         $this->getRepo(RepoMain::class, $apiVer);
         $dql = $this->repo->getRepoById($idRepo);
-        $result = $dql->getScalarResult();
+        $result = $dql->getArrayResult();
         return $this->json($result);
     }
 

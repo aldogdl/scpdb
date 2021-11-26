@@ -126,6 +126,23 @@ class RepoEm
     }
 
     /**
+     *  @see AutoparNet/RepoController
+    */
+    public function getRepoMainAndPiezasByIdMain(array $idRepo) {
+
+        $dql = 'SELECT repo, partial st.{id, nombre, slug}, '.
+        'a, partial mk.{id}, partial md.{id}, pzas FROM ' . RepoMain::class . ' repo '.        
+        'join repo.auto a '.
+        'join repo.status st '.
+        'join a.marca mk '.
+        'join a.modelo md '.
+        'left join repo.pzas pzas '.
+        'WHERE repo.id IN (:ids)';
+
+        return $this->em->createQuery($dql)->setParameter('ids', $idRepo);
+    }
+
+    /**
      * @see AutoparNet/RepoController
      * @see SCP-EYE
     */
