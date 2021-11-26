@@ -1,9 +1,0 @@
-[23-Nov-2021 08:14:43 America/Mexico_City] PHP Warning:  file_put_contents(/home2/autoparn/public_html/tks/1637676881735000.txt): failed to open stream: Permission denied in /home2/autoparn/src/Controller/Api/FireWalls/Publicas/RepoSCP.php on line 80
-[23-Nov-2021 08:14:43 America/Mexico_City] PHP Warning:  file_put_contents(/home2/autoparn/public_html/tks/1637676881735000.txt): failed to open stream: Permission denied in /home2/autoparn/src/Controller/Api/FireWalls/Publicas/RepoSCP.php on line 80
-[23-Nov-2021 09:31:12 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /favicon.ico"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
-
-[23-Nov-2021 09:31:34 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /favicon.ico" (from "http://autoparnet.com/favicon.ico")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
-
-[23-Nov-2021 09:31:54 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /favicon.ico" (from "http://autoparnet.com/favicon.ico")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
-
-[23-Nov-2021 09:50:02 America/Mexico_City] PHP Parse error:  syntax error, unexpected '|', expecting variable (T_VARIABLE) in /home2/autoparn/src/Services/PushNotifiers.php on line 19

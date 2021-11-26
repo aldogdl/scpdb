@@ -6,6 +6,7 @@ use App\Entity\RepoMain;
 use App\Repository\V1\SCP\RepoEm;
 use App\Repository\V1\CpanelWeb\RepositorioEm as CpanelWebRepositorioEm;
 use App\Repository\V1\RepositorioEm;
+use App\Repository\V1\SCP\RepoEmCotz;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -43,5 +44,12 @@ class RepoMainRepository extends ServiceEntityRepository
      */
     public function getV1SCP($entityManager) {
         return new RepoEm($entityManager);
+    }
+
+    /**
+     * Obtenermos el repositorio de esta clase de la version 1
+     */
+    public function getV1SCPCotz($entityManager) {
+        return new RepoEmCotz($entityManager);
     }
 }
