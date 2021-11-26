@@ -29,7 +29,9 @@ class RepoEmCotz extends RepoEm
     /** */
     public function getAllModelos()
     {
-        $dql = 'SELECT md FROM ' . AO2Modelos::class . ' md ';
+        $dql = 'SELECT md, partial mk.{id} FROM ' . AO2Modelos::class . ' md '.
+        'JOIN md.marca mk '.
+        'ORDER BY mk.id ASC';
         return $this->em->createQuery($dql)->getScalarResult();
     }
 
