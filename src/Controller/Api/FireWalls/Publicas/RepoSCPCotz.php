@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 
 use App\Entity\RepoMain;
+use App\Entity\UsEmpresa;
 use App\Services\PushNotifiers;
 
 /**
@@ -83,6 +84,18 @@ class RepoSCPCotz extends AbstractFOSRestController
     {
         $this->getRepo(RepoMain::class, $apiVer);
         $dql = $this->repo->getRepoById($idRepo);
+        $result = $dql->getArrayResult();
+        return $this->json($result);
+    }
+    
+    /**
+     * @Rest\Get("get-own-by-id/{idUser}/")
+     * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
+    */
+    public function getOwnById(int $apiVer, $idUser)
+    {
+        $this->getRepo(UsEmpresa::class, $apiVer);
+        $dql = $this->repo->getOwnById($idUser);
         $result = $dql->getArrayResult();
         return $this->json($result);
     }

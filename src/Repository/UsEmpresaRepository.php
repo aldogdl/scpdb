@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\UsEmpresa;
 use App\Repository\V1\CpanelWeb\PnlEmpresaEm;
+use App\Repository\V1\SCP\EmpEm;
 use App\Repository\V1\UsEmpresaEm;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -33,5 +34,12 @@ class UsEmpresaRepository extends ServiceEntityRepository
      */
     public function getV1CpanelWeb($entityManager) {
         return new PnlEmpresaEm($entityManager);
+    }
+
+    /**
+     * Obtenermos el repositorio de esta clase de la version 1
+     */
+    public function getV1SCPCotz($entityManager) {
+        return new EmpEm($entityManager);
     }
 }
