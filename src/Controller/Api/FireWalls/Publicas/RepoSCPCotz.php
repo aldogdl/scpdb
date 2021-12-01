@@ -99,6 +99,30 @@ class RepoSCPCotz extends AbstractFOSRestController
         $result = $dql->getArrayResult();
         return $this->json($result);
     }
+    
+    /**
+     * @Rest\Get("get-all-proveedores/")
+     * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
+    */
+    public function getAllProveedores(int $apiVer)
+    {
+        $this->getRepo(UsEmpresa::class, $apiVer);
+        $dql = $this->repo->getAllProveedores();
+        $result = $dql->getArrayResult();
+        $rota = count($result);
+        if($rota > 0)  {
+            for ($e=0; $e < $rota; $e++) {
+
+                $vueltas = count($result[$e]['sucursales']);
+                for ($s=0; $s < $vueltas; $s++) { 
+                    $dql = $this->repo->getAllContactosByIdSucursal($result[$e]['sucursales'][$s]['id']);
+                    $contacs = $dql->getArrayResult();
+                    $result[$e]['sucursales'][$s]['contacts'] = $contacs;
+                }
+            }
+        }
+        return $this->json($result);
+    }
 
     /**
      * Esta prueba se realiza desde SCP-EYE para ver si el sistema tiene servicio push
