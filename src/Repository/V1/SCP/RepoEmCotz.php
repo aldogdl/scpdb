@@ -4,6 +4,8 @@ namespace App\Repository\V1\SCP;
 
 use App\Entity\AO1Marcas;
 use App\Entity\AO2Modelos;
+use App\Entity\SisCategos;
+use App\Entity\Sistemas;
 use App\Entity\StatusTypes;
 use App\Repository\V1\SCP\RepoEm;
 use Doctrine\ORM\EntityManagerInterface;
@@ -24,6 +26,20 @@ class RepoEmCotz extends RepoEm
     public function getAllMarcas()
     {
         $dql = 'SELECT mk FROM ' . AO1Marcas::class . ' mk ';
+        return $this->em->createQuery($dql)->getScalarResult();
+    }
+
+    /** */
+    public function getAllSistems()
+    {
+        $dql = 'SELECT sis FROM ' . Sistemas::class . ' sis ';
+        return $this->em->createQuery($dql)->getScalarResult();
+    }
+
+    /** */
+    public function getAllCategos()
+    {
+        $dql = 'SELECT cat FROM ' . SisCategos::class . ' cat ';
         return $this->em->createQuery($dql)->getScalarResult();
     }
 

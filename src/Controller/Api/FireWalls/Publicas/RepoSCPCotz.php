@@ -79,6 +79,28 @@ class RepoSCPCotz extends AbstractFOSRestController
     }
     
     /**
+     * @Rest\Get("get-all-sistems/")
+     * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
+    */
+    public function getAllSistems(int $apiVer)
+    {
+        $this->getRepo(RepoMain::class, $apiVer);
+        $result = $this->repo->getAllSistems();
+        return $this->json($result);
+    }
+    
+    /**
+     * @Rest\Get("get-all-categos/")
+     * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
+    */
+    public function getAllCategos(int $apiVer)
+    {
+        $this->getRepo(RepoMain::class, $apiVer);
+        $result = $this->repo->getAllCategos();
+        return $this->json($result);
+    }
+    
+    /**
      * @Rest\Get("get-repo-by-id/{idRepo}/")
      * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
     */
