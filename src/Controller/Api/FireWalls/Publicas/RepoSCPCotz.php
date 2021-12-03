@@ -6,6 +6,8 @@ use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 use App\Entity\RepoMain;
 use App\Entity\UsEmpresa;
@@ -100,6 +102,70 @@ class RepoSCPCotz extends AbstractFOSRestController
         return $this->json($result);
     }
     
+    /**
+     * Este metodo es para adicionar a la BD los datos basicos de un proveedor desde
+     * la SCP, con la finalidad de darlo de alta rapidamente y poder continuar con la
+     * solicitud de cotizacion.
+     * 
+     * @Rest\Post("add-prov-basico/")
+     * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
+    */
+    public function addProvBasico(Request $request, UserPasswordEncoderInterface $encoder, $apiVer)
+    {
+        $data = json_decode($request->request->get('data'), true);
+        $this->getRepo(UsEmpresa::class, $apiVer);
+        $result = $this->repo->addProvBasicoUser($encoder, $data);
+        if(!$result['abort']) {
+            $ids = ['idUser' => $result['body']];
+            $result = $this->repo->addProvBasicoEmp($data);
+            if(!$result['abort']) {
+                $ids['emp'] = $result['body'];
+                $result = $this->repo->addProvBasicoSuc($ids['emp'], $data);
+                if(!$result['abort']) {
+                    $ids['suc'] = $result['body'];
+                    $result = $this->repo->addProvBasicoContact($ids, $data);
+                    $ids['cta'] = $result['body'];
+                    $result['body'] = $ids;
+                }
+            }
+        }
+        return $this->json($result);
+    }
+
+    /**
+     * @Rest\Get("get-proveedor-byid/{idProv}/")
+     * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
+    */
+    public function getProveedorById(int $apiVer, int $idProv)
+    {
+        $this->getRepo(UsEmpresa::class, $apiVer);
+        $dql = $this->repo->getProveedorById($idProv);
+        $result = $dql->getArrayResult();
+        $rota = count($result);
+        if($rota > 0)  {
+            for ($e=0; $e < $rota; $e++) {
+
+                $result[$e]['sucursales'] = $this->getContactosDeSucursales($result[$e]['sucursales']);
+            }
+        }
+        return $this->json($result);
+    }
+
+    /**
+     * Metodo interno usardo en:
+     * @see $this->
+    */
+    private function getContactosDeSucursales($sucursales)
+    {
+        $vueltas = count($sucursales);
+        for ($s=0; $s < $vueltas; $s++) { 
+            $dql = $this->repo->getAllContactosByIdSucursal($sucursales[$s]['id']);
+            $contacs = $dql->getArrayResult();
+            $sucursales[$s]['contacts'] = $contacs;
+        }
+        return $sucursales;
+    }
+
     /**
      * @Rest\Get("get-all-proveedores/")
      * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
