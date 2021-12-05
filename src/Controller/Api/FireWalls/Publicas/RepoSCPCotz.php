@@ -11,7 +11,6 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Finder\Finder;
 
 use App\Entity\RepoMain;
-use App\Entity\RepoPzas;
 use App\Entity\UsEmpresa;
 use App\Services\PushNotifiers;
 
@@ -226,7 +225,7 @@ class RepoSCPCotz extends AbstractFOSRestController
         $mover = true;
         $todasExistentes = [];
         $result = ['abort' => false, 'msg' => 'fotos', 'body' => []];
-        $this->getRepo(RepoPzas::class, $apiVer);
+        $this->getRepo(RepoMain::class, $apiVer);
 
         $params = json_decode($req->request->get('data'), true);
 
