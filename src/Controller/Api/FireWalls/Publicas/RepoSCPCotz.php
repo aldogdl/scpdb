@@ -246,6 +246,7 @@ class RepoSCPCotz extends AbstractFOSRestController
 
             $uriServer = $this->getParameter('cotizadas');
             $uriServer = str_replace('_repomain_', $params['metas']['id_main'], $uriServer);
+            $uriServer = str_replace('_idinfo_', $params['metas']['id_info'], $uriServer);
 
             // Primeramente revisamos si ya hay fotos compartidas.
             if(is_dir($uriServer)) {
