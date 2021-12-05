@@ -261,7 +261,7 @@ class RepoSCPCotz extends AbstractFOSRestController
             if(count($todasExistentes) < 4) {
                 $todasExistentes[] = $params['filename'];
                 // Guardamos el nombre de la foto en la BD de la pieza.
-                //$result = $this->repo->updateFotoDePieza($params['metas']['id_info'], $todasExistentes);
+                $result = $this->repo->updateFotoDeRespuesta($params['metas']['id_info'], $todasExistentes);
             }else{
                 $mover = false;
             }

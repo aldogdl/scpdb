@@ -71,6 +71,27 @@ class RepoEmCotz extends RepoEm
     }
 
     /** */
+    public function updateFotoDeRespuesta($idInfo, $fotos)
+    {
+        $dql = $this->getRepoInfoById($idInfo);
+        $has = $dql->execute();
+        if($has) {
+            $obj = $has[0];
+            $obj->setFotos($fotos);
+            try {
+                $this->em->persist($obj);
+                $this->em->flush();
+                $this->result['abort'] = false;
+                $this->result['body']  = $obj->getId();
+            } catch (\Throwable $th) {
+                $this->result['abort'] = true;
+                $this->result['body']  = 'Error al guardar las Fotos.';
+            }
+        } 
+        return $this->result;
+    }
+
+    /** */
     public function saveDataRespuesta($resp)
     {
         $obj = null;
