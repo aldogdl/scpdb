@@ -67,7 +67,11 @@ class RepoEmCotz extends RepoEm
     /** */
     public function getRepoById(int $idRepo)
     {
-        return $this->getRepoMainAndPiezasByIdMain([$idRepo]);
+        $idStatus = 3;
+        $dql = $this->getRepoMainAndPiezasByIdMain([$idRepo]);
+        $this->changeStatusRepoPzaByIdRepo($idRepo, $idStatus);
+        $this->changeStatusRepoMain($idRepo, $idStatus);
+        return $dql;
     }
 
     /** */
@@ -95,6 +99,8 @@ class RepoEmCotz extends RepoEm
     public function saveDataRespuesta($resp)
     {
         $obj = null;
+        $idStatus = 5;
+
         if(array_key_exists('id_info', $resp)) {
             // Buscamos el registro
             $dql = $this->getRepoInfoById($resp['id_info']);
@@ -103,11 +109,12 @@ class RepoEmCotz extends RepoEm
                 $obj = $has[0];
             } 
         }
+
         if($obj == null) {
             $obj = new RepoPzaInfo();
             $obj->setRepo($this->em->getPartialReference(RepoMain::class, $resp['id_main']));
             $obj->setPzas($this->em->getPartialReference(RepoPzas::class, $resp['idPz']));
-            $obj->setStatus($this->em->getPartialReference(StatusTypes::class, 5));
+            $obj->setStatus($this->em->getPartialReference(StatusTypes::class, $idStatus));
             $obj->setOwn($this->em->getPartialReference(UsContacts::class, $resp['idCt']));
             $obj->setIdTmpPza($resp['idTm']);
         }
@@ -122,15 +129,56 @@ class RepoEmCotz extends RepoEm
         $obj->setSisCat($this->em->getPartialReference(SisCategos::class, $resp['catego']));
 
         try {
+
             $this->em->persist($obj);
             $this->em->flush();
             $this->result['abort'] = false;
             $this->result['body']  = $obj->getId();
+            $this->changeStatusRepoPza($resp['idPz'], $idStatus);
+            $this->changeStatusRepoMain($resp['id_main'], $idStatus);
+
         } catch (\Throwable $th) {
             $this->result['abort'] = true;
             $this->result['body']  = 'Error al guardar la Respuesta.';
         }
+
         return $this->result;
+    }
+
+    ///
+    public function changeStatusRepoMain($idMain, $idStatus) {
+
+        $dql = 'UPDATE ' . RepoMain::class . ' repo ' .
+        'SET repo.status = :newStatus '.
+        'WHERE repo.id = :id';
+        return $this->em->createQuery($dql)->setParameters([
+            'newStatus' => $this->em->getPartialReference(StatusTypes::class, $idStatus),
+            'id' => $idMain,
+        ]);
+    }
+
+    ///
+    public function changeStatusRepoPza($idPza, $idStatus) {
+
+        $dql = 'UPDATE ' . RepoPzas::class . ' pza ' .
+        'SET pza.status = :newStatus '.
+        'WHERE pza.id = :id';
+        return $this->em->createQuery($dql)->setParameters([
+            'newStatus' => $this->em->getPartialReference(StatusTypes::class, $idStatus),
+            'id' => $idPza,
+        ]);
+    }
+
+    ///
+    public function changeStatusRepoPzaByIdRepo($idMain, $idStatus) {
+
+        $dql = 'UPDATE ' . RepoPzas::class . ' pza ' .
+        'SET pza.status = :newStatus '.
+        'WHERE pza.repo = :id';
+        return $this->em->createQuery($dql)->setParameters([
+            'newStatus' => $this->em->getPartialReference(StatusTypes::class, $idStatus),
+            'id' => $idMain,
+        ]);
     }
 
     ///
