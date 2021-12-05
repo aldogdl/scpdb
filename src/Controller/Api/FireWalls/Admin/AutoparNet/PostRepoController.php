@@ -242,6 +242,58 @@ class PostRepoController extends AbstractFOSRestController
     }
 
     /**
+     * @Rest\Post("save-foto-to-share-for-respctz/")
+     * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
+    */
+    public function saveFotoToShareForRespCtz(Request $req, int $apiVer)
+    {
+        $result = ['abort' => false, 'msg' => 'fotos', 'body' => []];
+
+        $params = json_decode($req->request->get('data'), true);
+        if(array_key_exists('metas', $params)) {
+
+            $uriServer = $this->getParameter('sharedCtz');
+            if($params['metas']['id_main'] != 0) {
+                if(strpos($uriServer, 'id_pza') !== false) {
+                    $uriServer = str_replace('_idPza_', $params['metas']['id_pza'], $uriServer);
+                    if(!is_dir($uriServer)) {
+                        mkdir($uriServer, 0777, true);
+                    }else{
+                        if(array_key_exists('cls', $params['metas'])) {
+                            $finder = new Finder();
+                            $finder->files()->in($uriServer);
+                            if ($finder->hasResults()) {
+                                foreach ($finder as $file) {
+                                    unlink($file->getRealPath());
+                                }
+                            }
+                        }
+                    }
+                }
+    
+                $saveTo = realpath($uriServer);
+                if($saveTo !== false) {
+                    $foto = $req->files->get($params['campo']);
+                    $foto->move($saveTo, $params['filename']);
+                    $result = [
+                        'abort' => false, 'msg' => 'ok', 'body' => $params['filename']
+                    ];
+                }
+            }else{
+                $result = [
+                    'abort' => true, 'msg' => 'err', 'body' => 'Sin Identificación de Cotización'
+                ];
+            }
+
+        }else{
+            $result = [
+                'abort' => true, 'msg' => 'err', 'body' => 'No se enviaron datos Datos METAS'
+            ];
+        }
+        return $this->json($result);
+    }
+
+    /**
      * En revision
      * 
      * @Rest\Post("update-repo/")

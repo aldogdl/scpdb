@@ -11,6 +11,7 @@ parameters:
     empFacha   : '%phtml%/empresas/fachadas/'
     toCotizar  : '%phtml%/taller/pictures/to_cotizar/_repomain_/'
     cotizadas  : '%phtml%/taller/pictures/cotizadas/_repomain_/_idinfo_/'
+    sharedCtz  : '%phtml%/taller/pictures/cotizadas/shared/_idPza_/'
 
 services:
     # default configuration for services in *this* file
