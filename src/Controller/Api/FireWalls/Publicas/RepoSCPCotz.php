@@ -11,6 +11,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Finder\Finder;
 
 use App\Entity\RepoMain;
+use App\Entity\RepoPzas;
 use App\Entity\UsEmpresa;
 use App\Services\PushNotifiers;
 
