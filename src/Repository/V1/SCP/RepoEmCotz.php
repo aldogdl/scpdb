@@ -4,9 +4,14 @@ namespace App\Repository\V1\SCP;
 
 use App\Entity\AO1Marcas;
 use App\Entity\AO2Modelos;
+use App\Entity\RepoMain;
+use App\Entity\RepoPzaInfo;
+use App\Entity\RepoPzas;
 use App\Entity\SisCategos;
 use App\Entity\Sistemas;
 use App\Entity\StatusTypes;
+use App\Entity\UsAdmin;
+use App\Entity\UsContacts;
 use App\Repository\V1\SCP\RepoEm;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -63,5 +68,55 @@ class RepoEmCotz extends RepoEm
     public function getRepoById(int $idRepo)
     {
         return $this->getRepoMainAndPiezasByIdMain([$idRepo]);
+    }
+
+    /** */
+    public function saveDataRespuesta($resp)
+    {
+        $obj = null;
+        if(array_key_exists('id_info', $resp)) {
+            // Buscamos el registro
+            $dql = $this->getRepoInfoById($resp['id_info']);
+            $has = $dql->execute(); 
+            if($has) {
+                $obj = $has[0];
+            } 
+        }
+        if($obj == null) {
+            $obj = new RepoPzaInfo();
+            $obj->setRepo($this->em->getPartialReference(RepoMain::class, $resp['id_main']));
+            $obj->setPzas($this->em->getPartialReference(RepoPzas::class, $resp['idPz']));
+            $obj->setStatus($this->em->getPartialReference(StatusTypes::class, 5));
+            $obj->setOwn($this->em->getPartialReference(UsContacts::class, $resp['idCt']));
+            $obj->setIdTmpPza($resp['idTm']);
+        }
+
+        $obj->setCaracteristicas($resp['carac']);
+        $obj->setDetalles($resp['deta']);
+        $obj->setCosto($resp['costo']);
+        $obj->setPrecio($resp['precio']);
+        $comi = (float) $resp['precio'] - (float) $resp['costo'];
+        $obj->setComision($comi);
+        $obj->setSistema($this->em->getPartialReference(Sistemas::class, $resp['sistem']));
+        $obj->setSisCat($this->em->getPartialReference(SisCategos::class, $resp['catego']));
+
+        try {
+            $this->em->persist($obj);
+            $this->em->flush();
+            $this->result['abort'] = false;
+            $this->result['body']  = $obj->getId();
+        } catch (\Throwable $th) {
+            $this->result['abort'] = true;
+            $this->result['body']  = 'Error al guardar la Respuesta.';
+        }
+        return $this->result;
+    }
+
+    ///
+    public function getRepoInfoById($idInfo) {
+
+        $dql = 'SELECT inf FROM ' . RepoPzaInfo::class . ' inf ' .
+        'WHERE inf.id = :idInfo';
+        return $this->em->createQuery($dql)->setParameter('idInfo', $idInfo);
     }
 }

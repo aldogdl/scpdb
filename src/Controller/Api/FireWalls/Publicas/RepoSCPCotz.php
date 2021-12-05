@@ -214,6 +214,19 @@ class RepoSCPCotz extends AbstractFOSRestController
     }
 
     /**
+     * @Rest\Post("save-data-respuesta/")
+     * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
+    */
+    public function saveDataRespuesta(Request $req, int $apiVer)
+    {
+        $data = json_decode($req->request->get('data'), true);
+
+        $this->getRepo(RepoMain::class, $apiVer);
+        $result = $this->repo->saveDataRespuesta($data);
+        return $this->json($result);
+    }
+
+    /**
      * Usado para subir las imagenes que son parte de las respuestas echas por los proveedores
      * este metodo es usado desde la SCP por nosotros mismo.
      *      
