@@ -10,6 +10,7 @@ parameters:
     empLogo    : '%phtml%/empresas/logos/'
     empFacha   : '%phtml%/empresas/fachadas/'
     toCotizar  : '%phtml%/taller/pictures/to_cotizar/_repomain_/'
+    cotizadas  : '%phtml%/taller/pictures/cotizadas/_repomain_/'
 
 services:
     # default configuration for services in *this* file

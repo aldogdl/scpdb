@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Finder\Finder;
 
 use App\Entity\RepoMain;
 use App\Entity\UsEmpresa;
@@ -88,7 +89,7 @@ class RepoSCPCotz extends AbstractFOSRestController
         $result = $this->repo->getAllSistems();
         return $this->json($result);
     }
-    
+
     /**
      * @Rest\Get("get-all-categos/")
      * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
@@ -209,6 +210,81 @@ class RepoSCPCotz extends AbstractFOSRestController
                 }
             }
         }
+        return $this->json($result);
+    }
+
+    /**
+     * Usado para subir las imagenes que son parte de las respuestas echas por los proveedores
+     * este metodo es usado desde la SCP por nosotros mismo.
+     *      
+     * @Rest\Post("save-foto-respuesta/")
+     * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
+    */
+    public function saveFotoRespuesta(Request $req, int $apiVer)
+    {
+        $mover = true;
+        $todasExistentes = [];
+        $result = ['abort' => false, 'msg' => 'fotos', 'body' => []];
+        $this->getRepo(RepoPzas::class, $apiVer);
+
+        $params = json_decode($req->request->get('data'), true);
+
+        if(array_key_exists('metas', $params)) {
+
+            $uriServer = $this->getParameter('cotizadas');
+            $uriServer = str_replace('_repomain_', $params['metas']['id_main'], $uriServer);
+
+            // Primeramente revisamos si ya hay fotos compartidas.
+            if(is_dir($uriServer)) {
+                $finder = new Finder();
+                $finder->files()->in($uriServer);
+                if ($finder->hasResults()) {
+                    foreach ($finder as $file) {
+                        $todasExistentes[] = $file->getRelativePathname();
+                    }
+                }
+            }
+
+            if(count($todasExistentes) < 4) {
+                $todasExistentes[] = $params['filename'];
+                // Guardamos el nombre de la foto en la BD de la pieza.
+                //$result = $this->repo->updateFotoDePieza($params['metas']['id_info'], $todasExistentes);
+            }else{
+                $mover = false;
+            }
+
+            if($mover) {
+                if($params['metas']['id_main'] != 0) {
+                    
+                    if(!is_dir($uriServer)) {
+                        mkdir($uriServer, 0777, true);
+                    }
+        
+                    $saveTo = realpath($uriServer);
+                    if($saveTo !== false) {
+                        $foto = $req->files->get($params['campo']);
+                        $foto->move($saveTo, $params['filename']);
+                        $result = [
+                            'abort' => false, 'msg' => 'ok', 'body' => $todasExistentes
+                        ];
+                    }
+                }else{
+                    $result = [
+                        'abort' => true, 'msg' => 'err', 'body' => $result['msg']
+                    ];
+                }
+            }else{
+                $result = [
+                    'abort' => false, 'msg' => 'ok', 'body' => 'noSave'
+                ];
+            }
+
+        }else{
+            $result = [
+                'abort' => true, 'msg' => 'err', 'body' => 'No se enviaron datos METAS'
+            ];
+        }
+        
         return $this->json($result);
     }
 
