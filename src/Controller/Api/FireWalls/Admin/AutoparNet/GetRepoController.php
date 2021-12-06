@@ -215,6 +215,19 @@ class GetRepoController extends AbstractFOSRestController
     }
 
     /**
+     * @Rest\Get("get-respuestas-xcot/{idRepo}")
+     * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
+     * @Rest\RequestParam(name="idRepo", requirements="\s+", description="El repo para cotizar")
+    */
+    public function getRespuestasXcot(int $apiVer, $idRepo)
+    {
+        $this->getRepo(RepoMain::class, $apiVer);
+        $dql = $this->repo->getRepoPiezaInfoByIdRepoMain($idRepo);
+        $result = $dql->getScalarResult();
+        return $this->json(['abort' => false, 'body' => $result]);
+    }
+
+    /**
      * En revision
      * 
      * @Rest\Get("get-repo-last-for-build/{type}/")
@@ -251,18 +264,4 @@ class GetRepoController extends AbstractFOSRestController
         return $this->json($repo);
     }
     
-    /**
-     * En revision
-     * 
-     * @Rest\Get("get-respuestas-xcot/{idRepo}")
-     * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
-     * @Rest\RequestParam(name="idRepo", requirements="\s+", description="El repo para cotizar")
-    */
-    public function getRespuestasXcot(int $apiVer, $idRepo)
-    {
-        $this->getRepo(RepoMain::class, $apiVer);
-        $dql = $this->repo->getRepoPiezaInfoByIdRepoMain($idRepo);
-        $result = $dql->getScalarResult();
-        return $this->json(['abort' => false, 'body' => $result]);
-    }
 }

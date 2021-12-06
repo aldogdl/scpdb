@@ -389,7 +389,8 @@ class RepoEm
         'JOIN own.sucursal suc '.
         'JOIN suc.empresa emp '.
         'JOIN info.pzas pza '.
-        'WHERE info.repo = :idRepo';
+        'WHERE info.repo = :idRepo '.
+        'ORDER BY info.precio ASC';
 
         return $this->em->createQuery($dql)->setParameter('idRepo', $idRepo);
     }
