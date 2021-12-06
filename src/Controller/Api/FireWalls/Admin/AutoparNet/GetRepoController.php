@@ -260,9 +260,9 @@ class GetRepoController extends AbstractFOSRestController
     */
     public function getRespuestasXcot(int $apiVer, $idRepo)
     {
-        $this->getRepo(RepoPzaInfo::class, $apiVer);
+        $this->getRepo(RepoMain::class, $apiVer);
         $dql = $this->repo->getRepoPiezaInfoByIdRepoMain($idRepo);
         $result = $dql->getScalarResult();
         return $this->json(['abort' => false, 'body' => $result]);
-    }    
+    }
 }

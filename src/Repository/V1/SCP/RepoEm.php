@@ -379,6 +379,21 @@ class RepoEm
         return $this->result;
     }
 
+    /** */
+    public function getRepoPiezaInfoByIdRepoMain($idRepo) {
+
+        $dql = 'SELECT info, partial own.{id, nombre, celular}, '.
+        'partial suc.{id}, partial emp.{id, nombre}, '.
+        'partial pza.{id} FROM ' . RepoPzaInfo::class . ' info '.
+        'JOIN info.own own '.
+        'JOIN own.sucursal suc '.
+        'JOIN suc.empresa emp '.
+        'JOIN info.pzas pza '.
+        'WHERE info.repo = :idRepo';
+
+        return $this->em->createQuery($dql)->setParameter('idRepo', $idRepo);
+    }
+
     /** 
      * Use::FROM::Interno
      * Obtenemos el auto por medio de todos sus campo,
