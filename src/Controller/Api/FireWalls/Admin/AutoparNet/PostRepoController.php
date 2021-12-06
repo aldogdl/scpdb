@@ -254,7 +254,7 @@ class PostRepoController extends AbstractFOSRestController
 
             $uriServer = $this->getParameter('sharedCtz');
             if($params['metas']['id_main'] != 0) {
-                if(strpos($uriServer, 'id_pza') !== false) {
+                if(strpos($uriServer, '_idPza_') !== false) {
                     $uriServer = str_replace('_idPza_', $params['metas']['id_pza'], $uriServer);
                     if(!is_dir($uriServer)) {
                         mkdir($uriServer, 0777, true);
