@@ -353,6 +353,19 @@ class RepoEm
         return $this->result;
     }
 
+    /** */
+    public function setRepoPedido($idsInfo)
+    {
+        $rota = count($idsInfo);
+        for ($i=0; $i < $rota; $i++) { 
+            $this->changeStatusRepoPzaInfo($idsInfo[$i]['info'], 6);
+            $this->changeStatusRepoPza($idsInfo[$i]['pza'], 6);
+            $this->changeStatusRepoMain($idsInfo[$i]['main'], 6);
+        }
+        $this->result = ['abort' => false, 'body' =>'ok'];
+        return $this->result;
+    }
+
     /** 
      * @see AutoparNet/RepoController
      */
@@ -443,4 +456,53 @@ class RepoEm
 
         return $this->em->createQuery($dql)->setParameter('id', $id);
     }
+
+    ///
+    public function changeStatusRepoMain($idMain, $idStatus) {
+
+        $dql = 'UPDATE ' . RepoMain::class . ' repo ' .
+        'SET repo.status = :newStatus '.
+        'WHERE repo.id = :id';
+        return $this->em->createQuery($dql)->setParameters([
+            'newStatus' => $this->em->getPartialReference(StatusTypes::class, $idStatus),
+            'id' => $idMain,
+        ]);
+    }
+
+    ///
+    public function changeStatusRepoPza($idPza, $idStatus) {
+
+        $dql = 'UPDATE ' . RepoPzas::class . ' pza ' .
+        'SET pza.status = :newStatus '.
+        'WHERE pza.id = :id';
+        return $this->em->createQuery($dql)->setParameters([
+            'newStatus' => $this->em->getPartialReference(StatusTypes::class, $idStatus),
+            'id' => $idPza,
+        ]);
+    }
+
+    ///
+    public function changeStatusRepoPzaInfo($idInfo, $idStatus) {
+
+        $dql = 'UPDATE ' . RepoPzaInfo::class . ' info ' .
+        'SET info.status = :newStatus '.
+        'WHERE info.id = :id';
+        return $this->em->createQuery($dql)->setParameters([
+            'newStatus' => $this->em->getPartialReference(StatusTypes::class, $idStatus),
+            'id' => $idInfo,
+        ]);
+    }
+
+    ///
+    public function changeStatusRepoPzaByIdRepo($idMain, $idStatus) {
+
+        $dql = 'UPDATE ' . RepoPzas::class . ' pza ' .
+        'SET pza.status = :newStatus '.
+        'WHERE pza.repo = :id';
+        return $this->em->createQuery($dql)->setParameters([
+            'newStatus' => $this->em->getPartialReference(StatusTypes::class, $idStatus),
+            'id' => $idMain,
+        ]);
+    }
+    
 }

@@ -10,7 +10,6 @@ use App\Entity\RepoPzas;
 use App\Entity\SisCategos;
 use App\Entity\Sistemas;
 use App\Entity\StatusTypes;
-use App\Entity\UsAdmin;
 use App\Entity\UsContacts;
 use App\Repository\V1\SCP\RepoEm;
 use Doctrine\ORM\EntityManagerInterface;
@@ -143,42 +142,6 @@ class RepoEmCotz extends RepoEm
         }
 
         return $this->result;
-    }
-
-    ///
-    public function changeStatusRepoMain($idMain, $idStatus) {
-
-        $dql = 'UPDATE ' . RepoMain::class . ' repo ' .
-        'SET repo.status = :newStatus '.
-        'WHERE repo.id = :id';
-        return $this->em->createQuery($dql)->setParameters([
-            'newStatus' => $this->em->getPartialReference(StatusTypes::class, $idStatus),
-            'id' => $idMain,
-        ]);
-    }
-
-    ///
-    public function changeStatusRepoPza($idPza, $idStatus) {
-
-        $dql = 'UPDATE ' . RepoPzas::class . ' pza ' .
-        'SET pza.status = :newStatus '.
-        'WHERE pza.id = :id';
-        return $this->em->createQuery($dql)->setParameters([
-            'newStatus' => $this->em->getPartialReference(StatusTypes::class, $idStatus),
-            'id' => $idPza,
-        ]);
-    }
-
-    ///
-    public function changeStatusRepoPzaByIdRepo($idMain, $idStatus) {
-
-        $dql = 'UPDATE ' . RepoPzas::class . ' pza ' .
-        'SET pza.status = :newStatus '.
-        'WHERE pza.repo = :id';
-        return $this->em->createQuery($dql)->setParameters([
-            'newStatus' => $this->em->getPartialReference(StatusTypes::class, $idStatus),
-            'id' => $idMain,
-        ]);
     }
 
     ///

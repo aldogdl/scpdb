@@ -294,6 +294,20 @@ class PostRepoController extends AbstractFOSRestController
     }
 
     /**
+     * @Rest\Post("save-repo-pedido/")
+     * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
+    */
+    public function saveRepoPedido(Request $req, int $apiVer)
+    {
+        $this->getRepo(RepoPzas::class, $apiVer);
+        $data = json_decode($req->request->get('data'), true);
+        $result = $this->repo->setRepoPedido($data);
+
+        // Hacer Notificacion a SCP
+        return $this->json($result);
+    }
+
+    /**
      * En revision
      * 
      * @Rest\Post("update-repo/")
