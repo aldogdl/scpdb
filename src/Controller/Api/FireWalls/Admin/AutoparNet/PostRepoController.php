@@ -301,7 +301,7 @@ class PostRepoController extends AbstractFOSRestController
     {
         $this->getRepo(RepoPzas::class, $apiVer);
         $data = json_decode($req->request->get('data'), true);
-        $result = $this->repo->setRepoPedido($data);
+        $result = $this->repo->setRepoPedido($data['data']);
 
         // Hacer Notificacion a SCP
         return $this->json($result);
