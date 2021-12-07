@@ -466,7 +466,7 @@ class RepoEm
         return $this->em->createQuery($dql)->setParameters([
             'newStatus' => $this->em->getPartialReference(StatusTypes::class, $idStatus),
             'id' => $idMain,
-        ]);
+        ])->execute();
     }
 
     ///
@@ -478,7 +478,7 @@ class RepoEm
         return $this->em->createQuery($dql)->setParameters([
             'newStatus' => $this->em->getPartialReference(StatusTypes::class, $idStatus),
             'id' => $idPza,
-        ]);
+        ])->execute();
     }
 
     ///
@@ -490,7 +490,7 @@ class RepoEm
         return $this->em->createQuery($dql)->setParameters([
             'newStatus' => $this->em->getPartialReference(StatusTypes::class, $idStatus),
             'id' => $idInfo,
-        ]);
+        ])->execute();
     }
 
     ///
@@ -502,7 +502,7 @@ class RepoEm
         return $this->em->createQuery($dql)->setParameters([
             'newStatus' => $this->em->getPartialReference(StatusTypes::class, $idStatus),
             'id' => $idMain,
-        ]);
+        ])->execute();
     }
     
 }
