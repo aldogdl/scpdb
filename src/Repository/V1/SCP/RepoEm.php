@@ -148,7 +148,7 @@ class RepoEm
     */
     public function getReposAllEnProceso() {
 
-        $dql = 'SELECT partial repo.{id, createdAt, status}, partial pzas.{id}, partial resp.{id}, partial sts.{id, nombre} FROM ' . RepoMain::class . ' repo '.        
+        $dql = 'SELECT partial repo.{id, createdAt, status}, partial pzas.{id, pieza}, partial resp.{id}, partial sts.{id, nombre} FROM ' . RepoMain::class . ' repo '.        
         'JOIN repo.pzas pzas '.
         'JOIN repo.status sts '.
         'LEFT JOIN pzas.info resp '.
