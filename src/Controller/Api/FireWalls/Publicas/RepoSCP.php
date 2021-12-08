@@ -80,7 +80,7 @@ class RepoSCP extends AbstractFOSRestController
         }
 
         $hoy = new \DateTime('now');
-        $file = $hoy->format('d-m-Y');
+        $fileArchivo = $hoy->format('d-m-Y');
         
         $finder = new Finder();
         $finder->files()->in($pathTokens);
@@ -99,7 +99,7 @@ class RepoSCP extends AbstractFOSRestController
         $deleteTokens = [];
         if($rota > 0) {
             for ($i=0; $i < $rota; $i++) { 
-                if(strpos($todasExistentes[$i]['nomFile'], $file) !== false) {
+                if(strpos($todasExistentes[$i]['nomFile'], $fileArchivo) !== false) {
                     $sufijo = $sufijo +1;
                 }else{
                     $deleteTokens[] = $todasExistentes[$i]['pathReal'];
@@ -115,9 +115,9 @@ class RepoSCP extends AbstractFOSRestController
         }
 
         if($sufijo > 0) {
-            $file = $file .'-'.$sufijo;
+            $fileArchivo = $fileArchivo .'-'.$sufijo;
         }
-        $leng = file_put_contents($pathTokens . $file . '.txt', $partes[1]);
+        $leng = file_put_contents($pathTokens . $fileArchivo . '.txt', $partes[1]);
         return $this->json([
             'abort' => false, 'msg' => 'ok', 'body' => $leng
         ]);
