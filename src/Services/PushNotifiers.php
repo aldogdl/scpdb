@@ -25,8 +25,9 @@ class PushNotifiers
         $opt = $this->getOptions();
 
         $opt['json']['android_channel_id'] = $this->getChannelSegunTipo('sol');
-        $opt['json']['data'] = $this->getCargaUtilSegunTipo('sol');
         $opt['json']['notification'] = $this->getNotificationSegunTipo('sol');
+        $opt['json']['data'] = $this->getCargaUtilSegunTipo('sol');
+        $opt['json']['data']['id_repo'] = $idRepo;
 
         $uriTokensEyes = $this->params->get('empTkWorker');
         $finder = new Finder();
@@ -36,9 +37,10 @@ class PushNotifiers
                 $opt['json']['registration_ids'][] = $file->getContents();
             }
         }
+
         return $this->send($opt);
     }
-
+    
     /** */
     public function sendPushTo($token, string $tipo, array $data = []): array
     {   
@@ -97,10 +99,11 @@ class PushNotifiers
 
         $data = $this->getTitleAndBodySegunTipo($tipo);
         return [
+            'tipo' => $data['tipo'],
             'title' => $data['title'],
             'body'  => $data['body'],
             'sound' => '',
-            'ttl'          => 0,
+            'ttl'   => 0,
             'click_action' => 'FLUTTER_NOTIFICATION_CLICK'
         ];
     }
