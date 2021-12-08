@@ -6,6 +6,7 @@ use FOS\RestBundle\Controller\AbstractFOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Finder\Finder;
 
 use App\Entity\RepoMain;
 use App\Services\PushNotifiers;
@@ -77,7 +78,46 @@ class RepoSCP extends AbstractFOSRestController
         if(!is_dir($pathTokens)) {
             mkdir($pathTokens, 777);
         }
-        $leng = file_put_contents($pathTokens . $partes[0] . '.txt', $partes[1]);
+
+        $hoy = new \DateTime('now');
+        $file = $hoy->format('d-m-Y');
+        
+        $finder = new Finder();
+        $finder->files()->in($pathTokens);
+        $todasExistentes = [];
+        if ($finder->hasResults()) {
+            foreach ($finder as $file) {
+                $todasExistentes[] = [
+                    'nomFile' => $file->getRelativePathname(),
+                    'pathReal'=> $file->getRealPath()
+                ];
+            }
+        }
+
+        $sufijo = 0;
+        $rota = count($todasExistentes);
+        $deleteTokens = [];
+        if($rota > 0) {
+            for ($i=0; $i < $rota; $i++) { 
+                if(strpos($todasExistentes[$i]['nomFile'], $file) !== false) {
+                    $sufijo = $sufijo +1;
+                }else{
+                    $deleteTokens[] = $todasExistentes[$i]['pathReal'];
+                }
+            }
+        }
+
+        $rota = count($deleteTokens);
+        if($rota > 0) {
+            for ($i=0; $i < $rota; $i++) { 
+                unlink($deleteTokens[$i]);
+            }
+        }
+
+        if($sufijo > 0) {
+            $file = $file .'-'.$sufijo;
+        }
+        $leng = file_put_contents($pathTokens . $file . '.txt', $partes[1]);
         return $this->json([
             'abort' => false, 'msg' => 'ok', 'body' => $leng
         ]);
