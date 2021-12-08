@@ -49,6 +49,8 @@ class RepoSCP extends AbstractFOSRestController
     */
     public function getAllRepoEnProceso(int $apiVer)
     {
+        $this->push->notificarNewSolicitud(60);
+        
         $this->getRepo(RepoMain::class, $apiVer);
         $dql = $this->repo->getReposAllEnProceso();
         $result = $dql->getArrayResult();
