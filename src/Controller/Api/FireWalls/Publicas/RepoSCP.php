@@ -51,7 +51,7 @@ class RepoSCP extends AbstractFOSRestController
     {
         $this->getRepo(RepoMain::class, $apiVer);
         $dql = $this->repo->getReposAllEnProceso();
-        $result = $dql->getScalarResult();
+        $result = $dql->getArrayResult();
         return $this->json($result);
     }
 
