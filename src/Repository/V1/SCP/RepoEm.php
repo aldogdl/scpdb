@@ -152,7 +152,7 @@ class RepoEm
         'JOIN repo.pzas pzas '.
         'JOIN repo.status sts '.
         'LEFT JOIN pzas.info resp '.
-        'ORDER BY repo.id DESC';
+        'ORDER BY repo.id ASC';
 
         return $this->em->createQuery($dql);
     }

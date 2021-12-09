@@ -11,6 +11,7 @@ use Symfony\Component\Finder\Finder;
 
 use App\Entity\RepoMain;
 use App\Entity\RepoPzas;
+use App\Services\PushNotifiers;
 
 /**
  * @Route("api/firewalls/autoparnet/repo-post/v{apiVer}/", defaults={"apiVer":"1"})
@@ -19,7 +20,7 @@ class PostRepoController extends AbstractFOSRestController
 {
     private $em;
     private $repo;
-
+ 
     public function __construct(EntityManagerInterface $entityManager)
     {
         $this->em = $entityManager;
@@ -38,6 +39,7 @@ class PostRepoController extends AbstractFOSRestController
     }
     
     /**
+     * :: PASO 1 :: 
      * Construimos el repositorio para el auto y posteriormente el repo main.
      * 
      * @Rest\Post("build-repo-auto-main/")
@@ -68,6 +70,9 @@ class PostRepoController extends AbstractFOSRestController
     }
 
     /**
+     * :: PASO 2 ::
+     * Guardamos las piezas que estan enviando los clientes para ser cotizadas
+     * 
      * @Rest\Post("save-repo-piezas-for-cot/")
      * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
     */

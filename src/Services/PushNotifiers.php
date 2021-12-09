@@ -2,31 +2,38 @@
 
 namespace App\Services;
 
+use App\Entity\RepoMain;
+use App\Entity\UsContacts;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+use Doctrine\ORM\EntityManagerInterface;
 
 class PushNotifiers
 {
+    private $em;
     private $client;
     private $params;
     private $urlPush = 'https://fcm.googleapis.com/fcm/send';
     private $key = 'AAAAlrdO5NY:APA91bFvQ5C9Sx2-HcrFJSdCf3gr42tD7wAyQYXJhTr4MzCI-yJq5bR1ToBmvkNbl1NtXP8L3bxOpGKq6igh-LFovrwbzwkKgUQAlv8zGYJ4E4QHlLH5XRbghm3aCYd8lmYRS1-BtXTy';
 
-    public function __construct(HttpClientInterface $client, ParameterBagInterface $params)
+    public function __construct(HttpClientInterface $client, ParameterBagInterface $params, EntityManagerInterface $entityManager)
     {
         $this->client = $client;
         $this->params = $params;
+        $this->em = $entityManager;
     }
     
-    /** */
+    /**
+     * La solicitud esta en Status 2
+    */
     public function notificarNewSolicitud($idRepo): array
     {   
+        $tipo = 'sol';
         $opt = $this->getOptions();
-
-        $opt['json']['android_channel_id'] = $this->getChannelSegunTipo('sol');
-        $opt['json']['notification'] = $this->getNotificationSegunTipo('sol');
-        $opt['json']['data'] = $this->getCargaUtilSegunTipo('sol');
+        $opt['json']['android_channel_id'] = $this->getChannelSegunTipo($tipo);
+        $opt['json']['notification'] = $this->getNotificationSegunTipo($tipo);
+        $opt['json']['data'] = $this->getCargaUtilSegunTipo($tipo);
         $opt['json']['data']['id_repo'] = $idRepo;
 
         $uriTokensEyes = $this->params->get('empTkWorker');
@@ -40,7 +47,35 @@ class PushNotifiers
 
         return $this->send($opt);
     }
-    
+
+    /**
+     * La solicitud esta en Status 3
+    */
+    public function notificarSolicitudTomada($idRepo): array
+    {   
+        $tipo = 'take_sol';
+        $opt = $this->getOptions();
+        $opt['json']['android_channel_id'] = $this->getChannelSegunTipo($tipo);
+        $opt['json']['notification'] = $this->getNotificationSegunTipo($tipo);
+        $opt['json']['data'] = $this->getCargaUtilSegunTipo($tipo);
+        $opt['json']['data']['id_repo'] = $idRepo;
+
+        $uriTokensEyes = $this->params->get('empTkWorker');
+        $finder = new Finder();
+        $finder->files()->in($uriTokensEyes);
+        if ($finder->hasResults()) {
+            foreach ($finder as $file) {
+                $opt['json']['registration_ids'][] = $file->getContents();
+            }
+        }
+        $repo = $this->getRepoById($idRepo);
+        if($repo) {
+            $opt['json']['data']['cat_pzas'] = count($repo['pzas']);
+            $opt['json']['registration_ids'][] = $this->getTokenContacByIdRepo($repo['own']);
+        }
+        return $this->send($opt);
+    }
+
     /** */
     public function sendPushTo($token, string $tipo, array $data = []): array
     {   
@@ -133,6 +168,14 @@ class PushNotifiers
                     'sound' => '',
                 ];
                 break;
+            case 'take_sol':
+                $content = [
+                    'tipo' => 'take_sol',
+                    'title' => 'SOLICITUD ATENDIDA',
+                    'body' => 'La solicitud ya fué tomada por el SCP',
+                    'sound' => '',
+                ];
+                break;
             case 'pcom':
                 $content = [
                     'tipo' => '...',
@@ -184,4 +227,37 @@ class PushNotifiers
         return $content;
     }
 
+    /** */
+    private function getRepoById($idRepo): array
+    {
+        $dql = 'SELECT rep, partial sts.{id, nombre}, partial pzas.{id} FROM ' . RepoMain::class . ' rep '.
+        'JOIN rep.status sts '.
+        'JOIN rep.pzas pzas '.
+        'WHERE rep.id = :idRepo';
+        $result = $this->em->createQuery($dql)->setParameter('idRepo', $idRepo)->getArrayResult();
+        if($result) {
+            return $result[0];
+        }
+        return [];
+    }
+
+    /** */
+    private function getTokenContacByIdRepo($idRepo): string
+    {
+        
+        $dql = 'SELECT rep FROM ' . RepoMain::class . ' rep '.
+        'WHERE rep.id = :idRepo';
+        $result = $this->em->createQuery($dql)->setParameter('idRepo', $idRepo)->execute();
+
+        if($result) {
+            $idUser = $result[0]->getOwn();
+            $dql = 'SELECT ct FROM ' . UsContacts::class . ' ct '.
+            'WHERE ct.user = :idUser';
+            $result = $this->em->createQuery($dql)->setParameter('idUser', $idUser)->execute();
+            if($result) {
+                return $result[0]->getNotifiKey();
+            }
+        }
+        return '';
+    }
 }

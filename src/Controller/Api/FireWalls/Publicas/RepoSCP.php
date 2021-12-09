@@ -42,7 +42,7 @@ class RepoSCP extends AbstractFOSRestController
             [$this->em]
         );
     }
-    
+
     /**
      * @Rest\Get("get-all-repo-en-proceso/")
      * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")

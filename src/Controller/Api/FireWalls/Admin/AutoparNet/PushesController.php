@@ -56,36 +56,15 @@ class PushesController extends AbstractFOSRestController
     }
 
     /**
-     * @Rest\Get("send-push-to-scp-for-cot/{params}/")
+     * @Rest\Get("send-push-nueva-cotizacion/{params}/")
      * 
      * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
      * @Rest\RequestParam(name="params", requirements="\s+", default="1", description="Los datos de la notificacion")
     */
-    public function sendPushToScpForCot($apiVer, $params)
+    public function notificarNewSolicitud($apiVer, $params)
     {
-        $tokensPush = [];
-        $path = realpath($this->getParameter('empTkWorker'));
-        $finder = new Finder();
-        $finder->files()->in($path);
-        if ($finder->hasResults()) {
-            foreach ($finder as $file) {
-                $tokensPush[] = $file->getContents();
-            }
-        }
-
-        if(count($tokensPush) > 0) {
-            $partes = explode('::', $params);
-            $data = [
-                'idMain' => $partes[0],
-                'cantPzas' => $partes[1],
-                'fechr' => $partes[2],
-                'cantPzasResp' => 0,
-                'cantResp' => 0
-            ];
-            $result = $this->push->sendPushTo($tokensPush, 'cot', $data);
-        }else{
-            $result = ['abort' => true, 'body' => 'No se encontro el token para Messanging'];
-        }
-        return $this->json($result);
+        $partes = explode('::', $params);
+        $this->push->notificarNewSolicitud($partes[0]);
+        return $this->json(['abort' => false, 'body' => 'ok']);
     }
 }
