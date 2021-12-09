@@ -71,7 +71,11 @@ class PushNotifiers
         $repo = $this->getRepoById($idRepo);
         if($repo) {
             $opt['json']['data']['cat_pzas'] = count($repo['pzas']);
-            $opt['json']['registration_ids'][] = $this->getTokenContacByIdRepo($repo['own']);
+            $tokens = $this->getTokensContacByIdUser($repo['own']);
+            $rota = count($tokens);
+            for ($i=0; $i < $rota; $i++) { 
+                $opt['json']['registration_ids'][] = $tokens[$i];
+            }
         }
         return $this->send($opt);
     }
@@ -242,22 +246,17 @@ class PushNotifiers
     }
 
     /** */
-    private function getTokenContacByIdRepo($idRepo): string
+    private function getTokensContacByIdUser($idUser): array
     {
-        
-        $dql = 'SELECT rep FROM ' . RepoMain::class . ' rep '.
-        'WHERE rep.id = :idRepo';
-        $result = $this->em->createQuery($dql)->setParameter('idRepo', $idRepo)->execute();
-
+        $dql = 'SELECT ct FROM ' . UsContacts::class . ' ct '.
+        'WHERE ct.user = :idUser';
+        $result = $this->em->createQuery($dql)->setParameter('idUser', $idUser)->execute();
         if($result) {
-            $idUser = $result[0]->getOwn();
-            $dql = 'SELECT ct FROM ' . UsContacts::class . ' ct '.
-            'WHERE ct.user = :idUser';
-            $result = $this->em->createQuery($dql)->setParameter('idUser', $idUser)->execute();
-            if($result) {
-                return $result[0]->getNotifiKey();
-            }
+            return [
+                $result[0]->getNotifiKey(),
+                $result[0]->getNotifWeb(),
+            ];
         }
-        return '';
+        return [];
     }
 }
