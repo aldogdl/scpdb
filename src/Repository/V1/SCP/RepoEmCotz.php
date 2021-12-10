@@ -98,7 +98,7 @@ class RepoEmCotz extends RepoEm
     public function saveDataRespuesta($resp)
     {
         $obj = null;
-        $idStatus = 5;
+        $idStatus = 4;
 
         if(array_key_exists('id_info', $resp)) {
             // Buscamos el registro
@@ -132,7 +132,10 @@ class RepoEmCotz extends RepoEm
             $this->em->persist($obj);
             $this->em->flush();
             $this->result['abort'] = false;
-            $this->result['body']  = $obj->getId();
+            $this->result['body']  = [
+                'id_info' => $obj->getId(),
+                'status'  => $idStatus
+            ];
             $this->changeStatusRepoPza($resp['idPz'], $idStatus);
             $this->changeStatusRepoMain($resp['id_main'], $idStatus);
 

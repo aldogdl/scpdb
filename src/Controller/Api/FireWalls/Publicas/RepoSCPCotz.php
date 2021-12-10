@@ -223,9 +223,6 @@ class RepoSCPCotz extends AbstractFOSRestController
 
         $this->getRepo(RepoMain::class, $apiVer);
         $result = $this->repo->saveDataRespuesta($data);
-        // Notificar a EYE del cambio de status
-
-        // Notificar al cliente del cambio de status
         return $this->json($result);
     }
 
