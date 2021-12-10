@@ -305,6 +305,19 @@ class RepoSCPCotz extends AbstractFOSRestController
         return $this->json($result);
     }
 
+    
+    /**
+     * @Rest\Get("send-push-tomada/{idRepo}/")
+     * 
+     * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
+     * @Rest\RequestParam(name="idRepo", requirements="\d+", default="1", description="El id Repo main")
+    */
+    public function sendPushTomada($apiVer, $idRepo)
+    {
+        $this->push->notificarSolicitudTomada($idRepo);
+        return $this->json(['abort' => false, 'body' => 'ok']);
+    }
+
     /**
      * Esta prueba se realiza desde SCP-EYE para ver si el sistema tiene servicio push
      * 
