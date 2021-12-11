@@ -88,6 +88,7 @@ class PushesController extends AbstractFOSRestController
     */
     public function sendPushTestFromTaller($apiVer, $idUser)
     {
+        // protegiendo test push p1
         $nombreFile = 'test.json';
         $hoyEs = new \DateTime('now');
         $keyHoy = $hoyEs->format('dmY');
@@ -95,12 +96,12 @@ class PushesController extends AbstractFOSRestController
         $makePushReal = false;
         $test = [];
         $isNew = false;
-        $uriPushes = $this->params->get('whoTestPush');
+        $uriPushes = $this->getParameter('whoTestPush');
         $pathToPushes = realpath($uriPushes);
         if(!is_dir($pathToPushes)) {
             mkdir($pathToPushes, 0777, true);
         }
-        
+
         $finder = new Finder();
         $finder->files()->in($pathToPushes);
 
