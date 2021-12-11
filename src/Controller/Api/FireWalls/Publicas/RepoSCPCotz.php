@@ -302,7 +302,6 @@ class RepoSCPCotz extends AbstractFOSRestController
         return $this->json($result);
     }
 
-    
     /**
      * @Rest\Get("send-push-tomada/{idRepo}/")
      * 
@@ -312,6 +311,23 @@ class RepoSCPCotz extends AbstractFOSRestController
     public function sendPushTomada($apiVer, $idRepo)
     {
         $this->push->notificarSolicitudTomada($idRepo);
+        return $this->json(['abort' => false, 'body' => 'ok']);
+    }
+
+    /**
+     * @Rest\Get("send-push-respuesta/{infMeta}/")
+     * 
+     * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
+     * @Rest\RequestParam(name="idRepo", requirements="\d+", default="1", description="El id Repo main")
+    */
+    public function sendPushRespuestas($apiVer, $infMeta)
+    {
+        $meta = explode('::', $infMeta);
+        $idRepo = $meta[0];
+        unset($meta[0]);
+        $this->getRepo(RepoMain::class, $apiVer);
+        $this->repo->cStatusToRespToSendPerPza($idRepo);
+        $this->push->notificarRespuestas($idRepo, implode('::', $meta));
         return $this->json(['abort' => false, 'body' => 'ok']);
     }
 

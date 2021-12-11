@@ -147,6 +147,30 @@ class RepoEmCotz extends RepoEm
         return $this->result;
     }
 
+    /**
+     * A las respuestas con status 4 y a las piezas que tengan dichas respuestas,
+     * les cambiamos el status a 5, a las otras piezas que no tengan respuestas les
+     * dejamos su status intacto.
+     */
+    public function cStatusToRespToSendPerPza($idMain)
+    {
+        // Status 4 => piezas con respuestas creadas pero no enviadas
+        // Status 5 => Respuestas enviadas al cliente
+        $status = $this->em->getPartialReference(StatusTypes::class, 5);
+        $dbs = [RepoPzas::class, RepoPzaInfo::class];
+        
+        for ($i=0; $i < 2; $i++) {
+
+            $dql = 'UPDATE ' . $dbs[$i] . ' item '.
+            'SET item.status = :cinco '.
+            'WHERE item.repo = :repo AND item.status = :cuatro';
+
+            $this->em->createQuery($dql)->setParameters([
+                'cinco' => $status, 'repo' => $idMain, 'cuatro'=> '4'
+            ])->execute();
+        }
+    }
+
     ///
     public function getRepoInfoById($idInfo) {
 

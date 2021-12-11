@@ -80,6 +80,39 @@ class PushNotifiers
         return $this->send($opt);
     }
 
+    /**
+     * La solicitud esta en Status 5
+    */
+    public function notificarRespuestas($idRepo, $infoBody): array
+    {   
+        $tipo = 'resp';
+        $opt = $this->getOptions();
+        $opt['json']['android_channel_id'] = $this->getChannelSegunTipo($tipo);
+        $opt['json']['notification'] = $this->getNotificationSegunTipo($tipo);
+        $opt['json']['data'] = $this->getCargaUtilSegunTipo($tipo);
+        $opt['json']['data']['id_repo'] = $idRepo;
+        $opt['json']['data']['body'] = $infoBody;
+
+        $uriTokensEyes = $this->params->get('empTkWorker');
+        $finder = new Finder();
+        $finder->files()->in($uriTokensEyes);
+        if ($finder->hasResults()) {
+            foreach ($finder as $file) {
+                $opt['json']['registration_ids'][] = $file->getContents();
+            }
+        }
+        $repo = $this->getRepoById($idRepo);
+        if($repo) {
+            $opt['json']['data']['cat_pzas'] = count($repo['pzas']);
+            $tokens = $this->getTokensContacByIdUser($repo['own']);
+            $rota = count($tokens);
+            for ($i=0; $i < $rota; $i++) { 
+                $opt['json']['registration_ids'][] = $tokens[$i];
+            }
+        }
+        return $this->send($opt);
+    }
+
     /** */
     public function sendPushTo($token, string $tipo, array $data = []): array
     {   
@@ -198,9 +231,9 @@ class PushNotifiers
                 break;
             case 'resp':
                 $content = [
-                    'tipo' => '...',
-                    'title' => 'RESPUESTA RECIBIDA',
-                    'body' => 'Un Parnet ha respondido a una COTIZACIÓN',
+                    'tipo' => 'resp',
+                    'title' => 'RESPUESTAS RECIBIDAS',
+                    'body' => 'Haz recibido respuestas para una solicitud de cotización',
                     'sound' => '',
                 ];
                 break;
