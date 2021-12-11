@@ -97,13 +97,12 @@ class PushesController extends AbstractFOSRestController
         $test = [];
         $isNew = false;
         $uriPushes = $this->getParameter('whoTestPush');
-        $pathToPushes = realpath($uriPushes);
-        if(!is_dir($pathToPushes)) {
-            mkdir($pathToPushes, 0777, true);
+        if(!is_dir($uriPushes)) {
+            mkdir($uriPushes, 0777);
         }
 
         $finder = new Finder();
-        $finder->files()->in($pathToPushes);
+        $finder->files()->in($uriPushes);
 
         if ($finder->hasResults()) {
             foreach ($finder as $file) {
