@@ -113,6 +113,25 @@ class PushNotifiers
         return $this->send($opt);
     }
 
+    /**
+     * Pruebas de comunicacion hacia el Id del usuario
+    */
+    public function sendPushTestTo($idUser): array
+    {   
+        $tipo = 'pcom';
+        $opt = $this->getOptions();
+        $opt['json']['android_channel_id'] = $this->getChannelSegunTipo($tipo);
+        $opt['json']['notification'] = $this->getNotificationSegunTipo($tipo);
+        $opt['json']['data'] = $this->getCargaUtilSegunTipo($tipo);
+
+        $tokens = $this->getTokensContacByIdUser($idUser);
+        $rota = count($tokens);
+        for ($i=0; $i < $rota; $i++) { 
+            $opt['json']['registration_ids'][] = $tokens[$i];
+        }
+        return $this->send($opt);
+    }
+
     /** */
     public function sendPushTo($token, string $tipo, array $data = []): array
     {   
@@ -157,7 +176,7 @@ class PushNotifiers
         $seccion = '';
         switch ($tipo) {
             case 'pcom':
-                $seccion = 'pcom';
+                $seccion = 'RESCOT';
                 break;
             default:
                 $seccion = 'RESCOT';
@@ -215,7 +234,7 @@ class PushNotifiers
                 break;
             case 'pcom':
                 $content = [
-                    'tipo' => '...',
+                    'tipo' => 'pcom',
                     'title' => 'PRUEBA DE COMUNICACIÓN',
                     'body' => 'La comunicación con el Servidor fué exitosa',
                     'sound' => '',

@@ -79,4 +79,16 @@ class PushesController extends AbstractFOSRestController
         $this->push->notificarSolicitudTomada($idRepo);
         return $this->json(['abort' => false, 'body' => 'ok']);
     }
+
+    /**
+     * @Rest\Get("send-push-test-from-taller/{idUser}/")
+     * 
+     * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
+     * @Rest\RequestParam(name="idUser", requirements="\d+", default="1", description="El id del user")
+    */
+    public function sendPushTestFromTaller($apiVer, $idUser)
+    {
+        $this->push->sendPushTestTo($idUser);
+        return $this->json(['abort' => false, 'body' => 'ok']);
+    }
 }
