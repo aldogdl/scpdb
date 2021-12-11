@@ -88,7 +88,79 @@ class PushesController extends AbstractFOSRestController
     */
     public function sendPushTestFromTaller($apiVer, $idUser)
     {
-        $this->push->sendPushTestTo($idUser);
-        return $this->json(['abort' => false, 'body' => 'ok']);
+        $nombreFile = 'test.json';
+        $hoyEs = new \DateTime('now');
+        $keyHoy = $hoyEs->format('dmY');
+        $cantPushes = 0;
+        $makePushReal = false;
+        $test = [];
+        $isNew = false;
+        $uriPushes = $this->params->get('whoTestPush');
+        $pathToPushes = realpath($uriPushes);
+        if(!is_dir($pathToPushes)) {
+            mkdir($pathToPushes, 0777, true);
+        }
+        
+        $finder = new Finder();
+        $finder->files()->in($pathToPushes);
+
+        if ($finder->hasResults()) {
+            foreach ($finder as $file) {
+                if($file->getRelativePathname() == $nombreFile) {
+                    $test = json_decode( $file->getContents(), true );
+                }
+            }
+
+            if(array_key_exists('cantHoy', $test)) {
+                if($test['cantHoy'] < 500) {
+
+                    $encontre = false;
+                    $vueltas = count($test['testing'][$keyHoy]);
+                    if($vueltas > 0) {
+                        for ($i=0; $i < $vueltas; $i++) { 
+                            if($test['testing'][$keyHoy][$i] == $idUser){
+                                $encontre = true;
+                            }
+                            $cantPushes++;
+                        }
+                        $test['cantHoy'] = $cantPushes;
+                        if(!$encontre) {
+                            $test['cantHoy'] = $test['cantHoy'] +1;
+                            $test['testing'][$keyHoy][] = $idUser;
+                            $makePushReal = true;
+                        }
+                    }else{
+                        $test['cantHoy'] = 1;
+                        $test['testing'][$keyHoy] = [$idUser];
+                        $makePushReal = true;
+                    }
+                }
+            }else{
+                $isNew = true;
+                $makePushReal = true;
+            }
+        }else{
+            $isNew = true;
+            $makePushReal = true;
+        }
+
+        if($isNew) {
+            $test = [
+                'cantHoy' => 1,
+                'testing' => [
+                    '' . $keyHoy . '' => [$idUser]
+                ]
+            ];
+        }
+
+        file_put_contents($uriPushes.'/'.$nombreFile, json_encode($test));
+
+        if($makePushReal) {
+            $this->push->sendPushTestTo($idUser);
+            $result = ['abort' => false, 'body' => 'google'];
+        }else{
+            $result = ['abort' => false, 'body' => 'server'];
+        }
+        return $this->json($result);
     }
 }
