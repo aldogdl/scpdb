@@ -36,14 +36,7 @@ class PushNotifiers
         $opt['json']['data'] = $this->getCargaUtilSegunTipo($tipo);
         $opt['json']['data']['id_repo'] = $idRepo;
 
-        $uriTokensEyes = $this->params->get('empTkWorker');
-        $finder = new Finder();
-        $finder->files()->in($uriTokensEyes);
-        if ($finder->hasResults()) {
-            foreach ($finder as $file) {
-                $opt['json']['registration_ids'][] = $file->getContents();
-            }
-        }
+        $opt['json']['registration_ids'] = $this->getTokensSCP($opt['json']['registration_ids']);
 
         return $this->send($opt);
     }
@@ -60,24 +53,36 @@ class PushNotifiers
         $opt['json']['data'] = $this->getCargaUtilSegunTipo($tipo);
         $opt['json']['data']['id_repo'] = $idRepo;
 
-        $uriTokensEyes = $this->params->get('empTkWorker');
-        $finder = new Finder();
-        $finder->files()->in($uriTokensEyes);
-        if ($finder->hasResults()) {
-            foreach ($finder as $file) {
-                $opt['json']['registration_ids'][] = $file->getContents();
-            }
-        }
+        $opt['json']['registration_ids'] = $this->getTokensSCP($opt['json']['registration_ids']);
         $repo = $this->getRepoById($idRepo);
         if($repo) {
             $opt['json']['data']['cat_pzas'] = count($repo['pzas']);
             $tokens = $this->getTokensContacByIdUser($repo['own']);
             $rota = count($tokens);
-            for ($i=0; $i < $rota; $i++) { 
-                $opt['json']['registration_ids'][] = $tokens[$i];
+            for ($i=0; $i < $rota; $i++) {
+                if(!in_array($tokens[$i], $opt['json']['registration_ids'])) {
+                    $opt['json']['registration_ids'][] = $tokens[$i];
+                }
             }
         }
         return $this->send($opt);
+    }
+
+    ///
+    private function getTokensSCP($tokens): array
+    {
+        $uriTokensEyes = $this->params->get('empTkWorker');
+        $finder = new Finder();
+        $finder->files()->in($uriTokensEyes);
+        if ($finder->hasResults()) {
+            foreach ($finder as $file) {
+                $nt = $file->getContents();
+                if(!in_array($nt, $tokens)) {
+                    $tokens[] = $nt;
+                }
+            }
+        }
+        return $tokens;
     }
 
     /**
@@ -93,21 +98,16 @@ class PushNotifiers
         $opt['json']['data']['id_repo'] = $idRepo;
         $opt['json']['data']['body'] = $infoBody;
 
-        $uriTokensEyes = $this->params->get('empTkWorker');
-        $finder = new Finder();
-        $finder->files()->in($uriTokensEyes);
-        if ($finder->hasResults()) {
-            foreach ($finder as $file) {
-                $opt['json']['registration_ids'][] = $file->getContents();
-            }
-        }
+        $opt['json']['registration_ids'] = $this->getTokensSCP($opt['json']['registration_ids']);
         $repo = $this->getRepoById($idRepo);
         if($repo) {
             $opt['json']['data']['cat_pzas'] = count($repo['pzas']);
             $tokens = $this->getTokensContacByIdUser($repo['own']);
             $rota = count($tokens);
             for ($i=0; $i < $rota; $i++) { 
-                $opt['json']['registration_ids'][] = $tokens[$i];
+                if(!in_array($tokens[$i], $opt['json']['registration_ids'])) {
+                    $opt['json']['registration_ids'][] = $tokens[$i];
+                }
             }
         }
         return $this->send($opt);
@@ -126,8 +126,10 @@ class PushNotifiers
 
         $tokens = $this->getTokensContacByIdUser($idUser);
         $rota = count($tokens);
-        for ($i=0; $i < $rota; $i++) { 
-            $opt['json']['registration_ids'][] = $tokens[$i];
+        for ($i=0; $i < $rota; $i++) {
+            if(!in_array($tokens[$i], $opt['json']['registration_ids'])) {
+                $opt['json']['registration_ids'][] = $tokens[$i];
+            }
         }
         return $this->send($opt);
     }
