@@ -195,7 +195,7 @@ class PushNotifiers
             'tipo' => $data['tipo'],
             'title' => $data['title'],
             'body'  => $data['body'],
-            'sound' => '',
+            'sound' => $data['sound'],
             'ttl'   => 0,
             'click_action' => 'FLUTTER_NOTIFICATION_CLICK'
         ];
@@ -239,15 +239,7 @@ class PushNotifiers
                     'tipo' => 'pcom',
                     'title' => 'PRUEBA DE COMUNICACIÓN',
                     'body' => 'La comunicación con el Servidor fué exitosa',
-                    'sound' => '',
-                ];
-                break;
-            case 'cot':
-                $content = [
-                    'tipo' => '...',
-                    'title' => 'TENDRÁS ESTA REFACCIÓN',
-                    'body' => 'Oportunidad de Venta::AutoparNet',
-                    'sound' => '',
+                    'sound' => 'cotizaciones',
                 ];
                 break;
             case 'resp':
@@ -255,7 +247,7 @@ class PushNotifiers
                     'tipo' => 'resp',
                     'title' => 'RESPUESTAS RECIBIDAS',
                     'body' => 'Haz recibido respuestas para una solicitud de cotización',
-                    'sound' => '',
+                    'sound' => 'cotizaciones',
                 ];
                 break;
             default:
