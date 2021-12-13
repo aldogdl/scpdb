@@ -65,7 +65,7 @@ class RepoSCP extends AbstractFOSRestController
         $dql = $this->repo->getReposEnProcesoById($idMain);
         $result = $dql->getArrayResult();
         $response = (count($result) > 0) ? $result[0] : [];
-        return $this->json($response);
+        return $this->json(['abort' => false, 'body' => $response]);
     }
 
     /**
