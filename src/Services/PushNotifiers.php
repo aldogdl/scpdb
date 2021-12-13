@@ -116,6 +116,22 @@ class PushNotifiers
     /**
      * La solicitud esta en Status 6
     */
+    public function notificarLeidaPorElCliente($idRepo): array
+    {   
+        $tipo = 'pedi';
+        $opt = $this->getOptions();
+        $opt['json']['android_channel_id'] = $this->getChannelSegunTipo($tipo);
+        $opt['json']['notification'] = $this->getNotificationSegunTipo($tipo);
+        $opt['json']['data'] = $this->getCargaUtilSegunTipo($tipo);
+        $opt['json']['data']['id_repo'] = $idRepo;
+
+        $opt['json']['registration_ids'] = $this->getTokensSCP($opt['json']['registration_ids']);
+        return $this->send($opt);
+    }
+
+    /**
+     * La solicitud esta en Status 8
+    */
     public function notificarPedido($idRepo): array
     {   
         $tipo = 'pedi';

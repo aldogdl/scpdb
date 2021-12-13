@@ -148,13 +148,28 @@ class RepoEm
     */
     public function getReposAllEnProceso() {
 
-        $dql = 'SELECT partial repo.{id, createdAt, status}, partial pzas.{id, pieza}, partial resp.{id}, partial sts.{id, nombre} FROM ' . RepoMain::class . ' repo '.        
+        $dql = 'SELECT partial repo.{id, createdAt, status}, partial pzas.{id, pieza, cant}, partial resp.{id}, partial sts.{id, nombre} FROM ' . RepoMain::class . ' repo '.        
         'JOIN repo.pzas pzas '.
         'JOIN repo.status sts '.
         'LEFT JOIN pzas.info resp '.
         'ORDER BY repo.id ASC';
 
         return $this->em->createQuery($dql);
+    }
+
+    /**
+     * @see AutoparNet/RepoController
+     * @see SCP-EYE
+    */
+    public function getReposEnProcesoById($idMain) {
+
+        $dql = 'SELECT partial repo.{id, createdAt, status}, partial pzas.{id, pieza, cant}, partial resp.{id}, partial sts.{id, nombre} FROM ' . RepoMain::class . ' repo '.        
+        'JOIN repo.pzas pzas '.
+        'JOIN repo.status sts '.
+        'LEFT JOIN pzas.info resp '.
+        'WHERE repo.id = :id';
+
+        return $this->em->createQuery($dql)->setParameter('id', $idMain);
     }
 
     /**
@@ -359,13 +374,14 @@ class RepoEm
     */
     public function setRepoPedido($idsInfo)
     {
+        $statusSolicitada = 8;
         $rota = count($idsInfo);
         for ($i=0; $i < $rota; $i++) { 
-            $this->changeStatusRepoPzaInfo($idsInfo[$i]['info'], 6);
-            $this->changeStatusRepoPza($idsInfo[$i]['pza'], 6);
-            $this->changeStatusRepoMain($idsInfo[$i]['main'], 6);
+            $this->changeStatusRepoPzaInfo($idsInfo[$i]['info'], $statusSolicitada);
+            $this->changeStatusRepoPza($idsInfo[$i]['pza'], $statusSolicitada);
+            $this->changeStatusRepoMain($idsInfo[$i]['main'], $statusSolicitada);
         }
-        $this->result = ['abort' => false, 'body' => 6];
+        $this->result = ['abort' => false, 'body' => $statusSolicitada];
         return $this->result;
     }
 

@@ -56,6 +56,19 @@ class RepoSCP extends AbstractFOSRestController
     }
 
     /**
+     * @Rest\Get("get-repo-en-proceso-by-id/{idMain}/")
+     * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
+    */
+    public function getReposEnProcesoById(int $apiVer, $idMain)
+    {
+        $this->getRepo(RepoMain::class, $apiVer);
+        $dql = $this->repo->getReposEnProcesoById($idMain);
+        $result = $dql->getArrayResult();
+        $response = (count($result) > 0) ? $result[0] : [];
+        return $this->json($response);
+    }
+
+    /**
      * Esta prueba se realiza desde SCP-EYE para ver si el sistema tiene servicio push
      * 
      * @Rest\Get("test-push-scp-eye/{tokenPush}/")
