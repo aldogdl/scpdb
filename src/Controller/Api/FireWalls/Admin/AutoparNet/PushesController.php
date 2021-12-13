@@ -81,6 +81,18 @@ class PushesController extends AbstractFOSRestController
     }
 
     /**
+     * @Rest\Get("send-push-leida/{idRepo}/")
+     * 
+     * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
+     * @Rest\RequestParam(name="idRepo", requirements="\d+", default="1", description="El id Repo main")
+    */
+    public function sendPushLeida($apiVer, $idRepo)
+    {
+        $this->push->notificarLeidaPorElCliente($idRepo);
+        return $this->json(['abort' => false, 'body' => 'ok']);
+    }
+
+    /**
      * @Rest\Get("send-push-pedido/{idRepo}/")
      * 
      * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")

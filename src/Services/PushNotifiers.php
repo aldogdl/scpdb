@@ -118,7 +118,7 @@ class PushNotifiers
     */
     public function notificarLeidaPorElCliente($idRepo): array
     {   
-        $tipo = 'pedi';
+        $tipo = 'leida';
         $opt = $this->getOptions();
         $opt['json']['android_channel_id'] = $this->getChannelSegunTipo($tipo);
         $opt['json']['notification'] = $this->getNotificationSegunTipo($tipo);
@@ -281,6 +281,14 @@ class PushNotifiers
                     'tipo' => 'resp',
                     'title' => 'RESPUESTAS RECIBIDAS',
                     'body' => 'Haz recibido respuestas para una solicitud de cotización',
+                    'sound' => 'cotizaciones.mp3',
+                ];
+                break;
+            case 'leida':
+                $content = [
+                    'tipo' => 'leida',
+                    'title' => 'RESPUESTA LEIDA',
+                    'body' => 'El Cliente acaba de leer las respuestas',
                     'sound' => 'cotizaciones.mp3',
                 ];
                 break;
