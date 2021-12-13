@@ -354,7 +354,9 @@ class RepoEm
         return $this->result;
     }
 
-    /** */
+    /**
+     * 
+    */
     public function setRepoPedido($idsInfo)
     {
         $rota = count($idsInfo);
@@ -363,7 +365,7 @@ class RepoEm
             $this->changeStatusRepoPza($idsInfo[$i]['pza'], 6);
             $this->changeStatusRepoMain($idsInfo[$i]['main'], 6);
         }
-        $this->result = ['abort' => false, 'body' =>'ok'];
+        $this->result = ['abort' => false, 'body' => 6];
         return $this->result;
     }
 

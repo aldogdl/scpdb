@@ -81,6 +81,18 @@ class PushesController extends AbstractFOSRestController
     }
 
     /**
+     * @Rest\Get("send-push-pedido/{idRepo}/")
+     * 
+     * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
+     * @Rest\RequestParam(name="idRepo", requirements="\d+", default="1", description="El id del user")
+    */
+    public function sendPushPedido($apiVer, $idRepo)
+    {
+        $this->push->notificarPedido($idRepo);
+        return $this->json(['abort' => false, 'body' => 'ok']);
+    }
+
+    /**
      * @Rest\Get("send-push-test-from-taller/{idUser}/")
      * 
      * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")

@@ -114,6 +114,22 @@ class PushNotifiers
     }
 
     /**
+     * La solicitud esta en Status 6
+    */
+    public function notificarPedido($idRepo): array
+    {   
+        $tipo = 'pedi';
+        $opt = $this->getOptions();
+        $opt['json']['android_channel_id'] = $this->getChannelSegunTipo($tipo);
+        $opt['json']['notification'] = $this->getNotificationSegunTipo($tipo);
+        $opt['json']['data'] = $this->getCargaUtilSegunTipo($tipo);
+        $opt['json']['data']['id_repo'] = $idRepo;
+
+        $opt['json']['registration_ids'] = $this->getTokensSCP($opt['json']['registration_ids']);
+        return $this->send($opt);
+    }
+
+    /**
      * Pruebas de comunicacion hacia el Id del usuario
     */
     public function sendPushTestTo($idUser): array
@@ -134,7 +150,9 @@ class PushNotifiers
         return $this->send($opt);
     }
 
-    /** */
+    /**
+     * Sin uso, creo, analizar para borrar
+    */
     public function sendPushTo($token, string $tipo, array $data = []): array
     {   
         $opt = $this->getOptions();
@@ -192,7 +210,7 @@ class PushNotifiers
 
         $data = $this->getTitleAndBodySegunTipo($tipo);
         return [
-            'tipo' => $data['tipo'],
+            'tipo'  => $data['tipo'],
             'title' => $data['title'],
             'body'  => $data['body'],
             'sound' => $data['sound'],
@@ -239,7 +257,7 @@ class PushNotifiers
                     'tipo' => 'pcom',
                     'title' => 'PRUEBA DE COMUNICACIÓN',
                     'body' => 'La comunicación con el Servidor fué exitosa',
-                    'sound' => 'cotizaciones',
+                    'sound' => 'cotizaciones.mp3',
                 ];
                 break;
             case 'resp':
@@ -247,7 +265,15 @@ class PushNotifiers
                     'tipo' => 'resp',
                     'title' => 'RESPUESTAS RECIBIDAS',
                     'body' => 'Haz recibido respuestas para una solicitud de cotización',
-                    'sound' => 'cotizaciones',
+                    'sound' => 'cotizaciones.mp3',
+                ];
+                break;
+            case 'pedi':
+                $content = [
+                    'tipo' => 'pedi',
+                    'title' => 'FELICIDADES HAY PEDIDO',
+                    'body' => 'Un Cliente acaba de comprar REFACCIONES',
+                    'sound' => 'cotizaciones.mp3',
                 ];
                 break;
             default:
