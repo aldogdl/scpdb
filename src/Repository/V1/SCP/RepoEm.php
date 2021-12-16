@@ -177,7 +177,7 @@ class RepoEm
     */
     public function getReposEnProcesoByIdUserFull($idUser) {
 
-        $dql = 'SELECT repo, partial ad.{id}, partial st.{id, nombre, slug}, a, partial mk.{id}, partial md.{id} FROM ' . RepoMain::class . ' repo '.        
+        $dql = 'SELECT repo, partial ad.{id}, partial st.{id, nombre}, a, partial mk.{id}, partial md.{id} FROM ' . RepoMain::class . ' repo '.        
         'join repo.auto a '.
         'left join repo.admin ad '.
         'join repo.status st WITH st.id IN (:idSts) '.
@@ -187,7 +187,7 @@ class RepoEm
         'ORDER BY repo.id DESC';
 
         return $this->em->createQuery($dql)->setParameters([
-            'idSts' => [1,2,3,4,5],
+            'idSts' => [1,2,3,4,5,6,8,9,10],
             'idUser' => $idUser
         ]);
     }
@@ -197,7 +197,7 @@ class RepoEm
     */
     public function getAllPiezasByIdRepo($idRepo) {
 
-        $dql = 'SELECT pzas, partial st.{id} FROM ' . RepoPzas::class .' pzas '.
+        $dql = 'SELECT pzas, partial st.{id, nombre} FROM ' . RepoPzas::class .' pzas '.
         'JOIN pzas.status st '.
         'WHERE pzas.repo = :idRepo';
         return $this->em->createQuery($dql)->setParameter('idRepo', $idRepo);
@@ -208,7 +208,7 @@ class RepoEm
     */
     public function getInfoByIdPiezas($idPieza) {
 
-        $dql = 'SELECT info, sis, cat, partial pza.{id}, partial st.{id} FROM ' . RepoPzaInfo::class .' info '.
+        $dql = 'SELECT info, sis, cat, partial pza.{id}, partial st.{id, nombre} FROM ' . RepoPzaInfo::class .' info '.
         'JOIN info.pzas pza '.
         'JOIN info.status st '.
         'LEFT JOIN info.sistema sis '.
@@ -323,8 +323,8 @@ class RepoEm
      */
     public function crearRepoPizaForCotizar($pieza)
     {
-        $repo= $this->em->find(RepoMain::class, $pieza['repo']);
         $stt = $this->em->find(StatusTypes::class, 2);
+        $repo= $this->em->find(RepoMain::class, $pieza['repo']);
         $pza = null;
 
         if($pieza['id'] != 0) {
@@ -358,7 +358,8 @@ class RepoEm
             $this->em->flush();
             $this->result['body'] = [
                 'id' => $pza->getId(),
-                'status_id' => $stt->getId()
+                'status_id' => $stt->getId(),
+                'status_nom'=> $stt->getNombre()
             ];
         } catch (\Throwable $th) {
             $this->result['abort'] = true;
