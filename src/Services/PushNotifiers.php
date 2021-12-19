@@ -90,6 +90,9 @@ class PushNotifiers
         $repo = $this->getRepoById($idRepo);
         if($repo) {
             $opt['json']['data']['cat_pzas'] = count($repo['pzas']);
+            $opt['json']['data']['statusId'] = $repo['status']['id'];
+            $opt['json']['data']['statusNom'] = $repo['status']['nombre'];
+            
             $tokens = $this->getTokensContacByIdUser($repo['own']);
             $rota = count($tokens);
             for ($i=0; $i < $rota; $i++) { 
