@@ -55,8 +55,12 @@ class PushNotifiers
 
         $opt['json']['registration_ids'] = $this->getTokensSCP($opt['json']['registration_ids']);
         $repo = $this->getRepoById($idRepo);
+
         if($repo) {
             $opt['json']['data']['cat_pzas'] = count($repo['pzas']);
+            $opt['json']['data']['statusId'] = $repo['status']['id'];
+            $opt['json']['data']['statusNom'] = $repo['status']['nombre'];
+
             $tokens = $this->getTokensContacByIdUser($repo['own']);
             $rota = count($tokens);
             for ($i=0; $i < $rota; $i++) {
@@ -65,24 +69,8 @@ class PushNotifiers
                 }
             }
         }
-        return $this->send($opt);
-    }
 
-    ///
-    private function getTokensSCP($tokens): array
-    {
-        $uriTokensEyes = $this->params->get('empTkWorker');
-        $finder = new Finder();
-        $finder->files()->in($uriTokensEyes);
-        if ($finder->hasResults()) {
-            foreach ($finder as $file) {
-                $nt = $file->getContents();
-                if(!in_array($nt, $tokens)) {
-                    $tokens[] = $nt;
-                }
-            }
-        }
-        return $tokens;
+        return $this->send($opt);
     }
 
     /**
@@ -124,7 +112,7 @@ class PushNotifiers
         $opt['json']['notification'] = $this->getNotificationSegunTipo($tipo);
         $opt['json']['data'] = $this->getCargaUtilSegunTipo($tipo);
         $opt['json']['data']['id_repo'] = $idRepo;
-
+        
         $opt['json']['registration_ids'] = $this->getTokensSCP($opt['json']['registration_ids']);
         return $this->send($opt);
     }
@@ -219,6 +207,23 @@ class PushNotifiers
                 break;
         }
         return $seccion;
+    }
+    
+    ///
+    private function getTokensSCP($tokens): array
+    {
+        $uriTokensEyes = $this->params->get('empTkWorker');
+        $finder = new Finder();
+        $finder->files()->in($uriTokensEyes);
+        if ($finder->hasResults()) {
+            foreach ($finder as $file) {
+                $nt = $file->getContents();
+                if(!in_array($nt, $tokens)) {
+                    $tokens[] = $nt;
+                }
+            }
+        }
+        return $tokens;
     }
 
     /** */
