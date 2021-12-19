@@ -88,16 +88,11 @@ class PushNotifiers
                 'body'  => '',
                 'android_channel_id' => '',
                 'sound' => 'cotizaciones.mp3',
-                'click_action' => 'FLUTTER_NOTIFICATION_CLICK'
-            ],
-            'data' => [],
-            'android' => [
-                'ttl' => '0s',
-                'priority' => 'high',
-                'direct_boot_ok' => true,
-                'notification' => [
-                    'title' => '',
-                    'body' => '',
+                'click_action' => 'FLUTTER_NOTIFICATION_CLICK',
+                'android' => [
+                    'ttl' => '0s',
+                    'priority' => 'high',
+                    'direct_boot_ok' => true,
                     'sound' => 'cotizaciones.mp3',
                     'click_action' => 'FLUTTER_NOTIFICATION_CLICK',
                     'channel_id' => '',
@@ -105,6 +100,7 @@ class PushNotifiers
                     'default_vibrate_timings' => true,
                 ]
             ],
+            'data' => [],
             'webpush' => [
                 'fcm_options' => [
                     'link' => ''
@@ -115,16 +111,14 @@ class PushNotifiers
         $deploy = $this->getTitleAndBodySegunTipo($data['tipo']);
         $opt['notification']['title'] = $deploy['title'];
         $opt['notification']['body'] = $deploy['body'];
-        $opt['android']['notification']['title'] = $deploy['title'];
-        $opt['android']['notification']['body']  = $deploy['body'];
+        $opt['notification']['android_channel_id'] = $this->getChannelSegunTipo($data['tipo']);
+        $opt['android']['channel_id'] = $opt['notification']['android_channel_id'];
         $opt['data'] = $data;
         $opt['data']['title'] = $opt['notification']['title'];
         if(!array_key_exists('body', $data)) {
             $opt['data']['body'] = $opt['notification']['body'];
         }
 
-        $opt['notification']['android_channel_id'] = $this->getChannelSegunTipo($data['tipo']);
-        $opt['android']['notification']['channel_id'] = $opt['notification']['android_channel_id'];
 
         if( array_key_exists('id_repo', $data)) {
             $opt['name'] = $data['id_repo'];
