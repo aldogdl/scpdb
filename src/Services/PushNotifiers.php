@@ -305,7 +305,7 @@ class PushNotifiers
                 'Content-Type' => 'application/json',
                 'Authorization' => 'Bearer ' . $this->key,
             ],
-            'json' => ['message' => $opt]
+            'json' => $opt
         ];
 
         $response = $this->client->request('POST', $this->urlPush, $dataSend);
