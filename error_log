@@ -1,0 +1,688 @@
+[11-Dec-2021 22:53:14 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[11-Dec-2021 22:53:16 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //blog/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[11-Dec-2021 22:53:17 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //web/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[11-Dec-2021 22:53:17 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wordpress/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[11-Dec-2021 22:53:18 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //website/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[11-Dec-2021 22:53:18 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[11-Dec-2021 22:53:19 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //news/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[11-Dec-2021 22:53:19 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //2020/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[11-Dec-2021 22:53:20 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //2019/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[11-Dec-2021 22:53:20 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //shop/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[11-Dec-2021 22:53:21 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp1/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[11-Dec-2021 22:53:21 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //test/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[11-Dec-2021 22:53:22 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp2/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[11-Dec-2021 22:53:22 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //site/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[11-Dec-2021 22:53:23 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //cms/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[11-Dec-2021 22:53:24 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //sito/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 01:26:59 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /robots.txt"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 04:21:08 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 04:21:10 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //blog/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 04:21:11 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //web/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 04:21:12 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wordpress/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 04:21:12 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //website/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 04:21:13 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 04:21:13 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //news/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 04:21:14 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //2018/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 04:21:15 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //2019/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 04:21:15 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //shop/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 04:21:16 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp1/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 04:21:16 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //test/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 04:21:17 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //media/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 04:21:18 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp2/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 04:21:18 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //site/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 04:21:19 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //cms/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 04:21:19 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //sito/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 06:34:25 America/Mexico_City] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home2/autoparn/src/Controller/Api/FireWalls/Admin/AutoparNet/PushesController.php on line 118
+[12-Dec-2021 10:14:28 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /flutter_service_worker.js" (from "https://autoparnet.com/taller/")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 10:14:28 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /favicon.ico" (from "https://autoparnet.com/taller/")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 10:55:40 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /flutter_service_worker.js" (from "https://autoparnet.com/taller/")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 10:55:40 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /favicon.ico" (from "https://autoparnet.com/taller/")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 12:00:43 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /flutter_service_worker.js" (from "https://autoparnet.com/taller/")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 12:07:33 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /taller/images/login_app/1639332275679.jpg" (from "https://autoparnet.com/taller/")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 12:07:47 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /taller/images/login_app/1639332210891.jpg" (from "https://autoparnet.com/taller/")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 12:09:00 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /flutter_service_worker.js" (from "https://autoparnet.com/taller/")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 12:47:32 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /taller/images/login_app/1639332275679.jpg" (from "http://localhost:62818/")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 12:47:41 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /taller/images/login_app/1639332210891.jpg" (from "http://localhost:62818/")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 13:02:36 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /taller/taller/pictures/cotizadas/34/3/1639332275679.jpg" (from "http://localhost:62818/")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 13:03:40 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /taller/taller/pictures/cotizadas/34/3/1639332275679.jpg" (from "http://localhost:62818/")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 14:26:39 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 14:26:41 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //blog/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 14:26:41 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //web/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 14:26:42 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wordpress/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 14:26:42 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //website/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 14:26:43 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 14:26:43 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //news/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 14:26:44 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //2020/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 14:26:44 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //2019/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 14:26:45 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //shop/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 14:26:45 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp1/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 14:26:46 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //test/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 14:26:47 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp2/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 14:26:47 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //site/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 14:26:48 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //cms/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 14:26:48 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //sito/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 14:40:38 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /flutter_service_worker.js" (from "https://autoparnet.com/taller/")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 14:40:38 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /favicon.ico" (from "https://autoparnet.com/taller/")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 17:14:56 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 17:14:58 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //blog/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 17:14:59 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //web/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 17:14:59 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wordpress/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 17:15:00 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //website/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 17:15:00 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 17:15:01 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //news/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 17:15:01 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //2018/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 17:15:02 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //2019/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 17:15:03 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //shop/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 17:15:03 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp1/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 17:15:04 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //test/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 17:15:04 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //media/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 17:15:05 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp2/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 17:15:06 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //site/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 17:15:06 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //cms/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 17:15:07 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //sito/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 19:49:49 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /flutter_service_worker.js" (from "https://autoparnet.com/taller/")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 19:49:49 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /favicon.ico" (from "https://autoparnet.com/taller/")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 19:56:09 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /flutter_service_worker.js" (from "https://autoparnet.com/taller/")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[12-Dec-2021 20:08:43 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /taller/pictures/to_cotizar/1/isMap::/data/user/0/com.autoparnet.taller_appcli/cache/1639360454606.jpg::1639360454606.jpg"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 00:05:13 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /robots.txt" (from "http://autoparnet.com/robots.txt")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 00:05:14 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /humans.txt" (from "http://autoparnet.com/humans.txt")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 00:05:15 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /ads.txt" (from "http://autoparnet.com/ads.txt")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 04:22:22 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /aaa9"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 05:19:20 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 05:19:21 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //blog/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 05:19:21 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //web/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 05:19:22 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wordpress/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 05:19:22 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //website/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 05:19:23 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 05:19:23 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //news/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 05:19:23 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //2020/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 05:19:24 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //2019/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 05:19:24 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //shop/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 05:19:24 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp1/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 05:19:25 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //test/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 05:19:25 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp2/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 05:19:26 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //site/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 05:19:26 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //cms/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 05:19:26 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //sito/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 08:08:01 America/Mexico_City] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home2/autoparn/src/Controller/Api/FireWalls/Admin/AutoparNet/PushesController.php on line 118
+[13-Dec-2021 08:58:08 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /api/firewalls/autoparnet/pushes/v1/send-push-pedido/1"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 08:59:31 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /api/firewalls/autoparnet/pushes/v1/send-push-pedido/1"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 09:10:25 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /api/firewalls/autoparnet/pushes/v1/send-push-pedido/1"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 13:42:31 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /flutter_service_worker.js" (from "https://autoparnet.com/eyes/")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 13:42:31 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /favicon.ico" (from "https://autoparnet.com/eyes/")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 14:00:05 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /flutter_service_worker.js" (from "https://autoparnet.com/eyes/")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 14:21:01 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /favicon.ico" (from "https://autoparnet.com/eyes/")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 14:21:01 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /flutter_service_worker.js" (from "https://autoparnet.com/eyes/")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 14:50:51 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /flutter_service_worker.js" (from "https://autoparnet.com/taller/")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 16:36:46 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /taller/pictures/to_cotizar/1/isMap::/data/user/0/com.autoparnet.taller_appcli/cache/scaled_image_picker8973764536030827843.jpg::scaled_image_picker8973764536030827843.jpg"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 16:36:46 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /taller/pictures/to_cotizar/1/isMap::/data/user/0/com.autoparnet.taller_appcli/cache/scaled_image_picker6490709042082912841.jpg::scaled_image_picker6490709042082912841.jpg"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 16:37:36 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /taller/pictures/to_cotizar/1/isMap::/data/user/0/com.autoparnet.taller_appcli/cache/scaled_image_picker6490709042082912841.jpg::scaled_image_picker6490709042082912841.jpg"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 16:37:36 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /taller/pictures/to_cotizar/1/isMap::/data/user/0/com.autoparnet.taller_appcli/cache/scaled_image_picker8973764536030827843.jpg::scaled_image_picker8973764536030827843.jpg"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 16:47:45 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /taller/pictures/to_cotizar/3/isMap::/data/user/0/com.autoparnet.taller_appcli/cache/scaled_image_picker7792399059950776641.jpg::scaled_image_picker7792399059950776641.jpg"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 16:48:09 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /taller/pictures/to_cotizar/3/isMap::/data/user/0/com.autoparnet.taller_appcli/cache/scaled_image_picker7792399059950776641.jpg::scaled_image_picker7792399059950776641.jpg"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 17:04:53 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 17:04:54 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //blog/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 17:04:54 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //web/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 17:04:55 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wordpress/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 17:04:55 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //website/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 17:04:56 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 17:04:56 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //news/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 17:04:57 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //2020/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 17:04:57 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //2019/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 17:04:58 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //shop/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 17:04:58 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp1/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 17:04:59 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //test/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 17:04:59 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp2/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 17:05:00 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //site/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 17:05:00 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //cms/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[13-Dec-2021 17:05:01 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //sito/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 09:33:32 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 09:33:34 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //blog/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 09:33:34 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //web/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 09:33:35 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wordpress/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 09:33:35 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //website/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 09:33:36 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 09:33:37 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //news/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 09:33:37 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //2018/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 09:33:38 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //2019/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 09:33:38 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //shop/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 09:33:39 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp1/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 09:33:40 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //test/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 09:33:40 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //media/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 09:33:41 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp2/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 09:33:41 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //site/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 09:33:42 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //cms/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 09:33:42 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //sito/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 10:38:16 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /flutter_service_worker.js" (from "https://autoparnet.com/eyes/")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 10:40:30 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /flutter_service_worker.js" (from "https://autoparnet.com/eyes/")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 10:51:08 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /flutter_service_worker.js" (from "https://autoparnet.com/taller/")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 11:34:32 America/Mexico_City] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home2/autoparn/src/Controller/Api/FireWalls/Admin/AutoparNet/PushesController.php on line 142
+[14-Dec-2021 12:40:15 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /favicon.ico" (from "https://autoparnet.com/")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 15:23:39 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 15:23:41 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //blog/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 15:23:42 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //web/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 15:23:42 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wordpress/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 15:23:43 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //website/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 15:23:43 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 15:23:44 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //news/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 15:23:45 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //2020/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 15:23:46 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //2019/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 15:23:46 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //shop/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 15:23:47 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp1/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 15:23:48 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //test/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 15:23:48 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp2/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 15:23:49 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //site/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 15:23:49 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //cms/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[14-Dec-2021 15:23:50 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //sito/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 07:16:06 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 07:16:08 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //blog/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 07:16:09 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //web/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 07:16:10 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wordpress/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 07:16:10 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //website/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 07:16:11 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 07:16:11 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //news/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 07:16:12 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //2020/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 07:16:12 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //2019/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 07:16:13 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //shop/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 07:16:13 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp1/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 07:16:14 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //test/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 07:16:15 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp2/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 07:16:15 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //site/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 07:16:16 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //cms/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 07:16:16 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //sito/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 08:18:52 America/Mexico_City] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home2/autoparn/src/Controller/Api/FireWalls/Admin/AutoparNet/PushesController.php on line 142
+[15-Dec-2021 10:01:50 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 10:01:52 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //blog/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 10:01:52 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //web/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 10:01:53 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wordpress/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 10:01:53 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //website/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 10:01:54 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 10:01:55 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //news/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 10:01:55 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //2018/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 10:01:56 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //2019/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 10:01:56 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //shop/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 10:01:57 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp1/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 10:01:58 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //test/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 10:01:58 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //media/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 10:01:59 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp2/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 10:01:59 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //site/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 10:02:00 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //cms/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 10:02:01 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //sito/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 12:16:06 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /robots.txt"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 12:16:18 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /robots.txt"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 12:16:19 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /robots.txt"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 16:45:23 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /robots.txt"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 16:45:23 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /sitemap.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[15-Dec-2021 16:45:25 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /ads.txt"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[16-Dec-2021 06:31:46 America/Mexico_City] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home2/autoparn/src/Controller/Api/FireWalls/Admin/AutoparNet/PushesController.php on line 142
+[16-Dec-2021 09:20:29 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[16-Dec-2021 09:20:30 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //blog/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[16-Dec-2021 09:20:31 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //web/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[16-Dec-2021 09:20:31 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wordpress/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[16-Dec-2021 09:20:32 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //website/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[16-Dec-2021 09:20:32 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[16-Dec-2021 09:20:33 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //news/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[16-Dec-2021 09:20:33 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //2018/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[16-Dec-2021 09:20:33 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //2019/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[16-Dec-2021 09:20:34 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //shop/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[16-Dec-2021 09:20:34 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp1/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[16-Dec-2021 09:20:35 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //test/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[16-Dec-2021 09:20:35 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //media/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[16-Dec-2021 09:20:36 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp2/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[16-Dec-2021 09:20:36 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //site/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[16-Dec-2021 09:20:37 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //cms/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[16-Dec-2021 09:20:37 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //sito/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[17-Dec-2021 06:52:29 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /wp-admin/setup-config.php"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[17-Dec-2021 08:53:39 America/Mexico_City] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home2/autoparn/src/Controller/Api/FireWalls/Admin/AutoparNet/PushesController.php on line 142
+[17-Dec-2021 09:10:57 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /favicon.ico" (from "http://autoparnet.com/favicon.ico")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[17-Dec-2021 09:12:52 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /favicon.ico"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[17-Dec-2021 09:31:43 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[17-Dec-2021 09:31:44 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //blog/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[17-Dec-2021 09:31:45 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //web/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[17-Dec-2021 09:31:46 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wordpress/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[17-Dec-2021 09:31:46 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //website/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[17-Dec-2021 09:31:47 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[17-Dec-2021 09:31:47 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //news/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[17-Dec-2021 09:31:48 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //2020/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[17-Dec-2021 09:31:48 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //2019/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[17-Dec-2021 09:31:49 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //shop/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[17-Dec-2021 09:31:49 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp1/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[17-Dec-2021 09:31:50 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //test/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[17-Dec-2021 09:31:50 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp2/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[17-Dec-2021 09:31:51 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //site/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[17-Dec-2021 09:31:52 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //cms/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[17-Dec-2021 09:31:52 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //sito/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[17-Dec-2021 12:55:38 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /taller/pictures/to_cotizar/1/isMap::blob:http://localhost:55202/ecd5eac7-54af-456b-8a85-8ef29c3cb134::" (from "http://localhost:55202/")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[17-Dec-2021 14:20:53 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /taller/pictures/to_cotizar/1/isMap::blob:http://localhost:57735/f8400c65-7054-46ab-9108-11c4398befb4::scaled_53904103-piezas-de-autom%C3%B3viles-en-la-caja-de-cart%C3%B3n-tienda-de-la-cesta-de-la-automoci%C3%B3n-tienda-de-auto-partes.jpg" (from "http://localhost:57735/")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 01:16:26 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /robots.txt"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 09:02:09 America/Mexico_City] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home2/autoparn/src/Controller/Api/FireWalls/Admin/AutoparNet/PushesController.php on line 142
+[18-Dec-2021 09:40:15 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /favicon.ico"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 09:41:17 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /favicon.ico" (from "http://autoparnet.com/favicon.ico")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 11:56:12 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 11:56:14 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //blog/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 11:56:14 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //web/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 11:56:15 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wordpress/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 11:56:15 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //website/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 11:56:16 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 11:56:16 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //news/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 11:56:17 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //2020/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 11:56:17 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //2019/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 11:56:18 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //shop/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 11:56:18 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp1/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 11:56:19 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //test/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 11:56:19 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp2/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 11:56:20 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //site/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 11:56:20 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //cms/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 11:56:21 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //sito/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 15:45:21 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /flutter_service_worker.js" (from "https://autoparnet.com/taller/")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 15:45:21 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /favicon.ico" (from "https://autoparnet.com/taller/")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 15:45:56 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /flutter_service_worker.js" (from "https://autoparnet.com/eyes/")" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 19:49:57 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 19:49:58 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //blog/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 19:49:59 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //web/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 19:49:59 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wordpress/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 19:50:00 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //website/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 19:50:00 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 19:50:01 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //news/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 19:50:02 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //2020/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 19:50:02 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //2019/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 19:50:03 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //shop/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 19:50:03 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp1/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 19:50:04 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //test/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 19:50:04 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp2/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 19:50:05 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //site/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 19:50:06 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //cms/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 19:50:06 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //sito/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 23:32:22 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 23:32:23 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //blog/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 23:32:23 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //web/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 23:32:23 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wordpress/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 23:32:24 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //website/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 23:32:24 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 23:32:25 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //news/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 23:32:25 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //2018/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 23:32:25 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //2019/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 23:32:26 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //shop/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 23:32:26 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp1/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 23:32:27 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //test/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 23:32:27 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //media/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 23:32:28 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp2/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 23:32:28 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //site/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 23:32:28 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //cms/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[18-Dec-2021 23:32:29 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //sito/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[19-Dec-2021 06:58:19 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[19-Dec-2021 06:58:21 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //blog/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[19-Dec-2021 06:58:21 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //web/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[19-Dec-2021 06:58:22 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wordpress/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[19-Dec-2021 06:58:22 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //website/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[19-Dec-2021 06:58:23 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[19-Dec-2021 06:58:23 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //news/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[19-Dec-2021 06:58:24 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //2020/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[19-Dec-2021 06:58:25 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //2019/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[19-Dec-2021 06:58:25 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //shop/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[19-Dec-2021 06:58:26 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp1/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[19-Dec-2021 06:58:26 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //test/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[19-Dec-2021 06:58:27 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp2/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[19-Dec-2021 06:58:27 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //site/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[19-Dec-2021 06:58:28 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //cms/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[19-Dec-2021 06:58:28 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //sito/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[19-Dec-2021 07:05:51 America/Mexico_City] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home2/autoparn/src/Controller/Api/FireWalls/Admin/AutoparNet/PushesController.php on line 142
+[19-Dec-2021 07:57:03 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[19-Dec-2021 07:57:05 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //blog/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[19-Dec-2021 07:57:06 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //web/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[19-Dec-2021 07:57:06 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wordpress/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[19-Dec-2021 07:57:07 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //website/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[19-Dec-2021 07:57:07 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[19-Dec-2021 07:57:08 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //news/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[19-Dec-2021 07:57:08 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //2020/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[19-Dec-2021 07:57:09 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //2019/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[19-Dec-2021 07:57:10 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //shop/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[19-Dec-2021 07:57:10 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp1/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[19-Dec-2021 07:57:11 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //test/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[19-Dec-2021 07:57:11 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //wp2/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[19-Dec-2021 07:57:12 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //site/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[19-Dec-2021 07:57:13 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //cms/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[19-Dec-2021 07:57:13 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET //sito/wp-includes/wlwmanifest.xml"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[19-Dec-2021 09:36:35 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /favicon.ico"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[19-Dec-2021 11:04:59 America/Mexico_City] [critical] Uncaught PHP Exception Doctrine\Persistence\Mapping\MappingException: "The class 'Doctrine\ORM\PersistentCollection' was not found in the chain configured namespaces App\Entity" at /home2/autoparn/vendor/doctrine/persistence/lib/Doctrine/Persistence/Mapping/MappingException.php line 23
+
+[19-Dec-2021 11:06:58 America/Mexico_City] [critical] Uncaught PHP Exception Doctrine\Persistence\Mapping\MappingException: "The class 'Doctrine\ORM\PersistentCollection' was not found in the chain configured namespaces App\Entity" at /home2/autoparn/vendor/doctrine/persistence/lib/Doctrine/Persistence/Mapping/MappingException.php line 23
+

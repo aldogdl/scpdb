@@ -172,17 +172,36 @@ class RepoEmCotz extends RepoEm
             $repo = $result[0];
             $result = null;
             $cantPiezas = count($repo->getPzas());
-            for ($i=0; $i < $cantPiezas; $i++) { 
+
+            $idsPiezasEditar = [];
+            for ($i=0; $i < $cantPiezas; $i++) {
                 $cantResp = count($repo->getPzas()[$i]->getInfo());
                 if($cantResp > 0) {
+                    $idsAEditar = [];
                     $cantRespondidas = $cantRespondidas +1;
                     for ($r=0; $r < $cantResp; $r++) { 
-                        $repo->getPzas()[$i]->getInfo()[$r]->setStatus($status);
-                        $this->em->persist($repo->getPzas()[$i]->getInfo());
+                        $idsAEditar[] = $repo->getPzas()[$i]->getInfo()[$r]->getId();
                     }
-                    $repo->getPzas()[$i]->setStatus($status);
-                    $this->em->persist($repo->getPzas());
+
+                    if(count($idsAEditar) > 0) {
+                        $dql = 'UPDATE ' . RepoPzaInfo::class . ' infs ' .
+                        'SET infs.status = :newStatus '.
+                        'WHERE infs.id IN (:ids)';
+                        $this->em->createQuery($dql)->setParameters([
+                            'newStatus' => $status, 'ids' => $idsAEditar
+                        ])->execute();
+                    }
+                    $idsPiezasEditar[] = $repo->getPzas()[$i]->getId();
                 }
+            }
+
+            if($idsPiezasEditar) {
+                $dql = 'UPDATE ' . RepoPzas::class . ' pzas ' .
+                'SET pzas.status = :newStatus '.
+                'WHERE pzas.id IN (:ids)';
+                $this->em->createQuery($dql)->setParameters([
+                    'newStatus' => $status, 'ids' => $idsPiezasEditar
+                ])->execute();
             }
             if($cantPiezas == $cantRespondidas) {
                 $repo->setStatus($status);
