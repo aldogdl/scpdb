@@ -156,18 +156,39 @@ class RepoEmCotz extends RepoEm
     {
         // Status 4 => piezas con respuestas creadas pero no enviadas
         // Status 5 => Respuestas enviadas al cliente
-        $status = $this->em->getPartialReference(StatusTypes::class, 5);
-        $dbs = [RepoPzas::class, RepoPzaInfo::class];
-        
-        for ($i=0; $i < 2; $i++) {
+        $idStatus = 5;
 
-            $dql = 'UPDATE ' . $dbs[$i] . ' item '.
-            'SET item.status = :cinco '.
-            'WHERE item.repo = :repo AND item.status = :cuatro';
+        $status = $this->em->getPartialReference(StatusTypes::class, $idStatus);
+        $dql = 'SELECT main, pzs, inf, sts FROM ' . RepoMain::class . ' main '.
+        'JOIN main.pzas pzs '.
+        'JOIN main.status sts '.
+        'LEFT JOIN pzs.info inf '.
+        'WHERE main.id = :idMain';
 
-            $this->em->createQuery($dql)->setParameters([
-                'cinco' => $status, 'repo' => $idMain, 'cuatro'=> '4'
-            ])->execute();
+        $result = $this->em->createQuery($dql)->setParameter('idMain', $idMain)->execute();
+        $cantPiezas = 0;
+        $cantRespondidas = 0;
+        if($result) {
+            $repo = $result[0];
+            $result = null;
+            $cantPiezas = count($repo->getPzas());
+            for ($i=0; $i < $cantPiezas; $i++) { 
+                $cantResp = count($repo->getPzas()[$i]->getInfo());
+                if($cantResp > 0) {
+                    $cantRespondidas = $cantRespondidas +1;
+                    for ($r=0; $r < $cantResp; $r++) { 
+                        $repo->getPzas()[$i]->getInfo()[$r]->setStatus($status);
+                        $this->em->persist($repo->getPzas()[$i]->getInfo());
+                    }
+                    $repo->getPzas()[$i]->setStatus($status);
+                    $this->em->persist($repo->getPzas());
+                }
+            }
+            if($cantPiezas == $cantRespondidas) {
+                $repo->setStatus($status);
+                $this->em->persist($repo);
+            }
+            $this->em->flush();
         }
     }
 

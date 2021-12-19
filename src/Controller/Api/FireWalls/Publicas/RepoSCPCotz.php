@@ -318,7 +318,6 @@ class RepoSCPCotz extends AbstractFOSRestController
      * @Rest\Get("send-push-respuesta/{infMeta}/")
      * 
      * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
-     * @Rest\RequestParam(name="idRepo", requirements="\d+", default="1", description="El id Repo main")
     */
     public function sendPushRespuestas($apiVer, $infMeta)
     {
