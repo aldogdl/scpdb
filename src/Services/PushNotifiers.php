@@ -29,15 +29,8 @@ class PushNotifiers
     */
     public function notificarNewSolicitud($idRepo): array
     {   
-        $tipo = 'sol';
-        $opt = $this->getOptions();
-        $opt['json']['android_channel_id'] = $this->getChannelSegunTipo($tipo);
-        $opt['json']['notification'] = $this->getNotificationSegunTipo($tipo);
-        $opt['json']['data'] = $this->getCargaUtilSegunTipo($tipo);
-        $opt['json']['data']['id_repo'] = $idRepo;
-
-        $opt['json']['registration_ids'] = $this->getTokensSCP($opt['json']['registration_ids']);
-
+        $data = ['tipo' => 'sol', 'id_repo' => $idRepo];
+        $opt = $this->getOptions($data);
         return $this->send($opt);
     }
 
@@ -46,30 +39,8 @@ class PushNotifiers
     */
     public function notificarSolicitudTomada($idRepo): array
     {   
-        $tipo = 'take_sol';
-        $opt = $this->getOptions();
-        $opt['json']['android_channel_id'] = $this->getChannelSegunTipo($tipo);
-        $opt['json']['notification'] = $this->getNotificationSegunTipo($tipo);
-        $opt['json']['data'] = $this->getCargaUtilSegunTipo($tipo);
-        $opt['json']['data']['id_repo'] = $idRepo;
-
-        $opt['json']['registration_ids'] = $this->getTokensSCP($opt['json']['registration_ids']);
-        $repo = $this->getRepoById($idRepo);
-
-        if($repo) {
-            $opt['json']['data']['cat_pzas'] = count($repo['pzas']);
-            $opt['json']['data']['statusId'] = $repo['status']['id'];
-            $opt['json']['data']['statusNom'] = $repo['status']['nombre'];
-
-            $tokens = $this->getTokensContacByIdUser($repo['own']);
-            $rota = count($tokens);
-            for ($i=0; $i < $rota; $i++) {
-                if(!in_array($tokens[$i], $opt['json']['registration_ids'])) {
-                    $opt['json']['registration_ids'][] = $tokens[$i];
-                }
-            }
-        }
-
+        $data = ['tipo' => 'take_sol', 'id_repo' => $idRepo];
+        $opt = $this->getOptions($data);
         return $this->send($opt);
     }
 
@@ -78,29 +49,8 @@ class PushNotifiers
     */
     public function notificarRespuestas($idRepo, $infoBody): array
     {   
-        $tipo = 'resp';
-        $opt = $this->getOptions();
-        $opt['json']['android_channel_id'] = $this->getChannelSegunTipo($tipo);
-        $opt['json']['notification'] = $this->getNotificationSegunTipo($tipo);
-        $opt['json']['data'] = $this->getCargaUtilSegunTipo($tipo);
-        $opt['json']['data']['id_repo'] = $idRepo;
-        $opt['json']['data']['body'] = $infoBody;
-
-        $opt['json']['registration_ids'] = $this->getTokensSCP($opt['json']['registration_ids']);
-        $repo = $this->getRepoById($idRepo);
-        if($repo) {
-            $opt['json']['data']['cat_pzas'] = count($repo['pzas']);
-            $opt['json']['data']['statusId'] = $repo['status']['id'];
-            $opt['json']['data']['statusNom'] = $repo['status']['nombre'];
-            
-            $tokens = $this->getTokensContacByIdUser($repo['own']);
-            $rota = count($tokens);
-            for ($i=0; $i < $rota; $i++) { 
-                if(!in_array($tokens[$i], $opt['json']['registration_ids'])) {
-                    $opt['json']['registration_ids'][] = $tokens[$i];
-                }
-            }
-        }
+        $data = ['tipo' => 'resp', 'id_repo' => $idRepo, 'body' => $infoBody];
+        $opt = $this->getOptions($data);
         return $this->send($opt);
     }
 
@@ -109,14 +59,8 @@ class PushNotifiers
     */
     public function notificarLeidaPorElCliente($idRepo): array
     {   
-        $tipo = 'leida';
-        $opt = $this->getOptions();
-        $opt['json']['android_channel_id'] = $this->getChannelSegunTipo($tipo);
-        $opt['json']['notification'] = $this->getNotificationSegunTipo($tipo);
-        $opt['json']['data'] = $this->getCargaUtilSegunTipo($tipo);
-        $opt['json']['data']['id_repo'] = $idRepo;
-        
-        $opt['json']['registration_ids'] = $this->getTokensSCP($opt['json']['registration_ids']);
+        $data = ['tipo' => 'leida', 'id_repo' => $idRepo];
+        $opt = $this->getOptions($data);
         return $this->send($opt);
     }
 
@@ -125,76 +69,107 @@ class PushNotifiers
     */
     public function notificarPedido($idRepo): array
     {   
-        $tipo = 'pedi';
-        $opt = $this->getOptions();
-        $opt['json']['android_channel_id'] = $this->getChannelSegunTipo($tipo);
-        $opt['json']['notification'] = $this->getNotificationSegunTipo($tipo);
-        $opt['json']['data'] = $this->getCargaUtilSegunTipo($tipo);
-        $opt['json']['data']['id_repo'] = $idRepo;
-
-        $opt['json']['registration_ids'] = $this->getTokensSCP($opt['json']['registration_ids']);
-        return $this->send($opt);
-    }
-
-    /**
-     * Pruebas de comunicacion hacia el Id del usuario
-    */
-    public function sendPushTestTo($idUser): array
-    {   
-        $tipo = 'pcom';
-        $opt = $this->getOptions();
-        $opt['json']['android_channel_id'] = $this->getChannelSegunTipo($tipo);
-        $opt['json']['notification'] = $this->getNotificationSegunTipo($tipo);
-        $opt['json']['data'] = $this->getCargaUtilSegunTipo($tipo);
-
-        $tokens = $this->getTokensContacByIdUser($idUser);
-        $rota = count($tokens);
-        for ($i=0; $i < $rota; $i++) {
-            if(!in_array($tokens[$i], $opt['json']['registration_ids'])) {
-                $opt['json']['registration_ids'][] = $tokens[$i];
-            }
-        }
-        return $this->send($opt);
-    }
-
-    /**
-     * Sin uso, creo, analizar para borrar
-    */
-    public function sendPushTo($token, string $tipo, array $data = []): array
-    {   
-        $opt = $this->getOptions();
-
-        $opt['json']['registration_ids'] = is_array($token) ? $token : [$token];
-        $opt['json']['android_channel_id'] = $this->getChannelSegunTipo($tipo);
-        $opt['json']['notification'] = $this->getTitleAndBodySegunTipo($tipo);
-        $data['tipo'] = $tipo;
-        $data['click_action'] = 'FLUTTER_NOTIFICATION_CLICK';
-        $opt['json']['data'] = $data;
-
+        $data = ['tipo' => 'pedi', 'id_repo' => $idRepo];
+        $opt = $this->getOptions($data);
         return $this->send($opt);
     }
 
     /** */
-    private function getOptions(): array {
+    private function getOptions(array $data): array {
 
         // time_to_live => 172800 (segundos) son 48 horas de vida
-        return [
-            'headers' => [
-                'Accept' => 'application/json',
-                'Content-Type' => 'application/json',
-                'Authorization' => 'Bearer ' . $this->key,
+        $opc = [
+            'name' => '',
+            'registration_ids' => [],
+            'priority' => 'high',
+            'time_to_live' => 172800,
+            'notification' => [
+                'title' => '',
+                'body'  => '',
+                'android_channel_id' => '',
+                'sound' => 'cotizaciones.mp3',
+                'click_action' => 'FLUTTER_NOTIFICATION_CLICK'
             ],
-            'json' => [
-                'registration_ids' => [],
-                'direct_boot_ok' => true,
-                'android_channel_id' => 'autoparnet_push',
+            'data' => [],
+            'android' => [
+                'ttl' => '0s',
                 'priority' => 'high',
-                'time_to_live' => 172800,
-                'android' => [
-                    'priority' => 'high',
-                ],
+                'direct_boot_ok' => true,
+                'notification' => [
+                    'title' => '',
+                    'body' => '',
+                    'sound' => 'cotizaciones.mp3',
+                    'click_action' => 'FLUTTER_NOTIFICATION_CLICK',
+                    'channel_id' => '',
+                    'notification_priority' => 'PRIORITY_HIGH',
+                    'default_vibrate_timings' => true,
+                ]
             ],
+            'webpush' => [
+                'fcm_options' => [
+                    'link' => ''
+                ],
+            ]
         ];
+
+        $deploy = $this->getTitleAndBodySegunTipo($data['tipo']);
+        $opt['notification']['title'] = $deploy['title'];
+        $opt['notification']['body'] = $deploy['body'];
+        $opt['android']['notification']['title'] = $deploy['title'];
+        $opt['android']['notification']['body']  = $deploy['body'];
+        $opt['data'] = $data;
+        $opt['notification']['android_channel_id'] = $this->getChannelSegunTipo($data['tipo']);
+        $opt['android']['notification']['channel_id'] = $opt['notification']['android_channel_id'];
+
+        if( array_key_exists('id_repo', $data)) {
+            $opt['name'] = $data['id_repo'];
+        }else{
+            $opt['name'] = 'autoparnet';
+        }
+
+        switch ($data['tipo']) {
+            case 'sol':
+                $opt['registration_ids'] = $this->getTokensSCP($opt['registration_ids']);
+                break;
+            case 'leida':
+                $opt['registration_ids'] = $this->getTokensSCP($opt['registration_ids']);
+                break;
+            case 'pedi':
+                $opt['registration_ids'] = $this->getTokensSCP($opt['registration_ids']);
+                break;
+            case 'take_sol':
+                $opt = $this->getTokensSCPandContact($data['id_repo'], $opt);
+                break;
+            case 'resp':
+                $opt = $this->getTokensSCPandContact($data['id_repo'], $opt);
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+
+        return $opt;
+    }
+
+    ///
+    private function getTokensSCPandContact($idMain, $opt): array{
+
+        $repo = $this->getRepoById($idMain);
+        if($repo) {
+            $opt['data']['cat_pzas'] = count($repo['pzas']);
+            $opt['data']['statusId'] = $repo['status']['id'];
+            $opt['data']['statusNom'] = $repo['status']['nombre'];
+            $tokens = $this->getTokensContacByIdUser($repo['own']);
+            $rota = count($tokens);
+            for ($i=0; $i < $rota; $i++) {
+                if(!in_array($tokens[$i], $opt['registration_ids'])) {
+                    $opt['registration_ids'][] = $tokens[$i];
+                }
+            }
+        }
+        $opt['registration_ids'] = $this->getTokensSCP($opt['registration_ids']);
+        return $opt;
     }
 
     ///
@@ -229,32 +204,6 @@ class PushNotifiers
         return $tokens;
     }
 
-    /** */
-    private function getCargaUtilSegunTipo($tipo) {
-
-        $data = $this->getTitleAndBodySegunTipo($tipo);
-        return [
-            'tipo'  => $data['tipo'],
-            'title' => $data['title'],
-            'body'  => $data['body'],
-            'sound' => $data['sound'],
-            'ttl'   => 0,
-            'click_action' => 'FLUTTER_NOTIFICATION_CLICK'
-        ];
-    }
-
-    /** */
-    private function getNotificationSegunTipo($tipo) {
-
-        $data = $this->getTitleAndBodySegunTipo($tipo);
-        return [
-            'title' => $data['title'],
-            'body'  => $data['body'],
-            'sound' => $data['sound'],
-            'click_action' => 'FLUTTER_NOTIFICATION_CLICK'
-        ];
-    }
-
     ///
     public function getTitleAndBodySegunTipo($tipo) : array
     {
@@ -262,50 +211,38 @@ class PushNotifiers
         switch ($tipo) {
             case 'sol':
                 $content = [
-                    'tipo' => 'sol',
                     'title' => 'SOLICITUD DE COTIZACIÓN',
                     'body' => 'Oportunidad de Venta, un Cliente esta solicitando una nueva cotización de Autopartes',
-                    'sound' => '',
                 ];
                 break;
             case 'take_sol':
                 $content = [
-                    'tipo' => 'take_sol',
                     'title' => 'SOLICITUD ATENDIDA',
                     'body' => 'La solicitud ya fué tomada por el SCP',
-                    'sound' => '',
                 ];
                 break;
             case 'pcom':
                 $content = [
-                    'tipo' => 'pcom',
                     'title' => 'PRUEBA DE COMUNICACIÓN',
                     'body' => 'La comunicación con el Servidor fué exitosa',
-                    'sound' => 'cotizaciones.mp3',
                 ];
                 break;
             case 'resp':
                 $content = [
-                    'tipo' => 'resp',
                     'title' => 'RESPUESTAS RECIBIDAS',
                     'body' => 'Haz recibido respuestas para una solicitud de cotización',
-                    'sound' => 'cotizaciones.mp3',
                 ];
                 break;
             case 'leida':
                 $content = [
-                    'tipo' => 'leida',
                     'title' => 'RESPUESTA LEIDA',
                     'body' => 'El Cliente acaba de leer las respuestas',
-                    'sound' => 'cotizaciones.mp3',
                 ];
                 break;
             case 'pedi':
                 $content = [
-                    'tipo' => 'pedi',
                     'title' => 'FELICIDADES HAY PEDIDO',
                     'body' => 'Un Cliente acaba de comprar REFACCIONES',
-                    'sound' => 'cotizaciones.mp3',
                 ];
                 break;
             default:
@@ -313,16 +250,57 @@ class PushNotifiers
                     'tipo' => '...',
                     'title' => 'SIN CLASIFICAR',
                     'body' => 'No se encontró el tipo de Notificación',
-                    'sound' => '',
                 ];
                 break;
         }
         return $content;
     }
 
+    /**
+     * Sin uso, creo, analizar para borrar
+    */
+    public function sendPushTo($token, string $tipo, array $data = []): array
+    {   
+        $opt = [];
+
+        $opt['json']['registration_ids'] = is_array($token) ? $token : [$token];
+        $opt['json']['android_channel_id'] = $this->getChannelSegunTipo($tipo);
+        $opt['json']['notification'] = $this->getTitleAndBodySegunTipo($tipo);
+        $data['tipo'] = $tipo;
+        $data['click_action'] = 'FLUTTER_NOTIFICATION_CLICK';
+        $opt['json']['data'] = $data;
+
+        return $this->send($opt);
+    }
+
+    /**
+     * Pruebas de comunicacion hacia el Id del usuario
+    */
+    public function sendPushTestTo($idUser): array
+    {   
+        $tipo = 'pcom';
+        $opt = [];
+        $opt['json']['android_channel_id'] = $this->getChannelSegunTipo($tipo);
+        $tokens = $this->getTokensContacByIdUser($idUser);
+        $rota = count($tokens);
+        for ($i=0; $i < $rota; $i++) {
+            if(!in_array($tokens[$i], $opt['json']['registration_ids'])) {
+                $opt['json']['registration_ids'][] = $tokens[$i];
+            }
+        }
+        return $this->send($opt);
+    }
+
     /** */
     private function send(array $opt)
     {
+        $opt['headers'] = [
+            'Accept' => 'application/json',
+            'Content-Type' => 'application/json',
+            'Authorization' => 'Bearer ' . $this->key,
+        ];
+        $opt['json'] = [];
+        $opt['json']['message'] = $opt;
         $response = $this->client->request('POST', $this->urlPush, $opt);
 
         $content = '';
