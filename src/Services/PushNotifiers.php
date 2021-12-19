@@ -82,23 +82,18 @@ class PushNotifiers
             'name' => '',
             'registration_ids' => [],
             'priority' => 'high',
+            'notification_priority' => 'PRIORITY_HIGH',
+            'ttl' => '0s',
             'time_to_live' => 172800,
+            'direct_boot_ok' => true,
+            'sound' => 'cotizaciones.mp3',
+            'click_action' => 'FLUTTER_NOTIFICATION_CLICK',
+            'channel_id' => '',
+            'default_vibrate_timings' => true,
             'notification' => [
                 'title' => '',
                 'body'  => '',
-                'android_channel_id' => '',
-                'sound' => 'cotizaciones.mp3',
                 'click_action' => 'FLUTTER_NOTIFICATION_CLICK',
-                'ttl' => '0s',
-                'priority' => 'high',
-                'direct_boot_ok' => true,
-                'sound' => 'cotizaciones.mp3',
-                'click_action' => 'FLUTTER_NOTIFICATION_CLICK',
-                'channel_id' => '',
-                'notification_priority' => 'PRIORITY_HIGH',
-                'default_vibrate_timings' => true,
-                'android' => [
-                ]
             ],
             'data' => [],
             'webpush' => [
@@ -111,15 +106,12 @@ class PushNotifiers
         $deploy = $this->getTitleAndBodySegunTipo($data['tipo']);
         $opt['notification']['title'] = $deploy['title'];
         $opt['notification']['body'] = $deploy['body'];
-        $opt['notification']['android_channel_id'] = $this->getChannelSegunTipo($data['tipo']);
-        $opt['android']['channel_id'] = $opt['notification']['android_channel_id'];
+        $opt['channel_id'] = $this->getChannelSegunTipo($data['tipo']);
         $opt['data'] = $data;
         $opt['data']['title'] = $opt['notification']['title'];
         if(!array_key_exists('body', $data)) {
             $opt['data']['body'] = $opt['notification']['body'];
         }
-
-
         if( array_key_exists('id_repo', $data)) {
             $opt['name'] = $data['id_repo'];
         }else{
