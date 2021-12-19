@@ -78,7 +78,7 @@ class PushNotifiers
     private function getOptions(array $data): array {
 
         // time_to_live => 172800 (segundos) son 48 horas de vida
-        $opc = [
+        $opt = [
             'name' => '',
             'registration_ids' => [],
             'priority' => 'high',
@@ -118,6 +118,11 @@ class PushNotifiers
         $opt['android']['notification']['title'] = $deploy['title'];
         $opt['android']['notification']['body']  = $deploy['body'];
         $opt['data'] = $data;
+        $opt['data']['title'] = $opt['notification']['title'];
+        if(!array_key_exists('body', $data)) {
+            $opt['data']['body'] = $opt['notification']['body'];
+        }
+
         $opt['notification']['android_channel_id'] = $this->getChannelSegunTipo($data['tipo']);
         $opt['android']['notification']['channel_id'] = $opt['notification']['android_channel_id'];
 
@@ -294,14 +299,16 @@ class PushNotifiers
     /** */
     private function send(array $opt)
     {
-        $opt['headers'] = [
-            'Accept' => 'application/json',
-            'Content-Type' => 'application/json',
-            'Authorization' => 'Bearer ' . $this->key,
+        $dataSend = [
+            'headers' => [
+                'Accept' => 'application/json',
+                'Content-Type' => 'application/json',
+                'Authorization' => 'Bearer ' . $this->key,
+            ],
+            'json' => ['message' => $opt]
         ];
-        $opt['json'] = [];
-        $opt['json']['message'] = $opt;
-        $response = $this->client->request('POST', $this->urlPush, $opt);
+
+        $response = $this->client->request('POST', $this->urlPush, $dataSend);
 
         $content = '';
         $statusCode = $response->getStatusCode();
