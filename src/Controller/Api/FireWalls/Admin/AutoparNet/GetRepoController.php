@@ -179,12 +179,19 @@ class GetRepoController extends AbstractFOSRestController
         $finder = new Finder();
         $uriServer = $this->getParameter('toCotizar');
         $uriServer = str_replace('_repomain_', $idMain, $uriServer);
-
-        $finder->files()->in($uriServer);
-        if ($finder->hasResults()) {
-            foreach ($finder as $file) {
-                $result['body'][] = $file->getRelativePathname();
+        if(is_dir($uriServer)) {
+            $finder->files()->in($uriServer);
+            if ($finder->hasResults()) {
+                foreach ($finder as $file) {
+                    $result['body'][] = $file->getRelativePathname();
+                }
             }
+        }else{
+            $result = [
+                'abort' => true,
+                'msg' => 'No se encontraron fotografías compartidas para la Solicitud con el ID: ' . $idMain,
+                'body' => []
+            ];
         }
         return $this->json($result);
     }
