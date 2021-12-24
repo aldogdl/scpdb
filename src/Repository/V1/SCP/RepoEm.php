@@ -389,15 +389,24 @@ class RepoEm
     /** 
      * @see AutoparNet/RepoController
      */
-    public function updateFotoDePieza($idPieza, array $ListFotos)
+    public function updateFotoDePieza($idPieza, string $foto)
     {
         $pza = $this->em->find(RepoPzas::class, $idPieza);
         if($pza) {
-            $pza->setFotos($ListFotos);
+            $fotosCurrent = $pza->getFotos();
+            $rota = count($fotosCurrent);
+            if($rota > 0) {
+                if(!in_array($foto, $fotosCurrent)) {
+                    $fotosCurrent[] = $foto;
+                }
+            }else{
+                $fotosCurrent = [$foto];
+            }
+            $pza->setFotos($fotosCurrent);
             $this->em->persist($pza);
             try {
                 $this->em->flush();
-                $this->result['body'] = $pza->getRepo()->getId();
+                $this->result['body'] = $fotosCurrent;
             } catch (\Throwable $th) {
                 $this->result['abort'] = true;
                 $this->result['msg'] = 'Error al Guardar la Pieza';

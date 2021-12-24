@@ -149,13 +149,22 @@ class PostRepoController extends AbstractFOSRestController
                         }
                     }
                 }
-
-                if(count($todasExistentes) < 4) {
-                    $todasExistentes[] = $params['filename'];
-                    // Guardamos el nombre de la foto en la BD de la pieza.
-                    $result = $this->repo->updateFotoDePieza($params['metas']['id_pza'], $todasExistentes);
-                }else{
+                
+                if($params['metas']['uped'] != '0') {
                     $mover = false;
+                    if(in_array($params['metas']['uped'], $todasExistentes)) {
+                        $result = $this->repo->updateFotoDePieza($params['metas']['id_pza'], $params['metas']['uped']); 
+                        return $this->json($result);
+                    }
+                }else{
+                    if(count($todasExistentes) < 4) {
+                        $result = $this->repo->updateFotoDePieza($params['metas']['id_pza'], $params['filename']);
+                        if(!$result['abort']) {
+                            $todasExistentes = $result['body'];
+                        }
+                    }else{
+                        $mover = false;
+                    }
                 }
             }
 
