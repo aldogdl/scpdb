@@ -126,7 +126,6 @@ class PostRepoController extends AbstractFOSRestController
     public function saveFotoTo(Request $req, int $apiVer)
     {
         $mover = true;
-        $todasExistentes = [];
         $result = ['abort' => false, 'msg' => 'fotos', 'body' => []];
         $this->getRepo(RepoPzas::class, $apiVer);
 
@@ -134,68 +133,83 @@ class PostRepoController extends AbstractFOSRestController
 
         if(array_key_exists('metas', $params)) {
 
-            $uriServer = $this->getParameter($params['metas']['uriServer']);
-            if($params['metas']['uriServer'] == 'toCotizar') {
+            $pieza = $this->repo->getPiezaById($params['metas']['id_pza']);
+            if($pieza) {
 
-                $uriServer = str_replace('_repomain_', $params['metas']['id_main'], $uriServer);
-                $fotosCurrent = $this->repo->getAllFotosByIdPieza($params['metas']['id_pza']);
+                $hoy = new \DateTime('now');
+                $fotosCurrent = $pieza->getFotos();
 
-                if(count($fotosCurrent) < 4) {
-
+                if(array_key_exists('uped', $params['metas'])) {
                     if($params['metas']['uped'] != '0') {
-                        $mover = false;
-                        if(in_array($params['metas']['uped'], $todasExistentes)) {
-                            $result = $this->repo->updateFotoDePieza($params['metas']['id_pza'], $params['metas']['uped']); 
-                            return $this->json($result);
-                        }
-                    }else{
-                        if(count($todasExistentes) < 4) {
-                            $result = $this->repo->updateFotoDePieza($params['metas']['id_pza'], $params['filename']);
-                            if(!$result['abort']) {
-                                $todasExistentes = $result['body'];
+
+                        $uriServer = $this->getParameter('toCotizarSh');
+                        $uriServer = str_replace('_repomain_', $params['metas']['id_main'], $uriServer);
+                        $partes = explode('.', $params['metas']['uped']);
+                        $fotoUp = $hoy->getTimestamp() . '.' . $partes[1];
+                        if(count($fotosCurrent) < 4) {
+                            if(is_file($uriServer.'/'.$params['metas']['uped'])) {
+
+                                $fotosCurrent[] = $fotoUp;
+                                $pieza->setFotos($fotosCurrent);
+                                $this->em->persist($pieza);
+                                try {
+                                    $this->em->flush();
+                                    $uriServerUp = $this->getParameter('toCotizar');
+                                    $uriServerUp = str_replace('_repomain_', $params['metas']['id_main'], $uriServerUp);
+    
+                                    $saveTo = realpath($uriServerUp);
+                                    if($saveTo !== false) {
+                                        rename($uriServer.'/'.$params['metas']['uped'], $saveTo.'/'.$fotoUp);
+                                        return $this->json([
+                                            'abort' => false, 'msg' => 'ok', 'body' => $fotosCurrent
+                                        ]);
+                                    }
+                                } catch (\Throwable $th) {
+                                    $result = [
+                                        'abort' => false, 'msg' => 'ok', 'body' => 'No se pudo mover la foto indicada'
+                                    ];
+                                }
                             }
-                        }else{
-                            $mover = false;
                         }
                     }
-                }
-            }
-            // tomamos toda las fotos actuales del repo
-            // if(is_dir($uriServer)) {
-            //     $finder = new Finder();
-            //     $finder->files()->in($uriServer);
-            //     if ($finder->hasResults()) {
-            //         foreach ($finder as $file) {
-            //             $todasExistentes[] = $file->getRelativePathname();
-            //         }
-            //     }
-            // }
-            if($mover) {
-                if($params['metas']['id_main'] != 0) {
-                    
+                }else{
+
+                    $uriServer = $this->getParameter('toCotizar');
+                    $uriServer = str_replace('_repomain_', $params['metas']['id_main'], $uriServer);
                     if(!is_dir($uriServer)) {
                         mkdir($uriServer, 0777, true);
                     }
-        
-                    $saveTo = realpath($uriServer);
-                    if($saveTo !== false) {
-                        $foto = $req->files->get($params['campo']);
-                        $foto->move($saveTo, $params['filename']);
-                        $result = [
-                            'abort' => false, 'msg' => 'ok', 'body' => $todasExistentes
-                        ];
+                    $fotoUp = $params['filename'];
+                    if(in_array($fotoUp, $fotosCurrent)) {
+                        $fotoUp = $hoy->getTimestamp();
                     }
-                }else{
-                    $result = [
-                        'abort' => true, 'msg' => 'err', 'body' => $result['msg']
-                    ];
+                    if(count($fotosCurrent) < 4) {
+                        $fotosCurrent[] = $fotoUp;
+                        $pieza->setFotos($fotosCurrent);
+                        $this->em->persist($pieza);
+                        try {
+                            $this->em->flush();
+                            $saveTo = realpath($uriServer);
+                            if($saveTo !== false) {
+                                $foto = $req->files->get($params['campo']);
+                                $foto->move($saveTo, $params['filename']);
+                                return $this->json([
+                                    'abort' => false, 'msg' => 'ok', 'body' => $fotosCurrent
+                                ]);
+                            }
+                        } catch (\Throwable $th) {
+                            $result = [
+                                'abort' => false, 'msg' => 'ok', 'body' => 'No se pudo mover la foto indicada'
+                            ];
+                        }
+                    }
                 }
+
             }else{
                 $result = [
-                    'abort' => false, 'msg' => 'ok', 'body' => 'noSave'
+                    'abort' => false, 'msg' => 'ok', 'body' => 'No se encontró la pieza con el ID: ' . $params['metas']['id_pza']
                 ];
             }
-
         }else{
             $result = [
                 'abort' => true, 'msg' => 'err', 'body' => 'No se enviaron datos METAS'

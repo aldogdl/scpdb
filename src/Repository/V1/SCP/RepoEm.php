@@ -389,45 +389,9 @@ class RepoEm
     /** 
      * @see AutoparNet/RepoController
      */
-    public function getAllFotosByIdPieza($idPieza)
+    public function getPiezaById($idPieza)
     {
-        $pza = $this->em->find(RepoPzas::class, $idPieza);
-        return ($pza) ? $pza->getFotos() : [];
-    }
-
-    /** 
-     * @see AutoparNet/RepoController
-     */
-    public function updateFotoDePieza($idPieza, string $foto)
-    {
-        $pza = $this->em->find(RepoPzas::class, $idPieza);
-        if($pza) {
-            $fotosCurrent = $pza->getFotos();
-            $rota = count($fotosCurrent);
-            if($rota > 0) {
-                if(!in_array($foto, $fotosCurrent)) {
-                    $fotosCurrent[] = $foto;
-                }
-            }else{
-                $fotosCurrent = [$foto];
-            }
-            $pza->setFotos($fotosCurrent);
-            $this->em->persist($pza);
-            try {
-                $this->em->flush();
-                $this->result['body'] = $fotosCurrent;
-            } catch (\Throwable $th) {
-                $this->result['abort'] = true;
-                $this->result['msg'] = 'Error al Guardar la Pieza';
-                $this->result['body'] = 0;
-            }
-        }else{
-            $this->result['abort'] = true;
-            $this->result['msg'] = 'No se encontró la Pieza con ID '. $idPieza;
-            $this->result['body'] = 0;
-        }
-        
-        return $this->result;
+        return $this->em->find(RepoPzas::class, $idPieza);
     }
 
     /** */
