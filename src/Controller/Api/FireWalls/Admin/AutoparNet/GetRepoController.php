@@ -209,7 +209,7 @@ class GetRepoController extends AbstractFOSRestController
         $result = ['abort' => false, 'msg' => 'ok', 'body' => [] ];
 
         $finder = new Finder();
-        $uriServer = $this->getParameter('toCotizar');
+        $uriServer = $this->getParameter('toCotizarSh');
         $uriServer = str_replace('_repomain_', $idMain, $uriServer);
 
         $finder->files()->in($uriServer);
