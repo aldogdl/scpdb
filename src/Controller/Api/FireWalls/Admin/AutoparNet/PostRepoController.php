@@ -138,36 +138,38 @@ class PostRepoController extends AbstractFOSRestController
             if($params['metas']['uriServer'] == 'toCotizar') {
 
                 $uriServer = str_replace('_repomain_', $params['metas']['id_main'], $uriServer);
+                $fotosCurrent = $this->repo->getAllFotosByIdPieza($params['metas']['id_pza']);
 
-                // Primeramente revisamos si ya hay fotos compartidas.
-                if(is_dir($uriServer)) {
-                    $finder = new Finder();
-                    $finder->files()->in($uriServer);
-                    if ($finder->hasResults()) {
-                        foreach ($finder as $file) {
-                            $todasExistentes[] = $file->getRelativePathname();
-                        }
-                    }
-                }
-                
-                if($params['metas']['uped'] != '0') {
-                    $mover = false;
-                    if(in_array($params['metas']['uped'], $todasExistentes)) {
-                        $result = $this->repo->updateFotoDePieza($params['metas']['id_pza'], $params['metas']['uped']); 
-                        return $this->json($result);
-                    }
-                }else{
-                    if(count($todasExistentes) < 4) {
-                        $result = $this->repo->updateFotoDePieza($params['metas']['id_pza'], $params['filename']);
-                        if(!$result['abort']) {
-                            $todasExistentes = $result['body'];
+                if(count($fotosCurrent) < 4) {
+
+                    if($params['metas']['uped'] != '0') {
+                        $mover = false;
+                        if(in_array($params['metas']['uped'], $todasExistentes)) {
+                            $result = $this->repo->updateFotoDePieza($params['metas']['id_pza'], $params['metas']['uped']); 
+                            return $this->json($result);
                         }
                     }else{
-                        $mover = false;
+                        if(count($todasExistentes) < 4) {
+                            $result = $this->repo->updateFotoDePieza($params['metas']['id_pza'], $params['filename']);
+                            if(!$result['abort']) {
+                                $todasExistentes = $result['body'];
+                            }
+                        }else{
+                            $mover = false;
+                        }
                     }
                 }
             }
-
+            // tomamos toda las fotos actuales del repo
+            // if(is_dir($uriServer)) {
+            //     $finder = new Finder();
+            //     $finder->files()->in($uriServer);
+            //     if ($finder->hasResults()) {
+            //         foreach ($finder as $file) {
+            //             $todasExistentes[] = $file->getRelativePathname();
+            //         }
+            //     }
+            // }
             if($mover) {
                 if($params['metas']['id_main'] != 0) {
                     
@@ -220,26 +222,15 @@ class PostRepoController extends AbstractFOSRestController
                     $uriServer = str_replace('_repomain_', $params['metas']['id_main'], $uriServer);
                     if(!is_dir($uriServer)) {
                         mkdir($uriServer, 0777, true);
-                    }else{
-                        if(array_key_exists('cls', $params['metas'])) {
-                            $finder = new Finder();
-                            $finder->files()->in($uriServer);
-                            if ($finder->hasResults()) {
-                                foreach ($finder as $file) {
-                                    unlink($file->getRealPath());
-                                }
-                            }
-                        }
                     }
-                }
-    
-                $saveTo = realpath($uriServer);
-                if($saveTo !== false) {
-                    $foto = $req->files->get($params['campo']);
-                    $foto->move($saveTo, $params['filename']);
-                    $result = [
-                        'abort' => false, 'msg' => 'ok', 'body' => $params['filename']
-                    ];
+                    $saveTo = realpath($uriServer);
+                    if($saveTo !== false) {
+                        $foto = $req->files->get($params['campo']);
+                        $foto->move($saveTo, $params['idTmpPza'].'-'.$params['filename']);
+                        $result = [
+                            'abort' => false, 'msg' => 'ok', 'body' => $params['filename']
+                        ];
+                    }
                 }
             }else{
                 $result = [

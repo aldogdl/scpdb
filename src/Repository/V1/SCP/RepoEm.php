@@ -389,6 +389,15 @@ class RepoEm
     /** 
      * @see AutoparNet/RepoController
      */
+    public function getAllFotosByIdPieza($idPieza)
+    {
+        $pza = $this->em->find(RepoPzas::class, $idPieza);
+        return ($pza) ? $pza->getFotos() : [];
+    }
+
+    /** 
+     * @see AutoparNet/RepoController
+     */
     public function updateFotoDePieza($idPieza, string $foto)
     {
         $pza = $this->em->find(RepoPzas::class, $idPieza);

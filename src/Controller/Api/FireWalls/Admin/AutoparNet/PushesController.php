@@ -65,6 +65,21 @@ class PushesController extends AbstractFOSRestController
     {
         $partes = explode('::', $params);
         $this->push->notificarNewSolicitud($partes[0]);
+        // Eliminamos todas las imagenes compartidas en caso de existir.
+        $uriServer = $this->getParameter('toCotizarSh');
+        if(strpos($uriServer, '_repomain_') !== false) {
+            $uriServer = str_replace('_repomain_', $partes[0], $uriServer);
+            if(is_dir($uriServer)) {
+                $finder = new Finder();
+                $finder->files()->in($uriServer);
+                if ($finder->hasResults()) {
+                    foreach ($finder as $file) {
+                        unlink($file->getRealPath());
+                    }
+                    rmdir($uriServer);
+                }
+            }
+        }
         return $this->json(['abort' => false, 'body' => 'ok']);
     }
 
