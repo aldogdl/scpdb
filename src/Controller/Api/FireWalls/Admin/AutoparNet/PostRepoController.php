@@ -226,7 +226,7 @@ class PostRepoController extends AbstractFOSRestController
                     $saveTo = realpath($uriServer);
                     if($saveTo !== false) {
                         $foto = $req->files->get($params['campo']);
-                        $foto->move($saveTo, $params['idTmpPza'].'-'.$params['filename']);
+                        $foto->move($saveTo, $params['metas']['idTmpPza'].'-'.$params['filename']);
                         $result = [
                             'abort' => false, 'msg' => 'ok', 'body' => $params['filename']
                         ];
