@@ -183,7 +183,7 @@ class GetRepoController extends AbstractFOSRestController
             $finder->files()->in($uriServer);
             if ($finder->hasResults()) {
                 foreach ($finder as $file) {
-                    if(strpos($file->getRelativePathname(), $idTmpPza.'-')) {
+                    if(strpos($file->getRelativePathname(), $idTmpPza.'-') !== false) {
                         $result['body'][] = $file->getRelativePathname();
                     }
                 }
