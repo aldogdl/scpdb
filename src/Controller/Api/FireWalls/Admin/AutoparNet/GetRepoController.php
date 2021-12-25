@@ -168,22 +168,24 @@ class GetRepoController extends AbstractFOSRestController
     }
 
     /**
-     * @Rest\Get("get-fotos-shared-from-app-to-web/{idMain}/")
+     * @Rest\Get("get-fotos-shared-from-app-to-web/{idMain}/{idTmpPza}/")
      * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
      * @Rest\RequestParam(name="idMain", requirements="\d+", default="1", description="El Identificador del RepoMain")
     */
-    public function getFotosSharedFromAppToWeb(int $apiVer, int $idMain)
+    public function getFotosSharedFromAppToWeb(int $apiVer, int $idMain, string $idTmpPza)
     {
         $result = ['abort' => false, 'msg' => 'ok', 'body' => [] ];
 
         $finder = new Finder();
-        $uriServer = $this->getParameter('toCotizar');
+        $uriServer = $this->getParameter('toCotizarSh');
         $uriServer = str_replace('_repomain_', $idMain, $uriServer);
         if(is_dir($uriServer)) {
             $finder->files()->in($uriServer);
             if ($finder->hasResults()) {
                 foreach ($finder as $file) {
-                    $result['body'][] = $file->getRelativePathname();
+                    if(strpos($file->getRelativePathname(), $idTmpPza.'-')) {
+                        $result['body'][] = $file->getRelativePathname();
+                    }
                 }
             }
         }else{
