@@ -130,6 +130,7 @@ class PostRepoController extends AbstractFOSRestController
         $this->getRepo(RepoPzas::class, $apiVer);
 
         $params = json_decode($req->request->get('data'), true);
+        file_put_contents('sabe.json', json_encode($params));
 
         if(array_key_exists('metas', $params)) {
 
@@ -200,7 +201,7 @@ class PostRepoController extends AbstractFOSRestController
                             }
                         } catch (\Throwable $th) {
                             $result = [
-                                'abort' => true, 'msg' => 'ok', 'body' => 'No se pudo mover la foto indicada'
+                                'abort' => true, 'msg' => 'ok', 'body' => 'No se pudo guardar la foto indicada'
                             ];
                         }
                     }
