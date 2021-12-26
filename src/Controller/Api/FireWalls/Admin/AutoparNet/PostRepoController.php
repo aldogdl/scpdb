@@ -125,7 +125,6 @@ class PostRepoController extends AbstractFOSRestController
     */
     public function saveFotoTo(Request $req, int $apiVer)
     {
-        // p4 cambio de metodo para subir fotos para solicitud
         $result = ['abort' => false, 'msg' => 'fotos', 'body' => []];
         $this->getRepo(RepoPzas::class, $apiVer);
 
@@ -135,7 +134,9 @@ class PostRepoController extends AbstractFOSRestController
             $pieza = $this->repo->getPiezaById($params['metas']['id_pza']);
             if($pieza) {
 
-                $hoy = new \DateTime('now');
+                $mt = explode(' ', microtime());
+                $hoy = ((int)$mt[1]) * 1000 + ((int)round($mt[0] * 1000));
+
                 $fotosCurrent = $pieza->getFotos();
 
                 if(array_key_exists('uped', $params['metas'])) {
@@ -144,7 +145,7 @@ class PostRepoController extends AbstractFOSRestController
                         $uriServer = $this->getParameter('toCotizarSh');
                         $uriServer = str_replace('_repomain_', $params['metas']['id_main'], $uriServer);
                         $partes = explode('.', $params['metas']['uped']);
-                        $fotoUp = $hoy->getTimestamp() . '.' . $partes[1];
+                        $fotoUp = $hoy . '.' . $partes[1];
                         if(count($fotosCurrent) < 4) {
                             if(is_file($uriServer.'/'.$params['metas']['uped'])) {
 
@@ -182,7 +183,7 @@ class PostRepoController extends AbstractFOSRestController
                     $fotoUp = $params['filename'];
                     if(in_array($fotoUp, $fotosCurrent)) {
                         $partes = explode('.', $fotoUp);
-                        $fotoUp = $hoy->getTimestamp() . '.' . $partes[1];
+                        $fotoUp = $hoy . '.' . $partes[1];
                     }
                     if(count($fotosCurrent) < 4) {
                         $fotosCurrent[] = $fotoUp;
