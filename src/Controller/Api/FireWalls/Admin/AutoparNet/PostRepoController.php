@@ -180,9 +180,10 @@ class PostRepoController extends AbstractFOSRestController
                     if(!is_dir($uriServer)) {
                         mkdir($uriServer, 0777, true);
                     }
-                    $partes = explode('.', $params['filename']);
+
                     $fotoUp = $params['filename'];
                     if(in_array($fotoUp, $fotosCurrent)) {
+                        $partes = explode('.', $fotoUp);
                         $fotoUp = $hoy->getTimestamp() . '.' . $partes[1];
                     }
                     if(count($fotosCurrent) < 4) {
@@ -191,6 +192,12 @@ class PostRepoController extends AbstractFOSRestController
                         $this->em->persist($pieza);
                         try {
                             $this->em->flush();
+                        } catch (\Throwable $th) {
+                            $result = [
+                                'abort' => true, 'msg' => 'ok', 'body' => 'No se pudo guardar la foto indicada'
+                            ];
+                        }
+                        try {
                             $saveTo = realpath($uriServer);
                             if($saveTo !== false) {
                                 $foto = $req->files->get($params['campo']);
@@ -201,7 +208,7 @@ class PostRepoController extends AbstractFOSRestController
                             }
                         } catch (\Throwable $th) {
                             $result = [
-                                'abort' => true, 'msg' => 'ok', 'body' => 'No se pudo guardar la foto indicada'
+                                'abort' => true, 'msg' => 'ok', 'body' => 'No se pudo almacenar la imagen en disco'
                             ];
                         }
                     }
