@@ -125,13 +125,11 @@ class PostRepoController extends AbstractFOSRestController
     */
     public function saveFotoTo(Request $req, int $apiVer)
     {
-        // p1 cambio de metodo para subir fotos para solicitud
+        // p4 cambio de metodo para subir fotos para solicitud
         $result = ['abort' => false, 'msg' => 'fotos', 'body' => []];
         $this->getRepo(RepoPzas::class, $apiVer);
 
         $params = json_decode($req->request->get('data'), true);
-        file_put_contents('sabe.json', json_encode($params));
-
         if(array_key_exists('metas', $params)) {
 
             $pieza = $this->repo->getPiezaById($params['metas']['id_pza']);
