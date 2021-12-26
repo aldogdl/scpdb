@@ -125,7 +125,7 @@ class PostRepoController extends AbstractFOSRestController
     */
     public function saveFotoTo(Request $req, int $apiVer)
     {
-        $mover = true;
+        // p1 cambio de metodo para subir fotos para solicitud
         $result = ['abort' => false, 'msg' => 'fotos', 'body' => []];
         $this->getRepo(RepoPzas::class, $apiVer);
 
@@ -179,9 +179,10 @@ class PostRepoController extends AbstractFOSRestController
                     if(!is_dir($uriServer)) {
                         mkdir($uriServer, 0777, true);
                     }
+                    $partes = explode('.', $params['filename']);
                     $fotoUp = $params['filename'];
                     if(in_array($fotoUp, $fotosCurrent)) {
-                        $fotoUp = $hoy->getTimestamp();
+                        $fotoUp = $hoy->getTimestamp() . '.' . $partes[1];
                     }
                     if(count($fotosCurrent) < 4) {
                         $fotosCurrent[] = $fotoUp;
@@ -192,14 +193,14 @@ class PostRepoController extends AbstractFOSRestController
                             $saveTo = realpath($uriServer);
                             if($saveTo !== false) {
                                 $foto = $req->files->get($params['campo']);
-                                $foto->move($saveTo, $params['filename']);
+                                $foto->move($saveTo, $fotoUp);
                                 return $this->json([
                                     'abort' => false, 'msg' => 'ok', 'body' => $fotosCurrent
                                 ]);
                             }
                         } catch (\Throwable $th) {
                             $result = [
-                                'abort' => false, 'msg' => 'ok', 'body' => 'No se pudo mover la foto indicada'
+                                'abort' => true, 'msg' => 'ok', 'body' => 'No se pudo mover la foto indicada'
                             ];
                         }
                     }
@@ -207,7 +208,7 @@ class PostRepoController extends AbstractFOSRestController
 
             }else{
                 $result = [
-                    'abort' => false, 'msg' => 'ok', 'body' => 'No se encontró la pieza con el ID: ' . $params['metas']['id_pza']
+                    'abort' => true, 'msg' => 'ok', 'body' => 'No se encontró la pieza con el ID: ' . $params['metas']['id_pza']
                 ];
             }
         }else{

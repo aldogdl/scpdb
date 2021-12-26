@@ -76,8 +76,8 @@ class PushesController extends AbstractFOSRestController
                     foreach ($finder as $file) {
                         unlink($file->getRealPath());
                     }
-                    rmdir($uriServer);
                 }
+                rmdir($uriServer);
             }
         }
         return $this->json(['abort' => false, 'body' => 'ok']);
