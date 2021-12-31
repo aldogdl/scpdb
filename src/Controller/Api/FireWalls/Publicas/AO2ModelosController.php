@@ -59,5 +59,18 @@ class AO2ModelosController extends AbstractFOSRestController
         $result = $dql->getScalarResult();
         return $this->json($result);
     }
-    
+
+    /**
+     * @Rest\Get("get-modelo-by-id/{id}/")
+     * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
+     * 
+     * Use::FROM::app/proveedor::CLASS::AutomovilRepository
+    */
+    public function getModeloById($apiVer, $id)
+    {
+        $this->getRepo(AO2Modelos::class, $apiVer);
+        $dql = $this->repo->getModeloById($id);
+        $result = $dql->getScalarResult();
+        return $this->json($result);
+    }
 }

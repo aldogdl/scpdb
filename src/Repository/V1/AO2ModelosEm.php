@@ -66,6 +66,17 @@ class AO2ModelosEm
         return $this->em->createQuery($dql)->setParameter('idsMarca', $ids);
     }
 
+    /**
+     * publicas::AO2ModelosController::getModelosByIdsMarca
+    */
+    public function getModeloById($id)
+    {
+        $dql = 'SELECT partial md.{id, nombre}, partial mrk.{id, nombre, logo} FROM ' . AO2Modelos::class . ' md '.
+        'JOIN md.marca mrk '.
+        'WHERE md.id = :id ';
+        return $this->em->createQuery($dql)->setParameter('id', $id);
+    }
+
     /** */
     public function setNewsModelos($idMarca, $modelos)
     {
