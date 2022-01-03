@@ -148,14 +148,14 @@ class RepoSCP extends AbstractFOSRestController
         $result = $dql->getScalarResult();
         return $this->json($result);
     }
-
+    
     /**
      * @Rest\Get("crear-archivo/")
      * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
     */
-    public function crearArchivo(int $apiVer, $idPieza)
+    public function crearArchivo(int $apiVer)
     {
-        file_put_contents('pdf_cot.json', '');
+        file_put_contents('pdf_cot.txt', 'hola');
         return $this->json(['ok']);
     }
 
