@@ -322,7 +322,7 @@ class RepoSCPCotz extends AbstractFOSRestController
     /**
      * Creamos el archivo de cluster para monitoriar las respuestas de los proveedores
      *      
-     * @Rest\Post("get-file-cluster/{filename}/")
+     * @Rest\Get("get-file-cluster/{filename}/")
      * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
     */
     public function getFileCluster(int $apiVer, String $filename)
@@ -332,7 +332,7 @@ class RepoSCPCotz extends AbstractFOSRestController
 
         $content = json_decode(file_get_contents('clusters/'.$filename), true);
         // Primeramente recuperar todos los ids de las piezas del repo main.
-        $resp = $this->repo->saveDataRespuesta($content['id_main']);
+        $resp = $this->repo->getRespuestasByIdRepoMain($content['id_main']);
         return $this->json($resp);
         // Teniendo los ids de las piezas buscamos respuestas de estas.
 

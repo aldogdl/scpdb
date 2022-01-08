@@ -1,0 +1,14 @@
+[08-Jan-2022 07:51:30 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /.well-known/acme-challenge/W3HRpdbvpr08_2IYAB_9aYYET_6dPI9LmnSqdhgN-Hk"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[08-Jan-2022 07:56:23 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\NotFoundHttpException: "No route found for "GET /api/firewalls/publicas/repo_scp_cotz/v1/get-file-cluster/19"" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 136
+
+[08-Jan-2022 07:56:46 America/Mexico_City] [error] Uncaught PHP Exception Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException: "No route found for "GET /api/firewalls/publicas/repo_scp_cotz/v1/get-file-cluster/19/": Method Not Allowed (Allow: POST)" at /home2/autoparn/vendor/symfony/http-kernel/EventListener/RouterListener.php line 140
+
+[08-Jan-2022 07:57:28 America/Mexico_City] PHP Warning:  file_get_contents(clusters/19): failed to open stream: No such file or directory in /home2/autoparn/src/Controller/Api/FireWalls/Publicas/RepoSCPCotz.php on line 333
+[08-Jan-2022 07:57:28 America/Mexico_City] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in /home2/autoparn/src/Repository/V1/SCP/RepoEmCotz.php on line 103
+[08-Jan-2022 07:57:28 America/Mexico_City] [critical] Uncaught PHP Exception Doctrine\ORM\ORMInvalidArgumentException: "The given entity of type 'App\Entity\RepoMain' (App\Entity\RepoMain@0000000010a76d29000000001992855d) has no identity/no id values set. It cannot be added to the identity map." at /home2/autoparn/vendor/doctrine/orm/lib/Doctrine/ORM/ORMInvalidArgumentException.php line 68
+
+[08-Jan-2022 07:57:43 America/Mexico_City] PHP Warning:  file_get_contents(clusters/19): failed to open stream: No such file or directory in /home2/autoparn/src/Controller/Api/FireWalls/Publicas/RepoSCPCotz.php on line 333
+[08-Jan-2022 07:57:43 America/Mexico_City] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in /home2/autoparn/src/Repository/V1/SCP/RepoEmCotz.php on line 103
+[08-Jan-2022 07:57:43 America/Mexico_City] [critical] Uncaught PHP Exception Doctrine\ORM\ORMInvalidArgumentException: "The given entity of type 'App\Entity\RepoMain' (App\Entity\RepoMain@000000007a80c19800000000663c32e9) has no identity/no id values set. It cannot be added to the identity map." at /home2/autoparn/vendor/doctrine/orm/lib/Doctrine/ORM/ORMInvalidArgumentException.php line 68
+
