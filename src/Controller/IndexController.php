@@ -14,17 +14,6 @@ class IndexController extends AbstractController
     */
     public function introIndex(): Response
     {
-        
         return $this->render('base.html.twig');
     }
-    
-    /**
-     * @Route("/pdf-cot/", name="pdf_cot")
-    */
-    public function pdfCot(): Response
-    {
-        return $this->render('pdf_cot.html.twig');
-    }
-
-
 }

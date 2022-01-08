@@ -303,6 +303,23 @@ class RepoSCPCotz extends AbstractFOSRestController
     }
 
     /**
+     * Creamos el archivo de cluster para monitoriar las respuestas de los proveedores
+     *      
+     * @Rest\Post("save-file-cluster/")
+     * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
+    */
+    public function saveFileCluster(Request $req, int $apiVer)
+    {
+        $result = ['abort' => false, 'msg' => 'fotos', 'body' => []];
+        $this->getRepo(RepoMain::class, $apiVer);
+
+        $params = json_decode($req->request->get('data'), true);
+        file_put_contents($params['file_n'], $params);
+        $result['body'] = [true];
+        return $this->json($result);
+    }
+
+    /**
      * @Rest\Get("send-push-tomada/{idRepo}/")
      * 
      * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
