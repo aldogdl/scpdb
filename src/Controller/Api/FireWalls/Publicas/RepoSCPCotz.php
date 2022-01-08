@@ -336,6 +336,7 @@ class RepoSCPCotz extends AbstractFOSRestController
         $resp = $this->repo->getRespuestasByIdRepoMain($content['id_main']);
         $rota = count($resp);
         if($rota > 0) {
+            $cantResp = [];
             for ($i=0; $i < $rota; $i++) { 
                 $r = [
                     'pza_id' => $resp[$i]['pza_id'],
@@ -343,15 +344,28 @@ class RepoSCPCotz extends AbstractFOSRestController
                     'pza_nm' => $resp[$i]['pza_pieza'],
                     'costo'  => $resp[$i]['info_costo']
                 ];
+                if(!in_array($resp[$i]['pza_id'], $cantResp)) {
+                    $cantResp[] = $resp[$i]['pza_id'];
+                }
                 for ($p=0; $p < $vueltas; $p++) { 
                     if($content['provs'][$p]['id'] == $resp[$i]['own_id']) {
-                        $content['provs'][$p]['reps'][] = $r;
+                        $cicle = count($content['provs'][$p]['reps']);
+                        $existe = false;
+                        for ($r=0; $r < $cicle; $r++) { 
+                            if($content['provs'][$p]['reps'][$r]['inf_id'] == $r['inf_id']) {
+                                $existe = true;
+                                break;
+                            }
+                        }
+                        if(!$existe){
+                            $content['provs'][$p]['reps'][] = $r;
+                        }
                         break;
                     }
                 }
             }
         }
-
+        $content['cant_res'] = count($cantResp).'';
         file_put_contents('clusters/'.$filename, json_encode($content));
         $result['body'] = $content;
         return $this->json($result);
