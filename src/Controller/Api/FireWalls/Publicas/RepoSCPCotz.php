@@ -351,8 +351,8 @@ class RepoSCPCotz extends AbstractFOSRestController
                     if($content['provs'][$p]['id'] == $resp[$i]['own_id']) {
                         $cicle = count($content['provs'][$p]['reps']);
                         $existe = false;
-                        for ($r=0; $r < $cicle; $r++) { 
-                            if($content['provs'][$p]['reps'][$r]['inf_id'] == $r['inf_id']) {
+                        for ($a=0; $a < $cicle; $a++) { 
+                            if($content['provs'][$p]['reps'][$a]['inf_id'] == $r['inf_id']) {
                                 $existe = true;
                                 break;
                             }
