@@ -314,7 +314,7 @@ class RepoSCPCotz extends AbstractFOSRestController
         $this->getRepo(RepoMain::class, $apiVer);
 
         $params = json_decode($req->request->get('data'), true);
-        file_put_contents($params['file_n'], json_encode($params));
+        file_put_contents('clusters/'.$params['file_n'], json_encode($params));
         $result['body'] = [true];
         return $this->json($result);
     }
@@ -330,7 +330,7 @@ class RepoSCPCotz extends AbstractFOSRestController
         $result = ['abort' => false, 'msg' => 'fotos', 'body' => []];
         $this->getRepo(RepoMain::class, $apiVer);
 
-        $content = json_decode(file_get_contents($filename), true);
+        $content = json_decode(file_get_contents('clusters/'.$filename), true);
         // Primeramente recuperar todos los ids de las piezas del repo main.
         $resp = $this->repo->saveDataRespuesta($content['id_main']);
         return $this->json($resp);
@@ -343,7 +343,7 @@ class RepoSCPCotz extends AbstractFOSRestController
         // 'costo'  : '0'
 
         // retornamos el nuevo contenido de dicho archivo.
-        file_put_contents($content['file_n'], json_encode($content));
+        file_put_contents('clusters/'.$filename, json_encode($content));
         $result['body'] = [true];
         return $this->json($result);
     }
