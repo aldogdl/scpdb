@@ -146,7 +146,8 @@ class RepoEm
      * @see AutoparNet/RepoController
      * @see SCP-EYE
     */
-    public function getReposAllEnProceso() {
+    public function getReposAllEnProceso()
+    {
 
         $dql = 'SELECT partial repo.{id, createdAt, status}, partial pzas.{id, pieza, cant}, partial resp.{id}, partial sts.{id, nombre} FROM ' . RepoMain::class . ' repo '.        
         'JOIN repo.pzas pzas '.
@@ -161,7 +162,8 @@ class RepoEm
      * @see AutoparNet/RepoController
      * @see SCP-EYE
     */
-    public function getReposEnProcesoById($idMain) {
+    public function getReposEnProcesoById($idMain)
+    {
 
         $dql = 'SELECT partial repo.{id, createdAt, status}, partial pzas.{id, pieza, cant}, partial resp.{id}, partial sts.{id, nombre} FROM ' . RepoMain::class . ' repo '.        
         'JOIN repo.pzas pzas '.
@@ -175,7 +177,8 @@ class RepoEm
     /**
      *  @see AutoparNet/RepoController
     */
-    public function getReposEnProcesoByIdUserFull($idUser) {
+    public function getReposEnProcesoByIdUserFull($idUser)
+    {
 
         $dql = 'SELECT repo, partial ad.{id}, partial st.{id, nombre}, a, partial mk.{id}, partial md.{id} FROM ' . RepoMain::class . ' repo '.        
         'join repo.auto a '.
@@ -195,7 +198,8 @@ class RepoEm
     /**
      *  @see AutoparNet/RepoController
     */
-    public function getAllPiezasByIdRepo($idRepo) {
+    public function getAllPiezasByIdRepo($idRepo)
+    {
 
         $dql = 'SELECT pzas, partial st.{id, nombre} FROM ' . RepoPzas::class .' pzas '.
         'JOIN pzas.status st '.
@@ -220,7 +224,8 @@ class RepoEm
     /**
      *  @see AutoparNet/RepoController
     */
-    public function markComoDeleteRepoMain($idMain) {
+    public function markComoDeleteRepoMain($idMain)
+    {
 
         $dql = 'UPDATE ' . RepoMain::class . ' repo '.
         'SET repo.status = :cancel '.
@@ -236,7 +241,8 @@ class RepoEm
     /**
      * @see AutoparNet/GetRepoController
     */
-    public function getReposAutosByIds($idRepo) {
+    public function getReposAutosByIds($idRepo)
+    {
         
         $ids = explode('-', $idRepo);
         $dql = 'SELECT auto, partial mrk.{id}, partial md.{id} FROM ' . RepoAutos::class .' auto '.

@@ -314,7 +314,36 @@ class RepoSCPCotz extends AbstractFOSRestController
         $this->getRepo(RepoMain::class, $apiVer);
 
         $params = json_decode($req->request->get('data'), true);
-        file_put_contents($params['file_n'], $params);
+        file_put_contents($params['file_n'], json_encode($params));
+        $result['body'] = [true];
+        return $this->json($result);
+    }
+
+    /**
+     * Creamos el archivo de cluster para monitoriar las respuestas de los proveedores
+     *      
+     * @Rest\Post("get-file-cluster/{filename}/")
+     * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
+    */
+    public function getFileCluster(int $apiVer, String $filename)
+    {
+        $result = ['abort' => false, 'msg' => 'fotos', 'body' => []];
+        $this->getRepo(RepoMain::class, $apiVer);
+
+        $content = json_decode(file_get_contents($filename), true);
+        // Primeramente recuperar todos los ids de las piezas del repo main.
+        $resp = $this->repo->saveDataRespuesta($content['id_main']);
+        return $this->json($resp);
+        // Teniendo los ids de las piezas buscamos respuestas de estas.
+
+        // creamos el json para guardarlo en el archivo correspondiente.
+        // 'pza_id' : '0',
+        // 'rsp_id' : '0',
+        // 'pza_nm' : '0',
+        // 'costo'  : '0'
+
+        // retornamos el nuevo contenido de dicho archivo.
+        file_put_contents($content['file_n'], json_encode($content));
         $result['body'] = [true];
         return $this->json($result);
     }

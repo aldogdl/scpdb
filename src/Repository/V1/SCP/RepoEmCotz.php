@@ -147,6 +147,13 @@ class RepoEmCotz extends RepoEm
         return $this->result;
     }
 
+    /** */
+    public function getRespuestasByIdRepoMain(int $idRepo)
+    {
+        $dql = $this->getRepoPiezaInfoByIdRepoMain($idRepo);
+        return $dql->getScalarResult();
+    }
+
     /**
      * A las respuestas con status 4 y a las piezas que tengan dichas respuestas,
      * les cambiamos el status a 5, a las otras piezas que no tengan respuestas les
