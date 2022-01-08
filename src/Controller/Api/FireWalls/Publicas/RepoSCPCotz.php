@@ -335,8 +335,8 @@ class RepoSCPCotz extends AbstractFOSRestController
 
         $resp = $this->repo->getRespuestasByIdRepoMain($content['id_main']);
         $rota = count($resp);
+        $cantResp = [];
         if($rota > 0) {
-            $cantResp = [];
             for ($i=0; $i < $rota; $i++) { 
                 $r = [
                     'pza_id' => $resp[$i]['pza_id'],
@@ -365,7 +365,8 @@ class RepoSCPCotz extends AbstractFOSRestController
                 }
             }
         }
-        $content['cant_res'] = count($cantResp).'';
+
+        $content['cant_res'] = (string) count($cantResp);
         file_put_contents('clusters/'.$filename, json_encode($content));
         $result['body'] = $content;
         return $this->json($result);
