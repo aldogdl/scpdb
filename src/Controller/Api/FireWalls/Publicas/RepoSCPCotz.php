@@ -331,20 +331,29 @@ class RepoSCPCotz extends AbstractFOSRestController
         $this->getRepo(RepoMain::class, $apiVer);
 
         $content = json_decode(file_get_contents('clusters/'.$filename), true);
-        // Primeramente recuperar todos los ids de las piezas del repo main.
+        $vueltas = count($content['provs']);
+
         $resp = $this->repo->getRespuestasByIdRepoMain($content['id_main']);
-        return $this->json($resp);
-        // Teniendo los ids de las piezas buscamos respuestas de estas.
+        $rota = count($resp);
+        if($rota > 0) {
+            for ($i=0; $i < $rota; $i++) { 
+                $r = [
+                    'pza_id' => $resp[$i]['pza_id'],
+                    'inf_id' => $resp[$i]['info_id'],
+                    'pza_nm' => $resp[$i]['pza_pieza'],
+                    'costo'  => $resp[$i]['info_costo']
+                ];
+                for ($p=0; $p < $vueltas; $p++) { 
+                    if($content['provs'][$p]['id'] == $resp[$i]['own_id']) {
+                        $content['provs'][$p]['reps'][] = $r;
+                        break;
+                    }
+                }
+            }
+        }
 
-        // creamos el json para guardarlo en el archivo correspondiente.
-        // 'pza_id' : '0',
-        // 'rsp_id' : '0',
-        // 'pza_nm' : '0',
-        // 'costo'  : '0'
-
-        // retornamos el nuevo contenido de dicho archivo.
         file_put_contents('clusters/'.$filename, json_encode($content));
-        $result['body'] = [true];
+        $result['body'] = $content;
         return $this->json($result);
     }
 
