@@ -319,6 +319,18 @@ class RepoSCPCotz extends AbstractFOSRestController
         return $this->json($result);
     }
 
+    /**     
+     * @Rest\Get("get-resp-byid-main/{idMain}/")
+     * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
+    */
+    public function getRespuestasByIdRepoMain(int $apiVer, int $idMain)
+    {
+        $result = ['abort' => false, 'msg' => 'fotos', 'body' => []];
+        $this->getRepo(RepoMain::class, $apiVer);
+        $result['body'] = $this->repo->getRespuestasByIdRepoMain($idMain);
+        return $this->json($result);
+    }
+
     /**
      * Creamos el archivo de cluster para monitoriar las respuestas de los proveedores
      *      
