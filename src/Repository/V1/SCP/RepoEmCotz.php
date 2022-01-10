@@ -148,10 +148,52 @@ class RepoEmCotz extends RepoEm
     }
 
     /** */
-    public function getRespuestasByIdRepoMain(int $idRepo)
+    public function updateDataFileCluste(array $content): array
     {
-        $dql = $this->getRepoPiezaInfoByIdRepoMain($idRepo);
-        return $dql->getScalarResult();
+        $dql = $this->getRepoPiezaInfoByIdRepoMain($content['id_main']);
+        $resp = $dql->getScalarResult();
+        $rota = count($resp);
+        $cantResp = [];
+        $vueltas = count($content['provs']);
+
+        if($rota > 0) {
+            for ($i=0; $i < $rota; $i++) {
+                
+                $r = [
+                    'pza_id' => $resp[$i]['pza_id'],
+                    'inf_id' => $resp[$i]['info_id'],
+                    'pza_nm' => $resp[$i]['pza_pieza'],
+                    'costo'  => $resp[$i]['info_costo'],
+                    'status' => [
+                        'id' => $resp[$i]['st_id'],
+                        'nombre' => $resp[$i]['st_nombre'],
+                        'slug' => $resp[$i]['st_slug'],
+                    ]
+                ];
+                if(!in_array($resp[$i]['pza_id'], $cantResp)) {
+                    $cantResp[] = $resp[$i]['pza_id'];
+                }
+                for ($p=0; $p < $vueltas; $p++) { 
+                    if($content['provs'][$p]['id'] == $resp[$i]['own_id']) {
+                        $cicle = count($content['provs'][$p]['reps']);
+                        $existe = false;
+                        for ($a=0; $a < $cicle; $a++) { 
+                            if($content['provs'][$p]['reps'][$a]['inf_id'] == $r['inf_id']) {
+                                $existe = true;
+                                break;
+                            }
+                        }
+                        if(!$existe){
+                            $content['provs'][$p]['reps'][] = $r;
+                        }
+                        break;
+                    }
+                }
+            }
+        }
+
+        $content['cant_res'] = (string) count($cantResp);
+        return $content;
     }
 
     /**
