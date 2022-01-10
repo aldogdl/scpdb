@@ -148,6 +148,13 @@ class RepoEmCotz extends RepoEm
     }
 
     /** */
+    public function getRespuestasByIdRepoMain(array $content): array
+    {
+        $dql = $this->getRepoPiezaInfoByIdRepoMain($content['id_main']);
+        return $dql->getScalarResult();
+    }
+
+    /** */
     public function updateDataFileCluste(array $content): array
     {
         $dql = $this->getRepoPiezaInfoByIdRepoMain($content['id_main']);
