@@ -152,7 +152,7 @@ class RepoEmCotz extends RepoEm
     {
         $dql = $this->getRepoPiezaInfoByIdRepoMain($content['id_main']);
         $resp = $dql->getScalarResult();
-        
+
         $rota = count($resp);
         $cantResp = [];
         $vueltas = count($content['provs']);
@@ -180,6 +180,7 @@ class RepoEmCotz extends RepoEm
                         for ($a=0; $a < $cicle; $a++) { 
                             if($content['provs'][$p]['reps'][$a]['inf_id'] == $r['inf_id']) {
                                 $existe = true;
+                                $content['provs'][$p]['reps'][$a] = $r;
                                 break;
                             }
                         }
