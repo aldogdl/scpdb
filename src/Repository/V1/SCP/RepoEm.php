@@ -405,7 +405,7 @@ class RepoEm
 
         $dql = 'SELECT info, partial own.{id, nombre, celular}, '.
         'partial suc.{id}, partial emp.{id, nombre}, '.
-        'partial status.{id, nombre, slug}, partial emp.{id, nombre}, '.
+        'partial st.{id, nombre, slug}, partial emp.{id, nombre}, '.
         'partial pza.{id, pieza} FROM ' . RepoPzaInfo::class . ' info '.
         'JOIN info.own own '.
         'JOIN info.status st '.
