@@ -114,7 +114,6 @@ class RepoSCPCotz extends AbstractFOSRestController
         return $this->json($result);
     }
     
-    
     /**
      * @Rest\Get("prov-get-repo-by-id/{idProv}/{idRepo}/")
      * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
@@ -122,28 +121,34 @@ class RepoSCPCotz extends AbstractFOSRestController
     public function provGetRepoById(int $apiVer, $idProv, $idRepo)
     {
         $result = ['abort' => true, 'msg' => 'close', 'body' => 'Lo sentimos la solicitud ha sido atendida y cerrada.'];
-        $hoy = new \DateTime('now');
-        $file = $idRepo.'t'.$hoy->format('d-m-Y').'.json';
-        if(is_dir('clusters/'.$file)) {
-            $hasProv = false;
-            $content = json_decode( file_get_contents('clusters/'.$file), true );
-            $rota = count($content['provs']);
-            for ($p=0; $p < $rota; $p++) {
-                if($content['provs'][$p]['id'] == $idProv) {
-                    $content['provs'][$p]['stt'] = 'Abierto';
-                    $hasProv = true;
-                    break;
+        $finder = new Finder();
+        $finder->files()->name($idRepo.'t*.json')->in('clusters/');
+        if ($finder->hasResults()) {
+            $content = [];
+            foreach ($finder as $file) {
+                $content = json_decode( $file->getContents(), true );
+            }
+            if(count($content) > 0) {
+                $hasProv = false;
+                $rota = count($content['provs']);
+                for ($p=0; $p < $rota; $p++) {
+                    if($content['provs'][$p]['id'] == $idProv) {
+                        $content['provs'][$p]['stt'] = 'Abierto';
+                        $hasProv = true;
+                        break;
+                    }
+                }
+                if($hasProv) {
+                    $this->getRepo(RepoMain::class, $apiVer);
+                    $dql = $this->repo->getRepoById($idRepo);
+                    $result = $dql->getArrayResult();
+                }else{
+                    $result['msg'] = 'notFound';
+                    $result['body'] = 'No hay solicitudes por el momento.';
                 }
             }
-            if($hasProv) {
-                $this->getRepo(RepoMain::class, $apiVer);
-                $dql = $this->repo->getRepoById($idRepo);
-                $result = $dql->getArrayResult();
-            }else{
-                $result['msg'] = 'notFound';
-                $result['body'] = 'No hay solicitudes por el momento.';
-            }
         }
+        
         return $this->json($result);
     }
 
