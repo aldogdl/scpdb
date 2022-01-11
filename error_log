@@ -1,4 +1,0 @@
-[10-Jan-2022 07:18:33 America/Mexico_City] [critical] Uncaught PHP Exception TypeError: "Argument 1 passed to App\Repository\V1\SCP\RepoEmCotz::getRespuestasByIdRepoMain() must be of the type array, int given, called in /home2/autoparn/src/Controller/Api/FireWalls/Publicas/RepoSCPCotz.php on line 330" at /home2/autoparn/src/Repository/V1/SCP/RepoEmCotz.php line 151
-
-[10-Jan-2022 07:19:07 America/Mexico_City] [critical] Uncaught PHP Exception TypeError: "Argument 1 passed to App\Repository\V1\SCP\RepoEmCotz::getRespuestasByIdRepoMain() must be of the type array, int given, called in /home2/autoparn/src/Controller/Api/FireWalls/Publicas/RepoSCPCotz.php on line 330" at /home2/autoparn/src/Repository/V1/SCP/RepoEmCotz.php line 151
-

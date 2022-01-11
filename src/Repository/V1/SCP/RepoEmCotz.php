@@ -108,7 +108,6 @@ class RepoEmCotz extends RepoEm
                 $obj = $has[0];
             } 
         }
-
         if($obj == null) {
             $obj = new RepoPzaInfo();
             $obj->setRepo($this->em->getPartialReference(RepoMain::class, $resp['id_main']));
@@ -141,7 +140,7 @@ class RepoEmCotz extends RepoEm
 
         } catch (\Throwable $th) {
             $this->result['abort'] = true;
-            $this->result['body']  = 'Error al guardar la Respuesta.';
+            $this->result['body']  = $th->getMessage(); //'Error al guardar la Respuesta.';
         }
 
         return $this->result;
