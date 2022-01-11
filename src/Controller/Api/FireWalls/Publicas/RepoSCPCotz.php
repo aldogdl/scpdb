@@ -144,7 +144,9 @@ class RepoSCPCotz extends AbstractFOSRestController
                     file_put_contents('clusters/'.$fileNameFound, json_encode($content));
                     $this->getRepo(RepoMain::class, $apiVer);
                     $dql = $this->repo->getRepoById($idRepo);
-                    $result = $dql->getArrayResult();
+                    $result['abort'] = false;
+                    $result['msg'] = 'ok';
+                    $result['body'] = $dql->getArrayResult();
                 }else{
                     $result['msg'] = 'notFound';
                     $result['body'] = 'No hay solicitudes por el momento.';
