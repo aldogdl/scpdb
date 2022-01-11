@@ -130,15 +130,18 @@ class RepoSCPCotz extends AbstractFOSRestController
             }
             if(count($content) > 0) {
                 $hasProv = false;
+                $fileNameFound = '0';
                 $rota = count($content['provs']);
                 for ($p=0; $p < $rota; $p++) {
                     if($content['provs'][$p]['id'] == $idProv) {
                         $content['provs'][$p]['stt'] = 'Abierto';
+                        $fileNameFound = $content['file_n'];
                         $hasProv = true;
                         break;
                     }
                 }
                 if($hasProv) {
+                    file_put_contents('clusters/'.$fileNameFound, json_encode($content));
                     $this->getRepo(RepoMain::class, $apiVer);
                     $dql = $this->repo->getRepoById($idRepo);
                     $result = $dql->getArrayResult();
