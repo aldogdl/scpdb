@@ -347,6 +347,61 @@ class RepoSCPCotz extends AbstractFOSRestController
     }
 
     /**
+     * Usado para borrar las imagenes que son parte de las respuestas
+     *      
+     * @Rest\Post("del-foto-respuesta/")
+     * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
+    */
+    public function deleteFotoRespuesta(Request $req, int $apiVer)
+    {
+        $mover = true;
+        $todasExistentes = [];
+        $result = ['abort' => false, 'msg' => 'fotos', 'body' => []];
+        $this->getRepo(RepoMain::class, $apiVer);
+
+        $params = json_decode($req->request->get('data'), true);
+
+        $uriServer = $this->getParameter('cotizadas');
+        $uriServer = str_replace('_repomain_', $params['id_main'], $uriServer);
+        $uriServer = str_replace('_idinfo_', $params['id_info'], $uriServer);
+
+        // Recogemos todas las fotos existentes.
+        if(is_dir($uriServer)) {
+            $finder = new Finder();
+            $finder->files()->in($uriServer);
+            if ($finder->hasResults()) {
+                foreach ($finder as $file) {
+                    // Quitamos del array resultante la foto a borrar
+                    if($file->getRelativePathname() != $params['foto']) {
+                        $todasExistentes[] = $file->getRelativePathname();
+                    }
+                }
+            }
+        }
+
+        $delDir = true;
+        if(count($todasExistentes) > 0) {
+            $delDir = false;
+            $result = $this->repo->updateFotoDeRespuesta($params['id_info'], $todasExistentes);
+        }
+
+        if($params['id_main'] != 0) {
+            $dirReal = realpath($uriServer);    
+            if($dirReal !== false) {
+                if(is_dir($dirReal)) {
+                    unlink($dirReal.'/'.$params['foto']);
+                }
+                if($delDir) { rmdir($dirReal); }
+                $result = ['abort' => false, 'msg' => 'ok', 'body' => $todasExistentes];
+            }
+        }else{
+            $result = ['abort' => true, 'msg' => 'err', 'body' => $result['msg']];
+        }
+        
+        return $this->json($result);
+    }
+
+    /**
      * Creamos el archivo de cluster para monitoriar las respuestas de los proveedores
      *      
      * @Rest\Post("save-file-cluster/")
