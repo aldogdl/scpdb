@@ -1,0 +1,2 @@
+[17-Jan-2022 16:37:55 America/Mexico_City] [critical] Uncaught PHP Exception BadMethodCallException: "Undefined method 'getV1SCPCotz'. The method name must start with either findBy, findOneBy or countBy!" at /home2/autoparn/vendor/doctrine/orm/lib/Doctrine/ORM/EntityRepository.php line 260
+

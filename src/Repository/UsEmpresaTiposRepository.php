@@ -26,4 +26,12 @@ class UsEmpresaTiposRepository extends ServiceEntityRepository
     public function getV1($entityManager) {
         return new UsEmpresaTiposEm($entityManager);
     }
+
+    /**
+     * Obtenermos el repositorio de esta clase de la version 1
+     */
+    public function getV1SCPCotz($entityManager) {
+        return new UsEmpresaTiposEm($entityManager);
+    }
+    
 }
