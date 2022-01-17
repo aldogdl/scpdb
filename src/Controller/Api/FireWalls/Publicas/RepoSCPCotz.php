@@ -55,8 +55,8 @@ class RepoSCPCotz extends AbstractFOSRestController
     public function getAllTiposEmpresa(int $apiVer)
     {
         $this->getRepo(UsEmpresaTipos::class, $apiVer);
-        $result = $this->repo->getAllTipos();
-        return $this->json($result);
+        $dql = $this->repo->getAllTipos();
+        return $this->json($dql->getArrayResult());
     }
 
     /**
