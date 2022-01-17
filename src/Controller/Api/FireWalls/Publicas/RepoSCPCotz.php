@@ -12,6 +12,7 @@ use Symfony\Component\Finder\Finder;
 
 use App\Entity\RepoMain;
 use App\Entity\UsEmpresa;
+use App\Entity\UsEmpresaTipos;
 use App\Services\PushNotifiers;
 use DateTime;
 
@@ -47,6 +48,17 @@ class RepoSCPCotz extends AbstractFOSRestController
         );
     }
     
+    /**
+     * @Rest\Get("get-all-tipos-emp/")
+     * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
+    */
+    public function getAllTiposEmpresa(int $apiVer)
+    {
+        $this->getRepo(UsEmpresaTipos::class, $apiVer);
+        $result = $this->repo->getAllTipos();
+        return $this->json($result);
+    }
+
     /**
      * @Rest\Get("get-all-marcas/")
      * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
