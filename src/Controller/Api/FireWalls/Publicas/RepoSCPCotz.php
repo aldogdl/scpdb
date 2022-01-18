@@ -531,4 +531,13 @@ class RepoSCPCotz extends AbstractFOSRestController
         return $this->json($result);
     }
 
+    /**
+     * @Rest\Get("existe-username/{username}/")
+     * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
+    */
+    public function existeUsername(Request $req, $apiVer, $username)
+    {
+        $this->getRepo(UsAdmin::class, $apiVer);
+        return $this->json(['abort' => false, 'msg' => 'ok', 'body' => $this->repo->existeUsername($username)]);
+    }
 }

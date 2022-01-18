@@ -44,4 +44,11 @@ class UsAdminRepository extends ServiceEntityRepository implements PasswordUpgra
     public function getV1($entityManager) {
         return new UsAdminEm($entityManager);
     }
+    
+    /**
+     * Obtenermos el repositorio de esta clase de la version 1
+     */
+    public function getV1SCP($entityManager) {
+        return new UsAdminEm($entityManager);
+    }
 }
