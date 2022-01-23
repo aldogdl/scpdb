@@ -540,4 +540,16 @@ class RepoSCPCotz extends AbstractFOSRestController
         $this->getRepo(UsAdmin::class, $apiVer);
         return $this->json(['abort' => false, 'msg' => 'ok', 'body' => $this->repo->existeUsername($username)]);
     }
+
+    /**
+     * @Rest\Get("existe-celular/{celular}/")
+     * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
+    */
+    public function existeCelular(Request $req, $apiVer, $celular)
+    {
+        $this->getRepo(UsAdmin::class, $apiVer);
+        $dql = $this->repo->existeCelular($celular);
+        $result = ['abort' => false, 'msg' => 'ok', 'body' => $dql->getArrayResult()];
+        return $this->json($result);
+    }
 }

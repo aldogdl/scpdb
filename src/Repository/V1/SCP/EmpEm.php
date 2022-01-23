@@ -181,4 +181,13 @@ class EmpEm extends RepoEm
         'WHERE ct.user = :idUser';
         return $this->em->createQuery($dql)->setParameter('idUser', $idUser);
     }
+
+    /** */
+    public function existeCelular($celular)
+    {
+        $dql = 'SELECT partial ct.{id, nombre, celular, cargo} ' .
+        'FROM ' . UsContacts::class . ' ct '.
+        'WHERE ct.celular = :celular';
+        return $this->em->createQuery($dql)->setParameter('celular', $celular);
+    }
 }
