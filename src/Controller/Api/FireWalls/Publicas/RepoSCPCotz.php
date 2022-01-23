@@ -552,4 +552,5 @@ class RepoSCPCotz extends AbstractFOSRestController
         $result = ['abort' => false, 'msg' => 'ok', 'body' => $dql->getArrayResult()];
         return $this->json($result);
     }
+
 }

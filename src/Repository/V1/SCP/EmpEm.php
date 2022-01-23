@@ -71,7 +71,7 @@ class EmpEm extends RepoEm
         $obj->setDespeq('Alta TMP desde SCP');
         $obj->setTipo($this->em->getPartialReference(UsEmpresaTipos::class, $data['tipo']));
         $obj->setAvo($this->em->getPartialReference(UsAdmin::class, 1));
-        $obj->setLogo($data['emp']);
+        $obj->setLogo('0');
         
         try {
             $this->em->persist($obj);
