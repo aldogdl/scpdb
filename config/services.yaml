@@ -10,10 +10,10 @@ parameters:
     pubImg     : '%phtml%/empresas/pubs/'
     empLogo    : '%phtml%/empresas/logos/'
     empFacha   : '%phtml%/empresas/fachadas/'
-    toCotizar  : '%phtml%/taller/pictures/to_cotizar/_repomain_/'
-    toCotizarSh: '%phtml%/taller/pictures/to_cotizar/_repomain_/shared/'
-    cotizadas  : '%phtml%/taller/pictures/cotizadas/_repomain_/_idinfo_/'
-    sharedCtz  : '%phtml%/taller/pictures/cotizadas/shared/_idPza_/'
+    toCotizar  : '%phtml%/cotiza/pictures/to_cotizar/_repomain_/'
+    toCotizarSh: '%phtml%/cotiza/pictures/to_cotizar/_repomain_/shared/'
+    cotizadas  : '%phtml%/cotiza/pictures/cotizadas/_repomain_/_idinfo_/'
+    sharedCtz  : '%phtml%/cotiza/pictures/cotizadas/shared/_idPza_/'
 
 services:
     # default configuration for services in *this* file
