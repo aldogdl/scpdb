@@ -414,6 +414,34 @@ class RepoSCPCotz extends AbstractFOSRestController
     }
 
     /**
+     * Construimos el archivo de la lista de cluster para compartir entre SCP y el gest_user file
+     *      
+     * @Rest\Post("set-file-clusterlist/")
+     * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
+    */
+    public function saveFileClusterList(Request $req, int $apiVer)
+    {
+        $result = ['abort' => false, 'msg' => 'fotos', 'body' => []];
+        $params = json_decode($req->request->get('data'), true);
+        file_put_contents('clusters/clusters.json', json_encode($params));
+        $result['body'] = [true];
+        return $this->json($result);
+    }
+
+    /**
+     * Obtenemos el archivo de la lista de cluster para compartir entre SCP y el gest_user file
+     *      
+     * @Rest\Post("get-file-clusterlist/")
+     * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
+    */
+    public function getFileClusterList(int $apiVer)
+    {
+        $result = ['abort' => false, 'msg' => 'ok', 'body' => []];
+        $result['body'] = json_decode(file_get_contents('clusters/clusters.json'), true);;
+        return $this->json($result);
+    }
+
+    /**
      * Creamos el archivo de cluster para monitoriar las respuestas de los proveedores
      *      
      * @Rest\Post("save-file-cluster/")
@@ -422,28 +450,14 @@ class RepoSCPCotz extends AbstractFOSRestController
     public function saveFileCluster(Request $req, int $apiVer)
     {
         $result = ['abort' => false, 'msg' => 'fotos', 'body' => []];
-        $this->getRepo(RepoMain::class, $apiVer);
-
         $params = json_decode($req->request->get('data'), true);
         file_put_contents('clusters/'.$params['file_n'], json_encode($params));
         $result['body'] = [true];
         return $this->json($result);
     }
 
-    /**     
-     * @Rest\Get("get-resp-byid-main/{idMain}/")
-     * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
-    */
-    public function getRespuestasByIdRepoMain(int $apiVer, int $idMain)
-    {
-        $result = ['abort' => false, 'msg' => 'fotos', 'body' => []];
-        $this->getRepo(RepoMain::class, $apiVer);
-        $result['body'] = $this->repo->getRespuestasByIdRepoMain($idMain);
-        return $this->json($result);
-    }
-
     /**
-     * Creamos el archivo de cluster para monitoriar las respuestas de los proveedores
+     * Obtenemos el archivo de cluster para monitoriar las respuestas de los proveedores
      *      
      * @Rest\Get("get-file-cluster/{filename}/")
      * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
@@ -458,6 +472,18 @@ class RepoSCPCotz extends AbstractFOSRestController
         
         file_put_contents('clusters/'.$filename, json_encode($content));
         $result['body'] = $content;
+        return $this->json($result);
+    }
+
+    /**     
+     * @Rest\Get("get-resp-byid-main/{idMain}/")
+     * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
+    */
+    public function getRespuestasByIdRepoMain(int $apiVer, int $idMain)
+    {
+        $result = ['abort' => false, 'msg' => 'fotos', 'body' => []];
+        $this->getRepo(RepoMain::class, $apiVer);
+        $result['body'] = $this->repo->getRespuestasByIdRepoMain($idMain);
         return $this->json($result);
     }
 
