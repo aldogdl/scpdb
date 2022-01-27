@@ -69,7 +69,8 @@ class EmpEm extends RepoEm
         $obj = null;
         if(array_key_exists('idEmp', $data)) {
             if($data['idEmp'] != 0) {
-                $res = $this->getProveedorById($data['idEmp']);
+                $dql = $this->getProveedorById($data['idEmp']);
+                $res = $dql->execute();
                 if($res) {
                     $obj = $res[0];
                 }
@@ -105,7 +106,8 @@ class EmpEm extends RepoEm
         $obj = null;
         if(array_key_exists('idSuc', $data)) {
             if($data['idSuc'] != 0) {
-                $res = $this->getSucursalById($data['idSuc']);
+                $dql = $this->getSucursalById($data['idSuc']);
+                $res = $dql->execute();
                 if($res) {
                     $obj = $res[0];
                 }
@@ -139,7 +141,8 @@ class EmpEm extends RepoEm
         $obj = null;
         if(array_key_exists('id', $data)) {
             if($data['id'] != 0) {
-                $res = $this->getContactoById($data['id']);
+                $dql = $this->getContactoById($data['id']);
+                $res = $dql->execute();
                 if($res) {
                     $obj = $res[0];
                 }
