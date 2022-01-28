@@ -120,6 +120,7 @@ class EmpEm extends RepoEm
         }
         $obj->setDomicilio($data['dom']);
         $obj->setTelefono($data['tel']);
+        $obj->setPalclas($data['pcv']);
 
         try {
             $this->em->persist($obj);
