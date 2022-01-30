@@ -260,7 +260,7 @@ class EmpEm extends RepoEm
             $rota = count($objs);
             if($rota > 0) {
                 for ($i=0; $i < $rota; $i++) { 
-                    $objs[$i]->setPalclas($filtros['idEmp']);
+                    $objs[$i]->setPalclas($filtros['filtro']);
                     $this->em->persist($objs[$i]);
                 }
             }
@@ -276,18 +276,38 @@ class EmpEm extends RepoEm
     /** */
     public function getDataProtoCom()
     {
-        $dql = $this->getAllProveedores();
-        $provs = $dql->getArrayResult();
+        $especialFiltro = 'spc-';
+
+        $proCom = ['favoritos' => [], 'testers' => [], 'filtros' => []];
+        $dql  = $this->getAllProveedores();
+        $provs= $dql->getArrayResult();
         $rprv = count($provs);
-        return $provs;
         if($rprv > 0) {
             for ($i=0; $i < $rprv; $i++) { 
                 $rSuc = count($provs[$i]['sucursales']);
                 if($rSuc > 0) {
-
+                    $proCom['filtros']['id'.$provs[$i]['id']] = $provs[$i]['sucursales'][0]['palclas'];
+                }
+                $partes = explode(' ', $provs[$i]['sucursales'][0]['palclas']);
+                $vueltas = count($partes);
+                if($vueltas > 0) {
+                    for ($v=0; $v < $vueltas; $v++) { 
+                        if(strpos($partes[$v], $especialFiltro) !== false) {
+                            $key = str_replace($especialFiltro, '', $partes[$v]);
+                            $key = trim($key);
+                            $hasEs = [];
+                            if(array_key_exists($key, $proCom)) {
+                                $hasEs = $proCom[$key];
+                            }
+                            if(!in_array($provs[$i]['id'], $hasEs)) {
+                                $hasEs[] = $provs[$i]['id'];
+                            }
+                        }
+                    }
                 }
             }
         }
+        return $proCom;
     }
 
     /** */
