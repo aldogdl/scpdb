@@ -205,11 +205,21 @@ class EmpEm extends RepoEm
     /** */
     public function getSucursalById($idSuc)
     {
-        $dql = 'SELECT partial suc.{id, domicilio, telefono, empresa}, emp ' .
+        $dql = 'SELECT partial suc.{id, domicilio, telefono, empresa, palclas}, emp ' .
         'FROM ' . UsSucursales::class . ' suc '.
         'JOIN suc.empresa emp '.
         'WHERE suc.id = :id';
         return $this->em->createQuery($dql)->setParameter('id', $idSuc);
+    }
+    
+    /** */
+    public function getAllSucursalesByIdEmp($idEmp)
+    {
+        $dql = 'SELECT partial suc.{id, domicilio, telefono, empresa, palclas}, emp ' .
+        'FROM ' . UsSucursales::class . ' suc '.
+        'JOIN suc.empresa emp '.
+        'WHERE suc.empresa = :id';
+        return $this->em->createQuery($dql)->setParameter('id', $idEmp);
     }
 
     /** */
@@ -239,6 +249,45 @@ class EmpEm extends RepoEm
         'JOIN suc.empresa emp '.
         'WHERE ct.user = :idUser';
         return $this->em->createQuery($dql)->setParameter('idUser', $idUser);
+    }
+
+    /** */
+    public function setFiltroToSucs($filtros)
+    {
+        $dql = $this->getAllSucursalesByIdEmp($filtros['idEmp']);
+        $objs = $dql->getResult();
+        if($objs) {
+            $rota = count($objs);
+            if($rota > 0) {
+                for ($i=0; $i < $rota; $i++) { 
+                    $objs[$i]->setPalclas($filtros['idEmp']);
+                    $this->em->persist($objs[$i]);
+                }
+            }
+            try {
+                $this->em->flush();
+            } catch (\Throwable $th) {
+                $this->result['abort'] = true;
+                $this->result['body'] = 'Error inesperado ' . $th->getMessage();
+            }
+        }
+    }
+
+    /** */
+    public function getDataProtoCom()
+    {
+        $dql = $this->getAllProveedores();
+        $provs = $dql->getArrayResult();
+        $rprv = count($provs);
+        return $provs;
+        if($rprv > 0) {
+            for ($i=0; $i < $rprv; $i++) { 
+                $rSuc = count($provs[$i]['sucursales']);
+                if($rSuc > 0) {
+
+                }
+            }
+        }
     }
 
     /** */
