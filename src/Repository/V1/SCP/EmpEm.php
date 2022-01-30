@@ -291,22 +291,25 @@ class EmpEm extends RepoEm
                 $partes = explode(' ', $provs[$i]['sucursales'][0]['palclas']);
                 $vueltas = count($partes);
                 if($vueltas > 0) {
-                    for ($v=0; $v < $vueltas; $v++) { 
-                        if(strpos($partes[$v], $especialFiltro) !== false) {
-                            $key = str_replace($especialFiltro, '', $partes[$v]);
-                            $key = trim($key);
-                            $hasEs = [];
-                            if(array_key_exists($key, $proCom)) {
-                                $hasEs = $proCom[$key];
-                            }
-                            if(!in_array($provs[$i]['id'], $hasEs)) {
-                                $hasEs[] = $provs[$i]['id'];
+                    for ($v=0; $v < $vueltas; $v++) {
+                        if(strlen($partes[$v]) > 3) {
+                            if(strpos($partes[$v], $especialFiltro) !== false) {
+                                $key = str_replace($especialFiltro, '', $partes[$v]);
+                                $key = trim($key);
+                                $hasEs = [];
+                                if(array_key_exists($key, $proCom)) {
+                                    $hasEs = $proCom[$key];
+                                }
+                                if(!in_array($provs[$i]['id'], $hasEs)) {
+                                    $hasEs[] = $provs[$i]['id'];
+                                }
                             }
                         }
                     }
                 }
             }
         }
+
         return $proCom;
     }
 
