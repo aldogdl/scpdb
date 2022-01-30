@@ -287,7 +287,7 @@ class EmpEm extends RepoEm
                 $rSuc = count($provs[$i]['sucursales']);
                 if($rSuc > 0) {
                     $filters = $provs[$i]['sucursales'][0]['palclas'];
-                    if(strlen($rSuc) > 4) {
+                    if(strlen($filters) > 4) {
                         $proCom['filtros']['id'.$provs[$i]['id']] = $filters;
                         $partes = explode(' ', $filters);
                         $vueltas = count($partes);
