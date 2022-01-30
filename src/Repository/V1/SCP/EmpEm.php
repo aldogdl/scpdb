@@ -286,22 +286,25 @@ class EmpEm extends RepoEm
             for ($i=0; $i < $rprv; $i++) { 
                 $rSuc = count($provs[$i]['sucursales']);
                 if($rSuc > 0) {
-                    $proCom['filtros']['id'.$provs[$i]['id']] = $provs[$i]['sucursales'][0]['palclas'];
-                }
-                $partes = explode(' ', $provs[$i]['sucursales'][0]['palclas']);
-                $vueltas = count($partes);
-                if($vueltas > 0) {
-                    for ($v=0; $v < $vueltas; $v++) {
-                        if(strlen($partes[$v]) > 3) {
-                            if(strpos($partes[$v], $especialFiltro) !== false) {
-                                $key = str_replace($especialFiltro, '', $partes[$v]);
-                                $key = trim($key);
-                                $hasEs = [];
-                                if(array_key_exists($key, $proCom)) {
-                                    $hasEs = $proCom[$key];
-                                }
-                                if(!in_array($provs[$i]['id'], $hasEs)) {
-                                    $hasEs[] = $provs[$i]['id'];
+                    $filters = $provs[$i]['sucursales'][0]['palclas'];
+                    if(strlen($rSuc) > 4) {
+                        $proCom['filtros']['id'.$provs[$i]['id']] = $filters;
+                        $partes = explode(' ', $filters);
+                        $vueltas = count($partes);
+                        if($vueltas > 0) {
+                            for ($v=0; $v < $vueltas; $v++) {
+                                
+                                if(strpos($partes[$v], $especialFiltro) !== false) {
+                                    $key = str_replace($especialFiltro, '', $partes[$v]);
+                                    $key = trim($key);
+                                    $hasEs = [];
+                                    if(array_key_exists($key, $proCom)) {
+                                        $hasEs = $proCom[$key];
+                                    }
+                                    if(!in_array($provs[$i]['id'], $hasEs)) {
+                                        $hasEs[] = $provs[$i]['id'];
+                                    }
+                                    $proCom[$key] = $hasEs;
                                 }
                             }
                         }
