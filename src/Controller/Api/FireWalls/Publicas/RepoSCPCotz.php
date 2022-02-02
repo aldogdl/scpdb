@@ -588,9 +588,6 @@ class RepoSCPCotz extends AbstractFOSRestController
         $this->getRepo(UsEmpresa::class, $apiVer);
         $data = json_decode($req->request->get('data'), true);
         $this->repo->setFiltroToSucs($data);
-        // Recontruir el ProtoCom.
-        $dataProtoCom = $this->repo->getDataProtoCom();
-        file_put_contents($this->getParameter('protocom'), json_encode($dataProtoCom));
         $result = ['abort' => false, 'msg' => 'ok', 'body' => 'ok'];
         return $this->json($result);
     }

@@ -274,49 +274,6 @@ class EmpEm extends RepoEm
     }
 
     /** */
-    public function getDataProtoCom()
-    {
-        $especialFiltro = 'spc-';
-
-        $proCom = ['favoritos' => [], 'testers' => [], 'filtros' => []];
-        $dql  = $this->getAllProveedores();
-        $provs= $dql->getArrayResult();
-        $rprv = count($provs);
-        if($rprv > 0) {
-            for ($i=0; $i < $rprv; $i++) { 
-                $rSuc = count($provs[$i]['sucursales']);
-                if($rSuc > 0) {
-                    $filters = $provs[$i]['sucursales'][0]['palclas'];
-                    if(strlen($filters) > 4) {
-                        $proCom['filtros']['id'.$provs[$i]['id']] = $filters;
-                        $partes = explode(' ', $filters);
-                        $vueltas = count($partes);
-                        if($vueltas > 0) {
-                            for ($v=0; $v < $vueltas; $v++) {
-                                
-                                if(strpos($partes[$v], $especialFiltro) !== false) {
-                                    $key = str_replace($especialFiltro, '', $partes[$v]);
-                                    $key = trim($key);
-                                    $hasEs = [];
-                                    if(array_key_exists($key, $proCom)) {
-                                        $hasEs = $proCom[$key];
-                                    }
-                                    if(!in_array($provs[$i]['id'], $hasEs)) {
-                                        $hasEs[] = $provs[$i]['id'];
-                                    }
-                                    $proCom[$key] = $hasEs;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        return $proCom;
-    }
-
-    /** */
     public function existeCelular($celular)
     {
         $dql = 'SELECT partial ct.{id, nombre, celular, cargo} ' .

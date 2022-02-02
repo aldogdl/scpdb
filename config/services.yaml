@@ -6,7 +6,6 @@ parameters:
     repoImg    : '%phtml%/repo_img/'
     invImg     : '%phtml%/images/inv/'
 
-    protocom   : '%phtml%/protocom.json'
     avatarTipos: '%phtml%/images/avatar_tipos/'
     pubImg     : '%phtml%/empresas/pubs/'
     empLogo    : '%phtml%/empresas/logos/'
