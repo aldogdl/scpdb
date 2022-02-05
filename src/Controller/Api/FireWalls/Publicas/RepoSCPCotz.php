@@ -127,14 +127,14 @@ class RepoSCPCotz extends AbstractFOSRestController
     }
     
     /**
-     * @Rest\Get("prov-get-repo-by-id/{idProv}/{idRepo}/")
+     * @Rest\Get("prov-get-repo-by-id/{idCtc}/{idRepo}/")
      * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
     */
-    public function provGetRepoById(int $apiVer, $idProv, $idRepo)
+    public function provGetRepoById(int $apiVer, $idCtc, $idRepo)
     {
         $result = ['abort' => true, 'msg' => 'close', 'body' => 'Lo sentimos la solicitud ha sido atendida y cerrada.'];
         $finder = new Finder();
-        $finder->files()->name($idRepo.'t*.json')->in('clusters/');
+        $finder->files()->name('sol_'.$idRepo.'*.json')->in('clusters/');
         if ($finder->hasResults()) {
             $content = [];
             foreach ($finder as $file) {
@@ -143,10 +143,10 @@ class RepoSCPCotz extends AbstractFOSRestController
             if(count($content) > 0) {
                 $hasProv = false;
                 $fileNameFound = '0';
-                $rota = count($content['provs']);
+                $rota = count($content['cotz']);
                 for ($p=0; $p < $rota; $p++) {
-                    if($content['provs'][$p]['id'] == $idProv) {
-                        $content['provs'][$p]['stt'] = 'Abierto';
+                    if($content['cotz'][$p]['id'] == $idCtc) {
+                        $content['cotz'][$p]['stt'] = 'Abierto';
                         $fileNameFound = $content['file_n'];
                         $hasProv = true;
                         break;
@@ -410,34 +410,6 @@ class RepoSCPCotz extends AbstractFOSRestController
             $result = ['abort' => true, 'msg' => 'err', 'body' => $result['msg']];
         }
         
-        return $this->json($result);
-    }
-
-    /**
-     * Construimos el archivo de la lista de cluster para compartir entre SCP y el gest_user file
-     *      
-     * @Rest\Post("set-file-clusterlist/")
-     * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
-    */
-    public function saveFileClusterList(Request $req, int $apiVer)
-    {
-        $result = ['abort' => false, 'msg' => 'fotos', 'body' => []];
-        $params = json_decode($req->request->get('data'), true);
-        file_put_contents('clusters/clusters.json', json_encode($params));
-        $result['body'] = [true];
-        return $this->json($result);
-    }
-
-    /**
-     * Obtenemos el archivo de la lista de cluster para compartir entre SCP y el gest_user file
-     *      
-     * @Rest\Post("get-file-clusterlist/")
-     * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
-    */
-    public function getFileClusterList(int $apiVer)
-    {
-        $result = ['abort' => false, 'msg' => 'ok', 'body' => []];
-        $result['body'] = json_decode(file_get_contents('clusters/clusters.json'), true);;
         return $this->json($result);
     }
 

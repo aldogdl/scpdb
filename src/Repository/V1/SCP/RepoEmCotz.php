@@ -159,7 +159,7 @@ class RepoEmCotz extends RepoEm
         $resp = $this->getRespuestasByIdRepoMain($content['id_main']);
         $rota = count($resp);
         $cantResp = [];
-        $vueltas = count($content['provs']);
+        $vueltas = count($content['cotz']);
 
         if($rota > 0) {
             for ($i=0; $i < $rota; $i++) {
@@ -178,18 +178,18 @@ class RepoEmCotz extends RepoEm
                     $cantResp[] = $resp[$i]['pza_id'];
                 }
                 for ($p=0; $p < $vueltas; $p++) { 
-                    if($content['provs'][$p]['id'] == $resp[$i]['own_id']) {
-                        $cicle = count($content['provs'][$p]['reps']);
+                    if($content['cotz'][$p]['id'] == $resp[$i]['own_id']) {
+                        $cicle = count($content['cotz'][$p]['reps']);
                         $existe = false;
                         for ($a=0; $a < $cicle; $a++) { 
-                            if($content['provs'][$p]['reps'][$a]['inf_id'] == $r['inf_id']) {
+                            if($content['cotz'][$p]['reps'][$a]['inf_id'] == $r['inf_id']) {
                                 $existe = true;
-                                $content['provs'][$p]['reps'][$a] = $r;
+                                $content['cotz'][$p]['reps'][$a] = $r;
                                 break;
                             }
                         }
                         if(!$existe){
-                            $content['provs'][$p]['reps'][] = $r;
+                            $content['cotz'][$p]['reps'][] = $r;
                         }
                         break;
                     }
