@@ -192,6 +192,7 @@ class PushNotifiers
                 }
             }
         }
+        file_put_contents('tokenes.txt', $tokens);
         return $tokens;
     }
 
