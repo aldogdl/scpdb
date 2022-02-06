@@ -18,14 +18,14 @@ nelmio_cors:
             hosts: ['^/*']
         '^/seguridad/*':
             origin_regex: true
-            allow_origin: ['^http://localhost:[0-9]+', '^http://192.168.1.67:[0-9]+']
+            allow_origin: ['^http://localhost:[0-9]+']
             allow_headers: ['*']
             allow_methods: ['POST', 'PUT', 'GET', 'DELETE']
             max_age: 3600
             hosts: ['^/*']
         '^/*':
             origin_regex: true
-            allow_origin: ['^http://localhost:[0-9]+', '^http://192.168.1.67:[0-9]+']
+            allow_origin: ['^http://localhost:[0-9]+']
             allow_headers: ['X-Custom-Auth']
             allow_methods: ['POST', 'PUT', 'GET', 'DELETE']
             max_age: 3600

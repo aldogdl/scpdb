@@ -192,8 +192,6 @@ class PushesController extends AbstractFOSRestController
             ];
         }
 
-        file_put_contents($uriPushes.'/'.$nombreFile, json_encode($test));
-
         if($makePushReal) {
             $this->push->sendPushTestTo($idUser);
             $result = ['abort' => false, 'body' => 'google'];

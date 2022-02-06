@@ -118,8 +118,6 @@ class PushNotifiers
             $opt['name'] = 'autoparnet';
         }
 
-        file_put_contents('la-data.json', json_encode($data));
-
         switch ($data['tipo']) {
             case 'sol':
                 $opt['registration_ids'] = $this->getTokensSCP($opt['registration_ids']);
@@ -161,7 +159,7 @@ class PushNotifiers
                 }
             }
         }
-        file_put_contents('tokens_1.json', json_encode($opt['registration_ids']));
+
         $opt['registration_ids'] = $this->getTokensSCP($opt['registration_ids']);
         return $opt;
     }
@@ -195,8 +193,7 @@ class PushNotifiers
                 }
             }
         }
-        // probando los tokens de eyes 2
-        file_put_contents('tokens_2.json', json_encode($tokens));
+    
         return $tokens;
     }
 

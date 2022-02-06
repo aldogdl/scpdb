@@ -118,7 +118,7 @@ class UsAdminController extends AbstractFOSRestController
      * 
      * Use::FROM::app/web-talleres::CLASS::UserAdmRepository
     */
-    public function isTokenApzCaducado(Request $req, $apiVer)
+    public function isTokenApzCaducado($apiVer)
     {
         return $this->json(['abort' => false, 'msg' => 'ok', 'body' => false]);
     }
