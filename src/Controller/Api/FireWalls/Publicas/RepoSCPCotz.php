@@ -140,6 +140,7 @@ class RepoSCPCotz extends AbstractFOSRestController
             foreach ($finder as $file) {
                 $content = json_decode( $file->getContents(), true );
             }
+            file_put_contents('prueba_1.json', $content);
             if(count($content) > 0) {
                 $hasProv = false;
                 $fileNameFound = '0';
