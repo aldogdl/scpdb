@@ -144,10 +144,11 @@ class RepoSCPCotz extends AbstractFOSRestController
                 $hasProv = false;
                 $fileNameFound = '0';
                 $rota = count($content['cotz']);
+                $safeData = [];
                 for ($p=0; $p < $rota; $p++) {
                     $idCotzF = (integer) $content['cotz'][$p]['id'];
                     $idCotzP = (integer) $idCtc;
-
+                    $safeData[] = 'IdCotiBuscado:' . $idCotzP . ' -> en el file es: ' .$idCotzF;
                     if($idCotzF == $idCotzP) {
                         $content['cotz'][$p]['stt'] = 'Abierto';
                         $content['cotz'][$p]['id']  = $idCotzF;
@@ -156,6 +157,7 @@ class RepoSCPCotz extends AbstractFOSRestController
                         break;
                     }
                 }
+                file_put_contents('prueba.json', $safeData);
                 if($hasProv) {
                     file_put_contents('clusters/'.$fileNameFound, json_encode($content));
                     $this->getRepo(RepoMain::class, $apiVer);
