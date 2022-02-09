@@ -125,7 +125,7 @@ class RepoSCPCotz extends AbstractFOSRestController
         $result = $dql->getArrayResult();
         return $this->json($result);
     }
-    
+
     /**
      * @Rest\Get("prov-get-repo-by-id/{idCtc}/{idRepo}/")
      * @Rest\RequestParam(name="apiVer", requirements="\d+", default="1", description="La version del API")
@@ -145,8 +145,12 @@ class RepoSCPCotz extends AbstractFOSRestController
                 $fileNameFound = '0';
                 $rota = count($content['cotz']);
                 for ($p=0; $p < $rota; $p++) {
-                    if($content['cotz'][$p]['id'] == $idCtc) {
+                    $idCotzF = (integer) $content['cotz'][$p]['id'];
+                    $idCotzP = (integer) $idCtc;
+
+                    if($idCotzF == $idCotzP) {
                         $content['cotz'][$p]['stt'] = 'Abierto';
+                        $content['cotz'][$p]['id']  = $idCotzF;
                         $fileNameFound = $content['file_n'];
                         $hasProv = true;
                         break;
@@ -161,7 +165,7 @@ class RepoSCPCotz extends AbstractFOSRestController
                     $result['body'] = $dql->getArrayResult();
                 }else{
                     $result['msg'] = 'notFound';
-                    $result['body'] = 'No hay solicitudes por el momento.';
+                    $result['body']= 'No hay solicitudes por el momento.';
                 }
             }
         }
