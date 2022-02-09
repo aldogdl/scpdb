@@ -140,7 +140,7 @@ class RepoSCPCotz extends AbstractFOSRestController
             foreach ($finder as $file) {
                 $content = json_decode( $file->getContents(), true );
             }
-            file_put_contents('prueba_1.json', json_encode($content));
+
             if(count($content) > 0) {
                 $hasProv = false;
                 $fileNameFound = '0';
@@ -158,7 +158,7 @@ class RepoSCPCotz extends AbstractFOSRestController
                         break;
                     }
                 }
-                file_put_contents('prueba.json', json_encode($safeData));
+
                 if($hasProv) {
                     file_put_contents('clusters/'.$fileNameFound, json_encode($content));
                     $this->getRepo(RepoMain::class, $apiVer);
