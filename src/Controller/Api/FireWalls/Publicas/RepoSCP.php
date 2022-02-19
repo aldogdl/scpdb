@@ -82,6 +82,24 @@ class RepoSCP extends AbstractFOSRestController
     /**
      * Guardamos el token push de la sesion abirta del SCP-EYE
      * 
+     * @Rest\Get("save-ip-adress-zeus/{conn}/")
+    */
+    public function saveIpAdressZeus($conn)
+    {
+        $pathTokens = $this->getParameter('empTkWorker');
+        if(!is_dir($pathTokens)) {
+            mkdir($pathTokens, 777);
+        }
+
+        $leng = file_put_contents($pathTokens . 'conn.txt', $conn);
+        return $this->json([
+            'abort' => false, 'msg' => 'ok', 'body' => $leng
+        ]);
+    }
+
+    /**
+     * Guardamos el token push de la sesion abirta del SCP-EYE
+     * 
      * @Rest\Get("send-token-push-to-server/{tokenPush}/")
     */
     public function sendTokenPushToServer($tokenPush)
