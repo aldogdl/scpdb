@@ -109,9 +109,8 @@ class RepoEm
      * Metodos analizados e integrados al nuevo Sistema Central de Procesamiento (SCP)
     */
 
-
     /** from::zeus */
-    public function buildFileCentinelaFromZeus($idRepoCurrent) {
+    public function getDataCentinelaFromZeus() {
 
         $type = 'cot';
         $parameters = ['type' => $type];

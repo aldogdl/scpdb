@@ -108,12 +108,12 @@ class RepoSCP extends AbstractFOSRestController
     }
 
     /**
-     * @Rest\Get("get-last-sol-zeus/{idRepoCurrent}/")
+     * @Rest\Get("gest-centinela-from-zeus/")
     */
-    public function buildFileCentinelaFromZeus($apiVer, $idRepoCurrent)
+    public function gestCentinelaFromZeus($apiVer)
     {
         $this->getRepo(RepoMain::class, $apiVer);
-        $dql = $this->repo->buildFileCentinelaFromZeus($idRepoCurrent);
+        $dql = $this->repo->getDataCentinelaFromZeus();
         $result = $dql->getArrayResult();
         
         $pathTokens = $this->getParameter('eyesPro');
