@@ -116,7 +116,7 @@ class RepoEm
         $parameters = ['type' => $type];
 
         $dql = 'SELECT partial repo.{id, own}, partial st.{id, slug}, '.
-        'partial pzas.{id, status}, partial info.{id, status}, partial stp.{id, slug}, partial sti.{id, slug} FROM ' . RepoMain::class . ' repo '.
+        'partial pzas.{id, status}, partial info.{id, status, own}, partial stp.{id, slug}, partial sti.{id, slug} FROM ' . RepoMain::class . ' repo '.
         'left join repo.pzas pzas '.
         'left join pzas.info info '.
         'join repo.status st '.
