@@ -2,6 +2,7 @@ parameters:
     phtml      : '%kernel.project_dir%/public_html'
     tjtDigi    : '%phtml%/data/'
     empTkWorker: '%phtml%/tks/'
+    eyesPro    : '%phtml%/eyes_pro/'
     whoTestPush: '%phtml%/test_push/'
     repoImg    : '%phtml%/repo_img/'
     invImg     : '%phtml%/images/inv/'

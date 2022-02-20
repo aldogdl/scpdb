@@ -108,6 +108,25 @@ class RepoSCP extends AbstractFOSRestController
     }
 
     /**
+     * @Rest\Get("get-last-sol-zeus/{idRepoCurrent}/")
+    */
+    public function buildFileCentinelaFromZeus($apiVer, $idRepoCurrent)
+    {
+        $this->getRepo(RepoMain::class, $apiVer);
+        $dql = $this->repo->buildFileCentinelaFromZeus($idRepoCurrent);
+        $result = $dql->getArrayResult();
+        
+        $pathTokens = $this->getParameter('eyesPro');
+        $file = file_get_contents($pathTokens . 'eyes_pro.json');
+        return $this->json([
+            'abort' => false, 'msg' => 'ok', 'body' => [
+                'bd'   => $result,
+                'file' => $file
+            ]
+        ]);
+    }
+
+    /**
      * Guardamos el token push de la sesion abirta del SCP-EYE
      * 
      * @Rest\Get("send-token-push-to-server/{tokenPush}/")

@@ -110,6 +110,23 @@ class RepoEm
     */
 
 
+    /** from::zeus */
+    public function buildFileCentinelaFromZeus($idRepoCurrent) {
+
+        $type = 'cot';
+        $parameters = ['type' => $type];
+
+        $dql = 'SELECT partial repo.{id, own}, partial st.{id, slug}, '.
+        'partial pzas.{id, status}, partial info.{id, status}, partial stp.{id, slug}, partial sti.{id, slug} FROM ' . RepoMain::class . ' repo '.
+        'left join repo.pzas pzas '.
+        'left join pzas.info info '.
+        'join repo.status st '.
+        'left join pzas.status stp '.
+        'left join info.status sti '.
+        'WHERE st.id > 1 AND repo.regType = :type';
+        return $this->em->createQuery($dql)->setParameters($parameters);
+    }
+ 
     /**
      *  @see AutoparNet/RepoController
     */
