@@ -310,16 +310,29 @@ class RepoSCPCotz extends AbstractFOSRestController
             $uriServer = $this->getParameter('cotizadas');
             $uriPartes = explode('_repomain_', $uriServer);
 
-            if(!is_dir($uriPartes[0])) {
-                mkdir($uriServer, 0777, true);
+            if(is_dir($uriPartes[0])) {
+                if(!file_exists($uriPartes[0])) {
+                    mkdir($uriPartes[0], 0777, true);
+                }
+            }else{
+                mkdir($uriPartes[0], 0777, true);
             }
+
             $uriPartes = $uriPartes[0] .'/'. $params['metas']['id_main'] .'/';
-            if(!is_dir($uriPartes)) {
-                mkdir($uriServer, 0777, true);
+            if(is_dir($uriPartes)) {
+                if(!file_exists($uriPartes)) {
+                    mkdir($uriPartes, 0777, true);
+                }
+            }else{
+                mkdir($uriPartes, 0777, true);
             }
             $uriPartes = $uriPartes . $params['metas']['id_info'] .'/';
-            if(!is_dir($uriPartes)) {
-                mkdir($uriServer, 0777, true);
+            if(is_dir($uriPartes)) {
+                if(!file_exists($uriPartes)) {
+                    mkdir($uriPartes, 0777, true);
+                }
+            }else{
+                mkdir($uriPartes, 0777, true);
             }
             $uriServer = $uriPartes;
 
