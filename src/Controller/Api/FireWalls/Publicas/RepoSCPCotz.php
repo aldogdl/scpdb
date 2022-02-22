@@ -310,14 +310,17 @@ class RepoSCPCotz extends AbstractFOSRestController
             $uriServer = $this->getParameter('cotizadas');
             $uriServer = str_replace('_repomain_', $params['metas']['id_main'], $uriServer);
             $uriServer = str_replace('_idinfo_', $params['metas']['id_info'], $uriServer);
-
-            // Primeramente revisamos si ya hay fotos compartidas.
-            if(is_dir($uriServer)) {
-                $finder = new Finder();
-                $finder->files()->in($uriServer);
-                if ($finder->hasResults()) {
-                    foreach ($finder as $file) {
-                        $todasExistentes[] = $file->getRelativePathname();
+            if(!is_dir($uriServer)) {
+                mkdir($uriServer, 0777, true);
+            }else{
+                // Primeramente revisamos si ya hay fotos compartidas.
+                if(is_dir($uriServer)) {
+                    $finder = new Finder();
+                    $finder->files()->in($uriServer);
+                    if ($finder->hasResults()) {
+                        foreach ($finder as $file) {
+                            $todasExistentes[] = $file->getRelativePathname();
+                        }
                     }
                 }
             }
@@ -332,10 +335,6 @@ class RepoSCPCotz extends AbstractFOSRestController
 
             if($mover) {
                 if($params['metas']['id_main'] != 0) {
-                    
-                    if(!is_dir($uriServer)) {
-                        mkdir($uriServer, 0777, true);
-                    }
         
                     $saveTo = realpath($uriServer);
                     if($saveTo !== false) {
