@@ -308,22 +308,31 @@ class RepoSCPCotz extends AbstractFOSRestController
         if(array_key_exists('metas', $params)) {
 
             $uriServer = $this->getParameter('cotizadas');
-            $uriServer = str_replace('_repomain_', $params['metas']['id_main'], $uriServer);
-            $uriServer = str_replace('_idinfo_', $params['metas']['id_info'], $uriServer);
-            if(!is_dir($uriServer)) {
+            $uriPartes = explode('_repomain_', $uriServer);
+
+            if(!is_dir($uriPartes[0])) {
                 mkdir($uriServer, 0777, true);
-            }else{
-                // Primeramente revisamos si ya hay fotos compartidas.
-                if(is_dir($uriServer)) {
-                    $finder = new Finder();
-                    $finder->files()->in($uriServer);
-                    if ($finder->hasResults()) {
-                        foreach ($finder as $file) {
-                            $todasExistentes[] = $file->getRelativePathname();
-                        }
-                    }
-                }
             }
+            $uriPartes = $uriPartes[0] .'/'. $params['metas']['id_main'] .'/';
+            if(!is_dir($uriPartes)) {
+                mkdir($uriServer, 0777, true);
+            }
+            $uriPartes = $uriPartes .'/'. $params['metas']['id_info'] .'/';
+            if(!is_dir($uriPartes)) {
+                mkdir($uriServer, 0777, true);
+            }
+            $uriServer = $uriPartes;
+
+            // Primeramente revisamos si ya hay fotos compartidas.
+            // if(is_dir($uriServer)) {
+            //     $finder = new Finder();
+            //     $finder->files()->in($uriServer);
+            //     if ($finder->hasResults()) {
+            //         foreach ($finder as $file) {
+            //             $todasExistentes[] = $file->getRelativePathname();
+            //         }
+            //     }
+            // }
 
             if(count($todasExistentes) < 4) {
                 $todasExistentes[] = $params['filename'];
