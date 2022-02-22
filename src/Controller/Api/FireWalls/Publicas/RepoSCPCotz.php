@@ -317,7 +317,7 @@ class RepoSCPCotz extends AbstractFOSRestController
             if(!is_dir($uriPartes)) {
                 mkdir($uriServer, 0777, true);
             }
-            $uriPartes = $uriPartes .'/'. $params['metas']['id_info'] .'/';
+            $uriPartes = $uriPartes . $params['metas']['id_info'] .'/';
             if(!is_dir($uriPartes)) {
                 mkdir($uriServer, 0777, true);
             }
