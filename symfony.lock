@@ -26,6 +26,9 @@
     "doctrine/dbal": {
         "version": "2.12.1"
     },
+    "doctrine/deprecations": {
+        "version": "v0.5.3"
+    },
     "doctrine/doctrine-bundle": {
         "version": "2.0",
         "recipe": {
@@ -101,12 +104,6 @@
     },
     "laminas/laminas-code": {
         "version": "4.0.0"
-    },
-    "laminas/laminas-eventmanager": {
-        "version": "3.3.0"
-    },
-    "laminas/laminas-zendframework-bridge": {
-        "version": "1.1.1"
     },
     "lcobucci/clock": {
         "version": "2.0.0"
@@ -281,8 +278,8 @@
     "symfony/options-resolver": {
         "version": "v5.2.2"
     },
-    "symfony/orm-pack": {
-        "version": "v2.1.0"
+    "symfony/password-hasher": {
+        "version": "v5.4.3"
     },
     "symfony/polyfill-intl-grapheme": {
         "version": "v1.22.0"
@@ -302,8 +299,8 @@
     "symfony/polyfill-php80": {
         "version": "v1.22.0"
     },
-    "symfony/profiler-pack": {
-        "version": "v1.0.5"
+    "symfony/polyfill-php81": {
+        "version": "v1.24.0"
     },
     "symfony/property-access": {
         "version": "v5.2.2"
